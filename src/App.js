@@ -1,10 +1,11 @@
 import React from "react";
+import Navbar from "./components/utils/Navbar";
 
 function App() {
   return (
-    <p className="text-blue-800 font-bold">
-      Movies Picker
-    </p>
+    <>
+      <Navbar />
+    </>
   );
 }
 
