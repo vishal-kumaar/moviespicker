@@ -14,6 +14,9 @@ module.exports = {
         cursive: ["Cedarville Cursive", "cursive"],
         cherrybomb: ['Cherry Bomb One', 'cursive'],
       },
+      backgroundImage: {
+        'coverImage': "url('/public/cover_image.jpg')",
+      }
     },
   },
   plugins: [],
