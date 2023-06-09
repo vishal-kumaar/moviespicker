@@ -17,6 +17,7 @@ module.exports = {
       backgroundImage: {
         'coverImage': "url('/public/images/cover_image.jpg')",
         'actionImage': "url('/public/images/action_cover_image.jpg')",
+        'pattern': "url('/public/images/pattern.svg')",
       }
     },
   },
