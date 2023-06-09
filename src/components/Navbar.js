@@ -11,10 +11,10 @@ export default function Navbar() {
             Movies Picker
           </h1>
           <div className="font-bold hover:bg-black/70 hover:text-white cursor-pointer px-3 py-2 rounded-xl">
-            Home
+            Explore
           </div>
           <div className="font-bold hover:bg-black/70 hover:text-white cursor-pointer px-3 py-2 rounded-xl">
-            Trending Movies
+            Recommand Movies
           </div>
         </div>
         <img src={searchIcon} alt="search" className="w-6 cursor-pointer" />

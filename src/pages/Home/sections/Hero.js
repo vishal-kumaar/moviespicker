@@ -3,8 +3,8 @@ import React from "react";
 export default function Hero() {
   return (
     <main>
-      <div className="bg-coverImage h-screen w-full bg-fixed bg-no-repeat bg-cover">
-        <div className="bg-black/60 h-screen w-full px-32 py-40">
+      <div className="bg-coverImage h-full w-full bg-fixed bg-no-repeat bg-cover">
+        <div className="bg-black/60 h-full w-full px-32 py-40">
           <div>
             <h1 className="text-white text-7xl font-bold font-signika mb-3">
               Hi! Welcome,
