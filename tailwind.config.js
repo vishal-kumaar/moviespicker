@@ -15,7 +15,8 @@ module.exports = {
         cherrybomb: ['Cherry Bomb One', 'cursive'],
       },
       backgroundImage: {
-        'coverImage': "url('/public/cover_image.jpg')",
+        'coverImage': "url('/public/images/cover_image.jpg')",
+        'actionImage': "url('/public/images/action_cover_image.jpg')",
       }
     },
   },
