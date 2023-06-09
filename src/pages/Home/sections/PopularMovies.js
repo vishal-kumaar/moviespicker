@@ -5,7 +5,7 @@ export default function PopularMovies() {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
   return (
-    <section className="my-16 bg-pattern bg-no-repeat bg-bottom">
+    <section className="py-4 my-12 bg-pattern bg-no-repeat bg-bottom">
         <h1 className="relative text-black font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-black before:-top-3 before:left-12">
           Popular Movies
         </h1>
