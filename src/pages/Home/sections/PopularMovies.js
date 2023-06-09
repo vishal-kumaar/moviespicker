@@ -5,8 +5,8 @@ export default function PopularMovies() {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
   return (
-    <section className="my-8">
-      <h1 className="text-black font-signika text-3xl px-12">Popular Movies</h1>
+    <section className="my-16">
+      <h1 className="relative text-black font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-black before:-top-3 before:left-12">Popular Movies</h1>
       <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-12">
         {movies &&
           movies.map((movie) => (
