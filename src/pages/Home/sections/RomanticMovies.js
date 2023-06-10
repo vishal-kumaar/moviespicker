@@ -1,11 +1,12 @@
 import React from "react";
+import nextIcon from "../../../assets/icons/next.svg";
 
 export default function RomanticMovies() {
   const movies = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
   return (
-    <section className="mb-16 bg-romantic bg-fixed bg-no-repeat bg-cover">
+    <section className="mb-16 bg-romantic bg-fixed bg-no-repeat bg-cover bg-center">
       <div className="pt-16 bg-sky-900/60">
         <h1 className="relative text-white font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-white before:-top-3 before:left-12">
           Romantic Movies
@@ -40,6 +41,7 @@ export default function RomanticMovies() {
                 <p className="font-poppins text-sm text-white">24 March 2023</p>
               </div>
             ))}
+            <img src={nextIcon} alt="" className="w-10 mb-16 -mr-5 cursor-pointer invert" />
         </div>
       </div>
     </section>

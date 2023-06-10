@@ -1,4 +1,5 @@
 import React from "react";
+import nextIcon from "../../../assets/icons/next.svg";
 
 export default function PopularMovies() {
   const movies = [
@@ -9,7 +10,7 @@ export default function PopularMovies() {
         <h1 className="relative text-black font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-black before:-top-3 before:left-12">
           Popular Movies
         </h1>
-        <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-12">
+        <div className="mt-6 pb-10 flex items-center flex-nowrap overflow-x-auto gap-6 px-12">
           {movies &&
             movies.map((movie) => (
               <div className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
@@ -39,6 +40,7 @@ export default function PopularMovies() {
                 <p className="font-poppins text-sm text-black">24 March 2023</p>
               </div>
             ))}
+            <img src={nextIcon} alt="" className="w-10 mb-16 -mr-5 cursor-pointer" />
         </div>
     </section>
   );

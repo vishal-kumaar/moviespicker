@@ -1,4 +1,5 @@
 import React from "react";
+import nextIcon from "../../../assets/icons/next.svg";
 
 export default function SciFiMovies() {
   const movies = [
@@ -37,6 +38,7 @@ export default function SciFiMovies() {
               <p className="font-poppins text-sm">24 March 2023</p>
             </div>
           ))}
+          <img src={nextIcon} alt="" className="w-10 mb-16 -mr-5 cursor-pointer" />
       </div>
     </section>
   );
