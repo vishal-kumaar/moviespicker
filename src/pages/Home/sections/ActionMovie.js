@@ -1,5 +1,4 @@
 import React from "react";
-import nextIcon from "../../../assets/icons/next.svg";
 
 export default function ActionMovies() {
   const movies = [
@@ -8,10 +7,10 @@ export default function ActionMovies() {
   return (
     <section className="mb-16 bg-actionImage bg-fixed bg-no-repeat bg-cover">
       <div className="pt-16 bg-blue-900/60">
-        <h1 className="relative text-white font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-white before:-top-3 before:left-12">
-          Action Movies
+        <h1 className="relative text-white font-signika text-3xl px-6 md:px-12 before:absolute before:w-20 before:h-1.5 before:bg-white before:-top-3.5 before:left-6 md:before:left-12">
+          Top 20 Action Movies
         </h1>
-        <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-12">
+        <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-6 md:px-12">
           {movies &&
             movies.map((movie) => (
               <div className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
@@ -39,11 +38,6 @@ export default function ActionMovies() {
                 <p className="font-poppins text-sm text-white">24 March 2023</p>
               </div>
             ))}
-          <img
-            src={nextIcon}
-            alt=""
-            className="w-10 mb-16 -mr-5 cursor-pointer invert"
-          />
         </div>
       </div>
     </section>

@@ -14,10 +14,10 @@ module.exports = {
         cherrybomb: ['Cherry Bomb One', 'cursive'],
       },
       backgroundImage: {
-        'coverImage': "url('/public/images/cover_image.jpg')",
-        'actionImage': "url('/public/images/action_cover_image.jpg')",
-        'pattern': "url('/public/images/pattern.svg')",
-        'romantic': "url('/public/images/romantic.jpg')",
+        'coverImage': "url('/public/coverImages/cover_image.jpg')",
+        'actionImage': "url('/public/coverImages/action_cover_image.jpg')",
+        'pattern': "url('/public/coverImages/pattern.svg')",
+        'romantic': "url('/public/coverImages/romantic_cover_image.jpg')"
       }
     },
   },
