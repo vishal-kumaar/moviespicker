@@ -8,7 +8,7 @@ export default function Hero() {
           <h1 className="text-white text-7xl font-bold font-signika mb-3">
             Hi! Welcome,
           </h1>
-          <p className="text-white text-2xl font-poppins">
+          <p className="text-white text-xl font-poppins">
             Discover, Delight, and Dive into a World of Cinematic Brilliance -
             Where Every Movie Choice Becomes an Unforgettable Journey of
             Entertainment and Emotion.
