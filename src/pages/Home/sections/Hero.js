@@ -20,7 +20,7 @@ export default function Hero() {
             placeholder="Search for movies..."
             className="bg-transparent py-3.5 md:py-2.5 px-5 placeholder:font-firasans rounded-3xl outline-none w-full"
           />
-          <button className="rounded-3xl font-signika px-8 bg-gradient-to-r from-sky-500 to-indigo-500 text-white">
+          <button className="rounded-3xl font-signika px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white">
             Search
           </button>
         </div>
