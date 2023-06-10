@@ -1,10 +1,12 @@
 import React from "react";
 import searchIcon from "../assets/icons/search.svg";
+import Headroom from "react-headroom";
 
 export default function Navbar() {
   return (
+    <Headroom>
       <nav
-        className={`flex justify-between items-center z-50 px-12 py-4 bg-white shadow-2xl sticky top-0 left-0`}
+        className={`flex justify-between items-center z-50 px-12 py-4 bg-white shadow-2xl shadow-black`}
       >
         <div className="flex items-center gap-10">
           <h1 className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 font-cherrybomb -mt-2 cursor-pointer">
@@ -19,5 +21,6 @@ export default function Navbar() {
         </div>
         <img src={searchIcon} alt="search" className="w-6 cursor-pointer" />
       </nav>
+    </Headroom>
   );
 }
