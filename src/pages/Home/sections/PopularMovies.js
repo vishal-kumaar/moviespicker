@@ -18,19 +18,13 @@ export default function PopularMovies() {
                   <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="" className="w-44 h-60 rounded-xl" />
                   <div className="bg-black w-fit p-px rounded-[50%] absolute -bottom-4 left-3">
                     <div
-                      className="flex justify-center items-center w-9 h-9 rounded-[50%] text-white text-xs font-bold"
+                      className="flex justify-center items-center w-9 h-9 rounded-[50%] text-white text-xs font-bold font-poppins"
                       style={{
                         background:
-                          "radial-gradient(closest-side, black 79%, transparent 80% 100%), conic-gradient(rgb(0,255,0, 1) 75%, rgba(0, 255, 0, 0.5) 0)",
+                          "radial-gradient(closest-side, black 79%, transparent 90% 100%), conic-gradient(rgb(0,255,0, 1) 75%, rgba(0, 255, 0, 0.5) 0)",
                       }}
                     >
                       80 <sup className="mt-1.5">%</sup>
-                      <progress
-                        value="75"
-                        min="0"
-                        max="100"
-                        className="invisible h-0 w-0 bg-transparent"
-                      ></progress>
                     </div>
                   </div>
                 </div>

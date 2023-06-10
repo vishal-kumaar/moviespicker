@@ -7,7 +7,9 @@ export default function SciFiMovies() {
   ];
   return (
     <section className="my-16">
-      <h1 className="relative text-black font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-black before:-top-3 before:left-12">Sci-Fi Movies</h1>
+      <h1 className="relative text-black font-signika text-3xl px-12 before:absolute before:w-16 before:h-1.5 before:bg-black before:-top-3 before:left-12">
+        Sci-Fi Movies
+      </h1>
       <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-12">
         {movies &&
           movies.map((movie) => (
@@ -16,19 +18,13 @@ export default function SciFiMovies() {
                 <img src="" alt="" className="w-48 h-56 rounded-xl" />
                 <div className="bg-black w-fit p-px rounded-[50%] absolute -bottom-4 left-3">
                   <div
-                    className="flex justify-center items-center w-9 h-9 rounded-[50%] text-white text-xs font-bold"
+                    className="flex justify-center items-center w-9 h-9 rounded-[50%] text-white text-xs font-bold font-poppins"
                     style={{
                       background:
-                        "radial-gradient(closest-side, black 79%, transparent 80% 100%), conic-gradient(rgb(0,255,0, 1) 75%, rgba(0, 255, 0, 0.5) 0)",
+                        "radial-gradient(closest-side, black 79%, transparent 90% 100%), conic-gradient(rgb(0,255,0, 1) 75%, rgba(0, 255, 0, 0.5) 0)",
                     }}
                   >
                     80 <sup className="mt-1.5">%</sup>
-                    <progress
-                      value="75"
-                      min="0"
-                      max="100"
-                      className="invisible h-0 w-0 bg-transparent"
-                    ></progress>
                   </div>
                 </div>
               </div>
@@ -38,7 +34,11 @@ export default function SciFiMovies() {
               <p className="font-poppins text-sm">24 March 2023</p>
             </div>
           ))}
-          <img src={nextIcon} alt="" className="w-10 mb-16 -mr-5 cursor-pointer" />
+        <img
+          src={nextIcon}
+          alt=""
+          className="w-10 mb-16 -mr-5 cursor-pointer"
+        />
       </div>
     </section>
   );
