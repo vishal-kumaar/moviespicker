@@ -1,5 +1,6 @@
 import React from "react";
 import close from "../assets/icons/close.svg";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -12,19 +13,28 @@ export default function Sidebar() {
         className={`flex flex-col fixed w-fit h-screen pt-10 px-6 bg-white transform ease-in-out duration-500`}
       >
         <div className="flex items-center gap-10">
-          <h1 className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer">
+          <Link
+            to="/"
+            className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer"
+          >
             Movies Picker
-          </h1>
+          </Link>
           <img src={close} alt="close" className="w-7 cursor-pointer" />
         </div>
         <hr className="border mt-8" />
         <div className="text-gray-600 font-bold mt-7 flex flex-col">
-          <div className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center">
+          <Link
+            to="/"
+            className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center"
+          >
             Home
-          </div>
-          <div className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center">
+          </Link>
+          <Link
+            to="/filter"
+            className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center"
+          >
             Recommand Movies
-          </div>
+          </Link>
         </div>
       </div>
     </aside>
