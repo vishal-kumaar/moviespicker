@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <Homepage />
       <Footer />
     </>
   );
