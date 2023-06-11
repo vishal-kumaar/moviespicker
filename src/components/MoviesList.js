@@ -14,7 +14,7 @@ export default function MoviesList() {
             <img
               src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
               alt=""
-              className="w-32 rounded-l-2xl"
+              className="w-32 h-48 rounded-l-2xl"
             />
             <div>
               <h2 className="font-signika text-lg font-bold tracking-wide text-black line-clamp-1 max-w-full">
