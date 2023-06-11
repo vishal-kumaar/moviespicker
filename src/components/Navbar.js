@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <Headroom>
       <nav
-        className={`flex justify-between items-center z-50 px-6 md:px-12 py-6 bg-white shadow-2xl shadow-black`}
+        className={`flex justify-between items-center z-50 px-6 md:px-12 py-6 bg-white shadow-2xl shadow-black/40`}
       >
         <img src={hamburger} alt="menu" className="w-6 cursor-pointer block md:hidden" />
         <div className="flex items-center gap-14">
