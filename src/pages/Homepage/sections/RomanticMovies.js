@@ -12,8 +12,8 @@ export default function RomanticMovies() {
         </h1>
         <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-6 md:px-12">
           {movies &&
-            movies.map((movie) => (
-              <div className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
+            movies.map((movie, index) => (
+              <div key={index} className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
                 <div className="relative">
                   <img
                     src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"

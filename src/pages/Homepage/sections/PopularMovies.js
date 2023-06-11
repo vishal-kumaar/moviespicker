@@ -11,8 +11,8 @@ export default function PopularMovies() {
         </h1>
         <div className="mt-6 pb-10 flex items-center flex-nowrap overflow-x-auto gap-6 px-6 md:px-12">
           {movies &&
-            movies.map((movie) => (
-              <div className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
+            movies.map((movie, index) => (
+              <div key={index} className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
                 <div className="relative">
                   <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="" className="w-44 h-60 rounded-xl" />
                   <div className="bg-black w-fit p-px rounded-[50%] absolute -bottom-4 left-3">
