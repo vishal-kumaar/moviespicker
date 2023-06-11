@@ -6,8 +6,10 @@ import SciFiMovies from "./sections/SciFiMovies";
 import RomanticMovies from "./sections/RomanticMovies";
 import moreIcon from "../../assets/icons/more.svg";
 import HorrorMovies from "./sections/HorrorMovies";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <Hero />
@@ -17,7 +19,7 @@ export default function Home() {
       <RomanticMovies />
       <HorrorMovies />
       <div className="mx-auto w-fit mb-10">
-        <button className="text-[#ff8478] hover:bg-[#FFF0EF] font-bold font-poppins rounded-2xl px-6 py-1 flex flex-col items-center">
+        <button onClick={() => navigate('/filter')} className="text-[#ff8478] hover:bg-[#FFF0EF] font-bold font-poppins rounded-2xl px-6 py-1 flex flex-col items-center">
           <p className="text-base mb-1.5">More catagories</p>
           <img src={moreIcon} alt="" className="w-5" />
         </button>
