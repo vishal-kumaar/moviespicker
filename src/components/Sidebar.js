@@ -1,6 +1,7 @@
 import React from "react";
 import close from "../assets/icons/close.svg";
 import { Link } from "react-router-dom";
+import { scrollToTop } from "../utils";
 
 export default function Sidebar() {
   return (
@@ -15,6 +16,7 @@ export default function Sidebar() {
         <div className="flex items-center gap-10">
           <Link
             to="/"
+            onClick={scrollToTop}
             className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer"
           >
             Movies Picker
@@ -25,12 +27,14 @@ export default function Sidebar() {
         <div className="text-gray-600 font-bold mt-7 flex flex-col">
           <Link
             to="/"
+            onClick={scrollToTop}
             className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center"
           >
             Home
           </Link>
           <Link
             to="/filter"
+            onClick={scrollToTop}
             className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center"
           >
             Recommand Movies
