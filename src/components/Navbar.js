@@ -2,6 +2,7 @@ import React from "react";
 import searchIcon from "../assets/icons/search.svg";
 import hamburger from "../assets/icons/hamburger.svg";
 import Headroom from "react-headroom";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -9,19 +10,31 @@ export default function Navbar() {
       <nav
         className={`flex justify-between items-center z-50 px-6 md:px-12 py-6 bg-white shadow-2xl shadow-black/40`}
       >
-        <img src={hamburger} alt="menu" className="w-6 cursor-pointer block md:hidden" />
+        <img
+          src={hamburger}
+          alt="menu"
+          className="w-6 cursor-pointer block md:hidden"
+        />
         <div className="flex items-center gap-14">
           <h1 className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer">
             Movies Picker
           </h1>
-          <div className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 hover:text-black/70 hover:underline underline-offset-4 cursor-pointer hidden md:block">
+          <Link
+            to="/"
+            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 hover:text-black/70 hover:underline underline-offset-4 cursor-pointer hidden md:block"
+          >
             Explore
-          </div>
-          <div className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 hover:text-black/70 hover:underline underline-offset-4 cursor-pointer hidden md:block ">
+          </Link>
+          <Link
+            to="/filter"
+            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 hover:text-black/70 hover:underline underline-offset-4 cursor-pointer hidden md:block "
+          >
             Recommand Movies
-          </div>
+          </Link>
         </div>
-        <img src={searchIcon} alt="search" className="w-6 cursor-pointer" />
+        <Link to="/search">
+          <img src={searchIcon} alt="search" className="w-6 cursor-pointer" />
+        </Link>
       </nav>
     </Headroom>
   );
