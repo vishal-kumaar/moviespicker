@@ -24,7 +24,7 @@ const options = [
 export default function MovieFilter() {
   return (
     <main className="py-10 px-5 sm:px-8 lg:px-52 font-poppins font-bold">
-      <h1 className="text-4xl font-signika text-black/90 text-center mt-4 mb-6">
+      <h1 className="text-4xl font-signika text-black/90 text-center mt-5 mb-10">
         Movie Recommandation
       </h1>
       <form>
