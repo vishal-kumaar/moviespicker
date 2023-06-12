@@ -1,52 +1,16 @@
 import React from "react";
 import Hero from "./sections/Hero";
-import MoviesCarousel from "../../components/MoviesCarousel";
 import moreIcon from "../../assets/icons/more.svg";
 import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "../../utils";
+import MoviesCatagory from "./sections/MoviesCatagory";
 
 export default function Home() {
   const navigate = useNavigate();
   return (
     <>
       <Hero />
-      <MoviesCarousel
-        heading="Top 20 Popular Movies"
-        textColor="text-black"
-        textBefore="before:bg-black"
-        bgImage="bg-pattern"
-        bgPosition="bg-bottom"
-      />
-      <MoviesCarousel
-        heading="Top 20 Action Movies"
-        textColor="text-white"
-        textBefore="before:bg-white"
-        bgColor="bg-blue-900/60"
-        bgImage="bg-actionImage"
-        bgSize="bg-cover"
-        bgAttachment="bg-fixed"
-        bgPosition="bg-bottom"
-      />
-      <MoviesCarousel
-        heading="Top 20 Sci-Fi Movies"
-        textColor="text-black"
-        textBefore="before:bg-black"
-      />
-      <MoviesCarousel
-        heading="Top 20 Romantic Movies"
-        textColor="text-white"
-        textBefore="before:bg-white"
-        bgColor="bg-sky-900/60"
-        bgImage="bg-romantic"
-        bgSize="bg-cover"
-        bgAttachment="bg-fixed"
-        bgPosition="bg-bottom"
-      />
-      <MoviesCarousel
-        heading="Top 20 Horror Movies"
-        textColor="text-black"
-        textBefore="before:bg-black"
-      />
+      <MoviesCatagory />
       <div className="mx-auto w-fit mb-10">
         <button
           onClick={() => {
