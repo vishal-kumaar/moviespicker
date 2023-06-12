@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Searchpage from "./pages/Searchpage";
 import FilterPage from "./pages/Filterpage";
+import Moviepage from "./pages/Moviepage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -17,6 +18,10 @@ export default function Router() {
     {
       path: "/filter",
       element: <FilterPage />,
+    },
+    {
+      path: "/movie/:id",
+      element: <Moviepage />,
     },
   ]);
 
