@@ -5,7 +5,7 @@ import rightArrow from "../../../assets/icons/right_arrow.svg";
 export default function Casts() {
   const casts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <section className="px-6 md:px-14 my-10 ">
+    <section className="pl-6 pr-6 md:pl-14 md:pr-4 my-10 ">
       <h1 className="font-signika font-bold text-3xl text-black">Cast</h1>
       <div className="mt-6 flex items-center flex-nowrap overflow-x-auto gap-6 pb-10">
         {casts &&
