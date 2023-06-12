@@ -6,8 +6,8 @@ export default function Casts() {
   const casts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <section className="px-6 md:px-14 xl:px-0 xl:pl-14 xl:pr-4 my-10 ">
-      <h1 className="font-signika font-bold text-3xl text-black">Cast</h1>
-      <div className="mt-6 flex items-center flex-nowrap overflow-x-auto gap-6 pb-10 w-full">
+      <h1 className="font-signika font-bold text-3xl text-black mb-4">Cast</h1>
+      <div className="flex items-center flex-nowrap overflow-x-auto gap-6 pb-10 w-full">
         {casts &&
           casts.map((cast, index) => (
             <div

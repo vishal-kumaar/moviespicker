@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MovieInfo() {
   return (
-    <section className="px-6 mb-6 md:px-14 xl:px-0 xl:pr-20 flex flex-col gap-2">
+    <section className="px-6 mb-10 lg:mb-4 md:px-14 xl:px-0 xl:pr-20 flex flex-col gap-2">
     <hr />
       <div>
         <h1 className="font-firasans font-bold text-sm">Status</h1>
