@@ -7,8 +7,7 @@ export default function RecommendMovies() {
       heading="Recommendations"
       textColor="text-white"
       textBefore="before:bg-white"
-      bgImage="bg-sky-900"
-      bgColor="bg-black/10"
+      bgImage="bg-sky-900/80"
       bgPosition="bg-bottom"
     />
   );
