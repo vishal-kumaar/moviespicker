@@ -4,9 +4,9 @@ import playIcon from "../../../assets/icons/play.svg";
 
 export default function MovieHero() {
   return (
-    <main className="h-[35rem] w-full text-white bg-[url(https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsYseUByqsmEDMY.jpg)] bg-fixed bg-cover bg-center">
+    <main className="h-full w-full text-white bg-[url(https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsYseUByqsmEDMY.jpg)] bg-fixed bg-cover bg-center">
       <div
-        className="h-[35rem] w-full flex gap-5 items-center px-16"
+        className="h-full w-full flex flex-col lg:flex-row gap-8 items-center justify-center py-12 px-5 md:px-14"
         style={{
           background:
             "linear-gradient(to right, rgba(31.5, 10.5, 10.5, 1) calc((50vw - 170px) - 340px), rgba(31.5, 10.5, 10.5, 0.84) 50%, rgba(31.5, 10.5, 10.5, 0.84) 100%)",
@@ -18,13 +18,13 @@ export default function MovieHero() {
           className="w-80 h-[30rem] rounded-xl"
         />
         <div>
-          <h1 className="text-4xl font-bold font-signika">
+          <h1 className="text-3xl sm:text-4xl font-bold font-signika text-center lg:text-left">
             John Wick: Chapter 4{" "}
-            <span className="font-medium font-poppins text-3xl text-gray-300">
+            <span className="font-medium font-poppins text-2xl sm:text-3xl text-gray-300">
               (2023)
             </span>
           </h1>
-          <p className="font-firasans text-base text-gray-100 mb-4">
+          <p className="font-firasans text-base text-gray-100 mb-4 text-center lg:text-left">
             <span>03/24/2023 (US)</span>
             <span className="relative ml-5 before:absolute before:top-[9.4px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
               <span className="cursor-pointer">Action</span>, <span className="cursor-pointer">Thriller</span>, <span className="cursor-pointer">Crime</span>
@@ -33,7 +33,7 @@ export default function MovieHero() {
               2h 50m
             </span>
           </p>
-          <div className="flex items-center gap-10 font-firasans font-extralight text-base tracking-wide mb-4">
+          <div className="flex items-center gap-10 font-firasans font-extralight text-base tracking-wide mb-4 w-fit mx-auto lg:mx-0">
             <div className="flex items-center gap-1.5 mt-1">
               <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
               <p className="">7.9/10</p>
