@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <aside
       id="sidebar"
-      className={`bg-transparent/70 translate-x-0
+      className={`bg-transparent/70 -translate-x-full
       } w-full h-full fixed top-0 left-0 z-50 transition duration-700 ease-in-out`}
     >
       <div
