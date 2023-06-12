@@ -1,19 +1,48 @@
 import React from "react";
 
-export default function RomanticMovies() {
+export default function Carousel(props) {
+  const {
+    heading,
+    textColor,
+    bgImage,
+    bgColor,
+    bgSize,
+    bgPosition,
+    bgAttachment,
+  } = props;
   const movies = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
   return (
-    <section className="mb-16 bg-romantic bg-fixed bg-no-repeat bg-cover bg-center">
-      <div className="pt-16 bg-sky-900/60">
-        <h1 className="relative text-white font-signika text-3xl px-6 md:px-12 before:absolute before:w-20 before:h-1.5 before:bg-white before:-top-3.5 before:left-6 md:before:left-12">
-          Top 20 Romantic Movies
+    <section
+      className={`${bgColor===undefined ? "mb-16" : "mb-4"} ${
+        "bg-" +
+        bgImage +
+        " bg-" +
+        bgSize +
+        " bg-" +
+        bgPosition +
+        " text-" +
+        textColor +
+        " bg-" +
+        bgAttachment
+      } bg-no-repeat`}
+    >
+      <div className={`pt-16 ${"bg-" + bgColor}`}>
+        <h1
+          className={`relative font-signika text-3xl px-6 md:px-12 before:absolute before:w-20 before:h-1.5 before:-top-3.5 before:left-6 ${
+            "before:bg-" + textColor
+          } md:before:left-12`}
+        >
+          {heading}
         </h1>
         <div className="mt-6 pb-10 flex flex-nowrap overflow-x-auto gap-6 px-6 md:px-12">
           {movies &&
             movies.map((movie, index) => (
-              <div key={index} className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer">
+              <div
+                key={index}
+                className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer"
+              >
                 <div className="relative">
                   <img
                     src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
@@ -32,10 +61,10 @@ export default function RomanticMovies() {
                     </div>
                   </div>
                 </div>
-                <h1 className="font-signika text-base mt-6 text-white">
+                <h1 className="font-signika text-base mt-6">
                   John Wick: Chapter 4
                 </h1>
-                <p className="font-poppins text-sm text-white">24 March 2023</p>
+                <p className="font-poppins text-sm">24 March 2023</p>
               </div>
             ))}
         </div>
