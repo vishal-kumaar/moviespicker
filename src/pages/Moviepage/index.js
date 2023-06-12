@@ -7,7 +7,7 @@ export default function Movie() {
   return (
     <>
       <MovieHero />
-      <div className="flex flex-row items-center justify-center border">
+      <div className="flex flex-col xl:flex-row xl:items-center justify-center">
         <Casts />
         <MovieInfo />
       </div>

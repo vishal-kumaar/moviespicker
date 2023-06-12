@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "./sections/Hero";
-import Carousel from "../../components/Carousel";
+import MoviesCarousel from "../../components/MoviesCarousel";
 import moreIcon from "../../assets/icons/more.svg";
 import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "../../utils";
@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Carousel
+      <MoviesCarousel
         heading="Top 20 Popular Movies"
         textColor="text-black"
         textBefore="before:bg-black"
         bgImage="bg-pattern"
         bgPosition="bg-bottom"
       />
-      <Carousel
+      <MoviesCarousel
         heading="Top 20 Action Movies"
         textColor="text-white"
         textBefore="before:bg-white"
@@ -27,12 +27,12 @@ export default function Home() {
         bgAttachment="bg-fixed"
         bgPosition="bg-bottom"
       />
-      <Carousel
+      <MoviesCarousel
         heading="Top 20 Sci-Fi Movies"
         textColor="text-black"
         textBefore="before:bg-black"
       />
-      <Carousel
+      <MoviesCarousel
         heading="Top 20 Romantic Movies"
         textColor="text-white"
         textBefore="before:bg-white"
@@ -42,7 +42,7 @@ export default function Home() {
         bgAttachment="bg-fixed"
         bgPosition="bg-bottom"
       />
-      <Carousel
+      <MoviesCarousel
         heading="Top 20 Horror Movies"
         textColor="text-black"
         textBefore="before:bg-black"
