@@ -12,30 +12,41 @@ export default function Home() {
       <Hero />
       <Carousel
         heading="Top 20 Popular Movies"
-        textColor="black"
-        bgImage="pattern"
-        bgPosition="bottom"
+        textColor="text-black"
+        textBefore="before:bg-black"
+        bgImage="bg-pattern"
+        bgPosition="bg-bottom"
       />
       <Carousel
         heading="Top 20 Action Movies"
-        textColor="white"
-        bgColor="blue-900/60"
-        bgImage="actionImage"
-        bgSize="cover"
-        bgAttachment="fixed"
-        bgPosition="bottom"
+        textColor="text-white"
+        textBefore="before:bg-white"
+        bgColor="bg-blue-900/60"
+        bgImage="bg-actionImage"
+        bgSize="bg-cover"
+        bgAttachment="bg-fixed"
+        bgPosition="bg-bottom"
       />
-      <Carousel heading="Top 20 Sci-Fi Movies" textColor="black" />
+      <Carousel
+        heading="Top 20 Sci-Fi Movies"
+        textColor="text-black"
+        textBefore="before:bg-black"
+      />
       <Carousel
         heading="Top 20 Romantic Movies"
-        textColor="white"
-        bgColor="sky-900/60"
-        bgImage="romantic"
-        bgSize="cover"
-        bgAttachment="fixed"
-        bgPosition="bottom"
+        textColor="text-white"
+        textBefore="before:bg-white"
+        bgColor="bg-sky-900/60"
+        bgImage="bg-romantic"
+        bgSize="bg-cover"
+        bgAttachment="bg-fixed"
+        bgPosition="bg-bottom"
       />
-      <Carousel heading="Top 20 Horror Movies" textColor="black" />
+      <Carousel
+        heading="Top 20 Horror Movies"
+        textColor="text-black"
+        textBefore="before:bg-black"
+      />
       <div className="mx-auto w-fit mb-10">
         <button
           onClick={() => {

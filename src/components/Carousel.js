@@ -1,38 +1,30 @@
 import React from "react";
 
 export default function Carousel(props) {
-  const {
+  let {
     heading,
     textColor,
+    textBefore,
     bgImage,
     bgColor,
     bgSize,
     bgPosition,
     bgAttachment,
   } = props;
+
   const movies = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
   return (
     <section
-      className={`${bgColor===undefined ? "mb-16" : "mb-4"} ${
-        "bg-" +
-        bgImage +
-        " bg-" +
-        bgSize +
-        " bg-" +
-        bgPosition +
-        " text-" +
-        textColor +
-        " bg-" +
-        bgAttachment
+      className={`${
+        bgColor === undefined ? "mb-16" : "mb-4"
+      } ${bgImage} ${bgSize} ${bgPosition} ${bgAttachment} ${textColor}
       } bg-no-repeat`}
     >
-      <div className={`pt-16 ${"bg-" + bgColor}`}>
+      <div className={`pt-16 ${bgColor}`}>
         <h1
-          className={`relative font-signika text-3xl px-6 md:px-12 before:absolute before:w-20 before:h-1.5 before:-top-3.5 before:left-6 ${
-            "before:bg-" + textColor
-          } md:before:left-12`}
+          className={`relative font-signika text-3xl px-6 md:px-12 before:absolute before:w-20 before:h-1.5 before:-top-3.5 before:left-6 ${textBefore} md:before:left-12`}
         >
           {heading}
         </h1>
