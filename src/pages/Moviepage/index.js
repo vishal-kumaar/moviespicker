@@ -2,6 +2,7 @@ import React from "react";
 import MovieHero from "./sections/MovieHero";
 import Casts from "./sections/Casts";
 import MovieInfo from "./sections/MovieInfo";
+import RecommendMovies from "./sections/RecommendMovies";
 
 export default function Movie() {
   return (
@@ -11,6 +12,7 @@ export default function Movie() {
         <Casts />
         <MovieInfo />
       </div>
+      <RecommendMovies />
     </>
   );
 }
