@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { scrollToTop } from "../../../utils";
+import { scrollToTop } from "../utils";
 
 export default function MovieHeader() {
   const navigate = useNavigate();
