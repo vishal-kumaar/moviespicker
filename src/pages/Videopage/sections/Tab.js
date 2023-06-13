@@ -9,7 +9,7 @@ export default function Tab() {
     setSearchParam(`?activeTab=${params}`);
   };
   const activeTabStyle = (params) => {
-    if (params == queryParam) {
+    if (params === queryParam) {
       return "text-blue-500 border-blue-500";
     } else {
       return "text-black border-transparent";
@@ -17,10 +17,10 @@ export default function Tab() {
   };
   return (
     <div>
-      <h1 className="w-full font-bold font-firasans text-xl bg-black/90 text-white px-6 md:px-14 py-2">
+      <h1 className="w-full font-bold font-firasans text-xl bg-black/90 text-white px-6 md:px-14 py-2.5">
         Videos
       </h1>
-      <div className="flex flex-nowrap overflow-x-auto gap-6 mx-auto w-full lg:w-fit md:gap-14 py-2 px-6 md:px-14 font-roboto text-base font-bold">
+      <div className="flex flex-nowrap overflow-x-auto gap-6 mx-auto w-full lg:w-fit md:gap-14 py-2.5 px-6 md:px-14 font-roboto text-base font-bold">
         <button
           onClick={() => handleTab("Trailer")}
           className={`block w-fit flex-auto flex-shrink-0 flex-grow-0 hover:text-blue-500 border-b-2  ${
@@ -73,6 +73,7 @@ export default function Tab() {
           Featurettes <span className="text-gray-400 ml-1 text-sm">2</span>
         </button>
       </div>
+      <hr />
     </div>
   );
 }
