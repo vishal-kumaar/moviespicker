@@ -26,10 +26,10 @@ export default function MovieHero() {
           </h1>
           <p className="font-firasans text-base text-gray-100 mb-4 text-center lg:text-left">
             <span>03/24/2023 (US)</span>
-            <span className="relative ml-5 before:absolute before:top-[9.4px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
+            <span className="relative ml-5 before:absolute before:top-[7.8px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
               <span className="cursor-pointer">Action</span>, <span className="cursor-pointer">Thriller</span>, <span className="cursor-pointer">Crime</span>
             </span>
-            <span className="relative ml-5 before:absolute before:top-[9.4px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
+            <span className="relative ml-5 before:absolute before:top-[7.8px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
               2h 50m
             </span>
           </p>

@@ -33,7 +33,7 @@ export default function Casts() {
       </div>
       <button className="mt-5 font-firasans font-bold flex gap-2 items-center">
         <p>Full Cast & Crew</p>
-        <img src={rightArrow} alt="" className="w-5 mt-1"/>
+        <img src={rightArrow} alt="" className="w-5 mt-0 lg:mt-[2px]"/>
       </button>
     </section>
   );
