@@ -6,7 +6,7 @@ export default function PersonBio() {
       <img
         src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg"
         alt="profile-pic"
-        className="w-52 h-60 sm:w-96 sm:h-[450px] block rounded-xl"
+        className="w-52 h-64 sm:w-96 sm:h-[450px] block rounded-xl"
       />
       <div>
         <h1 className="font-bold font-signika text-4xl mb-7 mt-4 text-center md:text-left">Keanu Reeves</h1>
