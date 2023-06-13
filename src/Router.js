@@ -2,8 +2,9 @@ import React from "react";
 import { useRoutes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Searchpage from "./pages/Searchpage";
-import FilterPage from "./pages/Filterpage";
+import Filterpage from "./pages/Filterpage";
 import Moviepage from "./pages/Moviepage";
+import Castpage from "./pages/Castpage";
 import Personpage from "./pages/Personpage";
 
 export default function Router() {
@@ -18,11 +19,15 @@ export default function Router() {
     },
     {
       path: "/filter",
-      element: <FilterPage />,
+      element: <Filterpage />,
     },
     {
       path: "/movie/:id",
       element: <Moviepage />,
+    },
+    {
+      path: "/movie/:id/cast",
+      element: <Castpage />,
     },
     {
       path: "/person/:id",
