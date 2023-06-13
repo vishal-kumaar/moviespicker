@@ -4,7 +4,7 @@ import playIcon from "../../../assets/icons/play.svg";
 
 export default function MovieHero() {
   return (
-    <main className="h-full w-full text-white bg-[url(https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsYseUByqsmEDMY.jpg)] bg-fixed bg-cover bg-center">
+    <main className="h-full w-full text-white bg-[url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/h8gHn0OzBoaefsYseUByqsmEDMY.jpg)] bg-fixed bg-cover bg-center">
       <div
         className="h-full w-full flex flex-col lg:flex-row gap-8 items-center justify-center py-12 px-5 md:px-14"
         style={{
