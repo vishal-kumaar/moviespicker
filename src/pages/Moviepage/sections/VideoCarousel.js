@@ -14,7 +14,7 @@ export default function VideoCarousel() {
           Videos
         </h1>
         <button onClick={() => {
-          navigate("/movie/:id/videos");
+          navigate("/movie/id/videos");
           scrollToTop();
         }} className="mr-4 md:mr-14 text-sm font-bold text-blue-600 font-roboto">View All Videos</button>
       </div>

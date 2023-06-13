@@ -6,6 +6,7 @@ import Filterpage from "./pages/Filterpage";
 import Moviepage from "./pages/Moviepage";
 import Castpage from "./pages/Castpage";
 import Personpage from "./pages/Personpage";
+import Videopage from "./pages/Videopage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -28,6 +29,10 @@ export default function Router() {
     {
       path: "/movie/:id/cast",
       element: <Castpage />,
+    },
+    {
+      path: "/movie/:id/videos",
+      element: <Videopage />,
     },
     {
       path: "/person/:id",

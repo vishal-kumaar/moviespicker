@@ -262,8 +262,8 @@ export default function MovieFilter() {
             </label>
           </div>
         </div>
-        <button className="bg-green-600 text-white text-base font-medium py-2 rounded-xl mx-auto block w-full hover:bg-green-500">
-          Submit
+        <button className="bg-gradient-to-r from-yellow-500 to-purple-500 text-white text-base font-medium py-2 rounded-xl mx-auto block w-full hover:opacity-90">
+          Filter
         </button>
       </form>
     </main>
