@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PersonBio() {
   return (
-    <main className="flex flex-col md:flex-row items-center md:items-start px-6 md:px-14 my-14 gap-0 md:gap-10 h-full max-w-screen-2xl mx-auto">
+    <main className="flex flex-col md:flex-row items-center md:items-start px-6 md:px-14 mt-14 gap-0 md:gap-10 h-full max-w-screen-2xl mx-auto">
       <img
         src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg"
         alt="profile-pic"
