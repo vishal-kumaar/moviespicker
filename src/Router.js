@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import Searchpage from "./pages/Searchpage";
 import FilterPage from "./pages/Filterpage";
 import Moviepage from "./pages/Moviepage";
+import Personpage from "./pages/Personpage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -22,6 +23,10 @@ export default function Router() {
     {
       path: "/movie/:id",
       element: <Moviepage />,
+    },
+    {
+      path: "/person/:id",
+      element: <Personpage />,
     },
   ]);
 
