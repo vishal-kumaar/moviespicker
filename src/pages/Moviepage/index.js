@@ -4,6 +4,7 @@ import Casts from "./sections/Casts";
 import MovieInfo from "./sections/MovieInfo";
 import RecommendMovies from "./sections/RecommendMovies";
 import VideoCarousel from "./sections/VideoCarousel";
+import Collection from "./sections/Collection";
 
 export default function Movie() {
   return (
@@ -14,6 +15,7 @@ export default function Movie() {
         <MovieInfo />
       </div>
       <VideoCarousel />
+      <Collection />
       <RecommendMovies />
     </>
   );
