@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { scrollToTop } from "../../../utils";
 import nextIcon from "../../../assets/icons/next.svg";
 
 export default function Casts() {
@@ -15,10 +14,7 @@ export default function Casts() {
             <div
               key={index}
               className="border cursor-pointer flex-auto flex-shrink-0 flex-grow-0 border-black/20 shadow-xl rounded-lg w-fit"
-              onClick={() => {
-                navigate("/person/id");
-                scrollToTop();
-              }}
+              onClick={() => navigate("/person/id")}
             >
               <img
                 src="https://www.themoviedb.org/t/p/w138_and_h175_face/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg"
@@ -39,18 +35,12 @@ export default function Casts() {
           src={nextIcon}
           alt=""
           className="w-10 h-fit cursor-pointer"
-          onClick={() => {
-            navigate("/movie/id/cast");
-            scrollToTop();
-          }}
+          onClick={() => navigate("/movie/id/cast")}
         />
       </div>
       <button
         className="mt-5 font-firasans font-bold"
-        onClick={() => {
-          navigate("/movie/id/cast");
-          scrollToTop();
-        }}
+        onClick={() => navigate("/movie/id/cast")}
       >
         Full Cast & Crews →
       </button>

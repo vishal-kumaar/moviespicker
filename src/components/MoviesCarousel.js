@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { scrollToTop } from "../utils";
 
 export default function MoviesCarousel(props) {
   let {
@@ -38,10 +37,7 @@ export default function MoviesCarousel(props) {
               <div
                 key={index}
                 className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer"
-                onClick={() => {
-                  navigate("/movie/id");
-                  scrollToTop();
-                }}
+                onClick={() => navigate("/movie/id")}
               >
                 <div className="relative">
                   <img
