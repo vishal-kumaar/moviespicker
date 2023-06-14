@@ -5,16 +5,19 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import State from "./states/index";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Navbar />
-      <Sidebar />
-      <Routes />
-      <Footer />
-    </BrowserRouter>
+    <State>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Navbar />
+        <Sidebar />
+        <Routes />
+        <Footer />
+      </BrowserRouter>
+    </State>
   );
 }
 

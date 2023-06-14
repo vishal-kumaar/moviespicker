@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import searchIcon from "../assets/icons/search.svg";
 import hamburger from "../assets/icons/hamburger.svg";
 import Headroom from "react-headroom";
 import { NavLink } from "react-router-dom";
+import SidebarContext from "../states/sidebar/SidebarContext";
 
 export default function Navbar() {
+  const { toggleSidebar } = useContext(SidebarContext);
+
   return (
     <Headroom>
       <nav
@@ -14,6 +17,7 @@ export default function Navbar() {
           src={hamburger}
           alt="menu"
           className="w-6 cursor-pointer block md:hidden"
+          onClick={toggleSidebar}
         />
         <div className="flex items-center gap-14">
           <NavLink
