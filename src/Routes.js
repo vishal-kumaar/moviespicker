@@ -7,6 +7,7 @@ import Moviepage from "./pages/Moviepage";
 import Castpage from "./pages/Castpage";
 import Personpage from "./pages/Personpage";
 import Videopage from "./pages/Videopage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -37,6 +38,10 @@ export default function Router() {
     {
       path: "/person/:id",
       element: <Personpage />,
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
     },
   ]);
 
