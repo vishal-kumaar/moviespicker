@@ -15,7 +15,7 @@ export default function NotFoundPage() {
           exist.
         </p>
         <button
-          className="mt-6 px-4 py-2 text-white bg-gradient-to-r from-yellow-500 to-purple-500 rounded-md shadow-md hover:from-yellow-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 font-poppins font-bold text-base"
+          className="mt-6 px-4 py-2 text-white bg-gradient-to-r from-yellow-500 to-purple-500 rounded-md shadow-md hover:from-yellow-600 hover:to-purple-600 font-poppins font-bold text-base"
           onClick={() => navigate(-1)}
         >
           Go Back
