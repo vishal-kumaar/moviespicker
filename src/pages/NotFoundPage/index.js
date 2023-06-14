@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function NotFoundPage() {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center h-[calc(100vh-8rem)] w-screen">
+    <div className="flex items-center justify-center h-[calc(100vh-8rem)] px-6 w-screen">
       <div className="p-8 bg-white rounded-lg shadow-lg">
         <h1 className="text-5xl font-bold font-signika text-gray-800 mb-px">404</h1>
         <p className="text-xl font-roboto text-gray-600 mb-1">
