@@ -20,7 +20,7 @@ const YoutubePlayer = ({ videoId }) => {
 
   return (
       <div
-        className={`bg-transparent/30 ${
+        className={`bg-transparent/60 ${
           videoPlayer ? "flex" : "hidden"
         }  flex fixed z-10 top-0 left-0 w-full h-screen`}
       >

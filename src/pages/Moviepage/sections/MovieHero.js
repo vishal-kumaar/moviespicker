@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import rattingIcon from "../../../assets/icons/ratting.svg";
 import playIcon from "../../../assets/icons/play.svg";
+import videoPlayerContext from "../../../states/videoplayer/VideoPlayerContext";
 
 export default function MovieHero() {
+  const {toggleVideoPlayer} = useContext(videoPlayerContext);
   return (
     <main className="h-full w-full text-white bg-[url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/h8gHn0OzBoaefsYseUByqsmEDMY.jpg)] bg-fixed bg-cover bg-center">
       <div
@@ -38,7 +40,7 @@ export default function MovieHero() {
               <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
               <p className="">7.9/10</p>
             </div>
-            <button className="flex items-center gap-1.5">
+            <button className="flex items-center gap-1.5" onClick={toggleVideoPlayer}>
               <img src={playIcon} alt="" className="invert w-3 mb-[2px]" />
               <p className="">Play Trailer</p>
             </button>
