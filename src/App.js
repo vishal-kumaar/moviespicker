@@ -9,15 +9,15 @@ import State from "./states/index";
 
 function App() {
   return (
-    <State>
-      <BrowserRouter>
+    <BrowserRouter>
+      <State>
         <ScrollToTop />
         <Navbar />
         <Sidebar />
         <Routes />
         <Footer />
-      </BrowserRouter>
-    </State>
+      </State>
+    </BrowserRouter>
   );
 }
 
