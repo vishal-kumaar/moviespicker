@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import playIcon from "../../../assets/icons/play.svg";
 import youtubeIcon from "../../../assets/icons/youtube.svg";
+import VideoPlayerContext from "../../../states/videoplayer/VideoPlayerContext";
+import YoutubePlayer from "../../../components/YoutubePlayer";
 
 export default function VideoList() {
+  const { toggleVideoPlayer } = useContext(VideoPlayerContext);
   const videos = [1, 2];
   return (
     <section className="px-4 md:px-14 my-12">
+    <YoutubePlayer videoId="yjRHZEUamCc" />
       <div className="max-w-5xl mx-auto">
         {videos &&
           videos.map((video, index) => (
@@ -13,7 +17,10 @@ export default function VideoList() {
               key={index}
               className="flex border shadow-md shadow-gray-400 rounded-lg mb-10 flex-col md:flex-row"
             >
-              <div className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] w-[calc(100vw-40px)] h-[calc((100vw-40px)/1.79)] md:h-[197px] md:w-[720px] lg:w-[550px] bg-center bg-no-repeat bg-cover flex items-center justify-center rounded-l-md cursor-pointer">
+              <div
+                className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] w-[calc(100vw-40px)] h-[calc((100vw-40px)/1.79)] md:h-[197px] md:w-[720px] lg:w-[550px] bg-center bg-no-repeat bg-cover flex items-center justify-center rounded-l-md cursor-pointer"
+                onClick={toggleVideoPlayer}
+              >
                 <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
                   <div className="h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">
                     <img src={playIcon} alt="" className="invert w-4" />

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import playIcon from "../../../assets/icons/play.svg";
 import nextIcon from "../../../assets/icons/next.svg";
+import VideoPlayerContext from "../../../states/videoplayer/VideoPlayerContext";
+import YoutubePlayer from "../../../components/YoutubePlayer";
 
 export default function VideoCarousel() {
+  const { toggleVideoPlayer } = useContext(VideoPlayerContext);
   const navigate = useNavigate();
   const videos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <section className="pl-4 md:pl-14 mb-12">
+      <YoutubePlayer videoId="yjRHZEUamCc" />
       <div className="flex justify-between items-center mb-4">
         <h1 className="font-signika font-bold text-3xl text-black">Videos</h1>
         <button
@@ -17,7 +21,10 @@ export default function VideoCarousel() {
           View All Videos
         </button>
       </div>
-      <div className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center">
+      <div
+        className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center cursor-pointer"
+        onClick={toggleVideoPlayer}
+      >
         {videos &&
           videos.map((video, index) => (
             <div
