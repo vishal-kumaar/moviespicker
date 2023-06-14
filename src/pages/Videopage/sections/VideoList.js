@@ -15,7 +15,7 @@ export default function VideoList() {
             >
               <div className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] w-[calc(100vw-40px)] h-[calc((100vw-40px)/1.79)] md:h-[197px] md:w-[720px] lg:w-[550px] bg-center bg-no-repeat bg-cover flex items-center justify-center rounded-l-md cursor-pointer">
                 <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
-                  <div className="=h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">
+                  <div className="h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">
                     <img src={playIcon} alt="" className="invert w-4" />
                   </div>
                 </button>

@@ -58,7 +58,7 @@ export default function MovieFilter() {
           </label>
           <select
             id="ratting"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer"
           >
             <option defaultChecked>Choose a ratting</option>
             <option value="9">9 & Above</option>
@@ -95,11 +95,11 @@ export default function MovieFilter() {
               type="radio"
               value="popularity"
               name="sortby"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
             />
             <label
               htmlFor="popularity"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               Popularity
             </label>
@@ -110,11 +110,11 @@ export default function MovieFilter() {
               type="radio"
               value="with_runtime"
               name="sortby"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 "
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
             />
             <label
               htmlFor="runtime"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               Runtime
             </label>
@@ -125,11 +125,11 @@ export default function MovieFilter() {
               type="radio"
               value="vote_average"
               name="sortby"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 "
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
             />
             <label
               htmlFor="vote"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               Ratting
             </label>
@@ -144,11 +144,11 @@ export default function MovieFilter() {
               type="radio"
               value="desc"
               name="sortingOrder"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
             />
             <label
               htmlFor="higherToLower"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               Higher to lower
             </label>
@@ -159,11 +159,11 @@ export default function MovieFilter() {
               type="radio"
               value="asc"
               name="sortingOrder"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 "
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
             />
             <label
-              htmlFor="lowerTohigher"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              htmlFor="lowerToHigher"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               Lower to higher
             </label>
@@ -178,7 +178,7 @@ export default function MovieFilter() {
           </label>
           <select
             id="language"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer"
           >
             <option defaultChecked>Choose a language</option>
             <option value="en">English</option>
@@ -236,11 +236,11 @@ export default function MovieFilter() {
               type="radio"
               value="true"
               name="adult"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
             />
             <label
               htmlFor="yes"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               Yes
             </label>
@@ -252,11 +252,11 @@ export default function MovieFilter() {
               type="radio"
               value="false"
               name="adult"
-              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 "
+              className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2  cursor-pointer"
             />
             <label
               htmlFor="no"
-              className="w-full ml-2 text-sm font-bold text-gray-900"
+              className="w-full ml-2 text-sm font-bold text-gray-900 cursor-pointer"
             >
               No
             </label>

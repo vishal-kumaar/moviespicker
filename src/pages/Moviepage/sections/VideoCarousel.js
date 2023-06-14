@@ -22,7 +22,7 @@ export default function VideoCarousel() {
           videos.map((video, index) => (
             <div
               key={index}
-              className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] flex-auto flex-shrink-0 flex-grow-0 h-60 w-96 bg-center bg-no-repeat bg-cover flex items-center justify-center"
+              className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] flex-auto flex-shrink-0 flex-grow-0 w-[calc(100vw-60px)] h-[calc((100vw-60px)/1.79)] sm:h-[215px] sm:w-[384px] bg-center bg-no-repeat bg-cover flex items-center justify-center"
             >
               <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
                 <div className="=h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">

@@ -25,14 +25,14 @@ export default function Navbar() {
           <NavLink
             to="/"
             activeclassname="active"
-            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 hover:text-black/70 hover:underline underline-offset-4 cursor-pointer hidden md:block"
+            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 border-b-2 border-transparent hover:text-black/70 hover:border-[#C1789F] cursor-pointer hidden md:block"
           >
             Explore
           </NavLink>
           <NavLink
             to="/filter"
             activeclassname="active"
-            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 hover:text-black/70 hover:underline underline-offset-4 cursor-pointer hidden md:block "
+            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 border-b-2 border-transparent hover:text-black/70 hover:border-[#C1789F] cursor-pointer hidden md:block "
           >
             Recommand Movies
           </NavLink>

@@ -30,7 +30,7 @@ export default function MovieInfo() {
           href="https://johnwick.movie/"
           target="_blank"
           rel="noreferrer"
-          className="font-firsans text-sm line-clamp-1 text-blue-600"
+          className="font-firsans text-sm line-clamp-1 text-blue-600 w-fit"
         >
           https://johnwick.movie/
         </a>
