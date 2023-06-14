@@ -1,15 +1,16 @@
 import React from "react";
 import rattingIcon from "../assets/icons/ratting.svg";
+import forwardIcon from "../assets/icons/forward.svg";
 
 export default function MoviesList() {
   const movies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="mb-20">
+    <div className="flex flex-col gap-6 mt-12">
       {movies &&
         movies.map((movie, index) => (
           <div
             key={index}
-            className="flex items-center gap-5 mt-8 border border-black/10 rounded-2xl shadow-xl"
+            className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl"
           >
             <img
               src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
@@ -45,6 +46,16 @@ export default function MoviesList() {
             </div>
           </div>
         ))}
+      <div className="flex items-center mt-10 mb-16">
+        <button className="rounded-3xl py-2 shadow-md font-signika flex gap-2 items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white">
+          <img src={forwardIcon} alt="" className="invert w-2.5 rotate-180" />
+          <p>Previous</p>
+        </button>
+        <button className="rounded-3xl py-2 shadow-md font-signika flex gap-2 items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white w-fit ml-auto">
+          <p>Next</p>
+          <img src={forwardIcon} alt="" className="invert w-2.5" />
+        </button>
+      </div>
     </div>
   );
 }
