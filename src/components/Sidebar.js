@@ -6,8 +6,18 @@ import SidebarContext from "../states/sidebar/SidebarContext";
 export default function Sidebar() {
   const { sidebar, toggleSidebar } = useContext(SidebarContext);
 
+  window.onclick = (event) => {
+    if (event.target.id === "sidebar"){
+      toggleSidebar();
+    }
+  };
+
   return (
-    <div className={`${sidebar ? "z-50 fixed top-0 left-0" : "-z-50 static"} bg-transparent/60 w-full h-full`}>
+    <div
+      className={`${
+        sidebar ? "z-50 fixed top-0 left-0" : "-z-50 static"
+      } bg-transparent/60 w-full h-full`}
+    >
       <div
         id="sidebar"
         className={`bg-transparent ${
@@ -16,35 +26,40 @@ export default function Sidebar() {
       } w-full h-full fixed top-0 left-0 z-30 transition duration-700 ease-in-out`}
       >
         <aside
-          className={`flex flex-col fixed w-fit h-screen pt-10 px-6 bg-white transform ease-in-out duration-500`}
+          className={`flex flex-col fixed w-fit h-screen bg-white transform ease-in-out duration-500`}
         >
-          <div className="flex items-center gap-10">
+          <div className="flex items-center py-12 px-6 gap-20 justify-between bg-gradient-to-r from-yellow-500 to-purple-500">
             <Link
               to="/"
-              className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer"
+              className="text-white text-3xl cursor-pointer font-bold font-signika"
             >
               Movies Picker
             </Link>
             <img
               src={close}
               alt="close"
-              className="w-7 cursor-pointer"
+              className="w-7 cursor-pointer invert"
               onClick={toggleSidebar}
             />
           </div>
-          <hr className="border mt-8" />
-          <div className="text-gray-600 font-bold mt-7 flex flex-col">
+          <div className="text-gray-600 font-bold mt-7 flex flex-col px-6">
             <Link
               to="/"
-              className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center"
+              className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
             >
               Home
             </Link>
             <Link
               to="/filter"
-              className="text-lg font-signika my-1 py-2 px-2 w-52 flex items-center"
+              className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
             >
               Recommand Movies
+            </Link>
+            <Link
+              to="/search/person"
+              className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
+            >
+              Search Person
             </Link>
           </div>
         </aside>

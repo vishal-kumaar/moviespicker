@@ -40,8 +40,15 @@ export default function Navbar() {
           >
             Recommand Movies
           </NavLink>
+          <NavLink
+            to="/search/person"
+            activeclassname="active"
+            className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 border-b-2 border-transparent hover:text-black/70 hover:border-[#C1789F] cursor-pointer hidden md:block "
+          >
+            Search Person
+          </NavLink>
         </div>
-        <NavLink to="/search">
+        <NavLink to="/search/movie">
           <img src={searchIcon} alt="search" className="w-6 cursor-pointer" />
         </NavLink>
       </nav>

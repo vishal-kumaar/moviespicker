@@ -1,7 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import Searchpage from "./pages/Searchpage";
+import Searchmoviepage from "./pages/Searchmoviepage";
 import Filterpage from "./pages/Filterpage";
 import Moviepage from "./pages/Moviepage";
 import Castpage from "./pages/Castpage";
@@ -16,8 +16,8 @@ export default function Router() {
       element: <Homepage />,
     },
     {
-      path: "/search",
-      element: <Searchpage />,
+      path: "/search/movie",
+      element: <Searchmoviepage />,
     },
     {
       path: "/filter",
