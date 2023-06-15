@@ -8,7 +8,7 @@ export default function MovieHero() {
   return (
     <main className="h-full w-full text-white bg-[url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/h8gHn0OzBoaefsYseUByqsmEDMY.jpg)] bg-fixed bg-cover bg-center">
       <div
-        className="h-full w-full flex flex-col lg:flex-row gap-8 items-center justify-center py-12 px-5 md:px-14"
+        className="h-full w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center py-12 px-5 md:px-14"
         style={{
           background:
             "linear-gradient(to right, rgba(31.5, 10.5, 10.5, 1) calc((50vw - 170px) - 340px), rgba(31.5, 10.5, 10.5, 0.84) 50%, rgba(31.5, 10.5, 10.5, 0.84) 100%)",
@@ -20,7 +20,7 @@ export default function MovieHero() {
           className="w-80 h-[30rem] rounded-xl"
         />
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-signika text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl font-bold font-signika text-center lg:text-left mt-0 lg:mt-10">
             John Wick: Chapter 4{" "}
             <span className="font-medium font-poppins text-2xl sm:text-3xl text-gray-300">
               (2023)
@@ -52,7 +52,7 @@ export default function MovieHero() {
             <h2 className="font-roboto tracking-wide font-bold text-lg mb-1">
               Overview
             </h2>
-            <p className="font-poppins text-sm line-clamp-3 mb-4">
+            <p className="font-poppins text-sm mb-4">
               With the price on his head ever increasing, John Wick uncovers a
               path to defeating The High Table. But before he can earn his
               freedom, Wick must face off against a new enemy with powerful
