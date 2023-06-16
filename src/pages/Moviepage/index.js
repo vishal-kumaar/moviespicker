@@ -38,7 +38,7 @@ export default function Movie() {
                 }
               />
             )}
-            <MovieInfo />
+            <MovieInfo movie={movie} />
           </div>
           <VideoCarousel />
           <Collection />
