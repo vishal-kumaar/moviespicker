@@ -40,7 +40,15 @@ export default function Movie() {
             )}
             <MovieInfo movie={movie} />
           </div>
-          <VideoCarousel />
+          {movie.videos.results && (
+            <VideoCarousel
+              videos={
+                movie.videos.results.length > 10
+                  ? movie.videos.results.slice(0, 10)
+                  : movie.videos.results
+              }
+            />
+          )}
           <Collection />
           <RecommendMovies />
         </>
