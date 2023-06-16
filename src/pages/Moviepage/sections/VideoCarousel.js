@@ -11,7 +11,7 @@ export default function VideoCarousel() {
   const videos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <section className="pl-4 md:pl-14 mb-12">
-      <YoutubePlayer videoId="yjRHZEUamCc" />
+      <YoutubePlayer videoId="yjRHZEUamCc" id="videos" />
       <div className="flex justify-between items-center mb-4">
         <h1 className="font-signika font-bold text-3xl text-black">Videos</h1>
         <button
@@ -21,15 +21,13 @@ export default function VideoCarousel() {
           View All Videos
         </button>
       </div>
-      <div
-        className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center cursor-pointer"
-        onClick={toggleVideoPlayer}
-      >
+      <div className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center cursor-pointer">
         {videos &&
           videos.map((video, index) => (
             <div
               key={index}
               className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] flex-auto flex-shrink-0 flex-grow-0 w-[calc(100vw-60px)] h-[calc((100vw-60px)/1.79)] sm:h-[215px] sm:w-[384px] bg-center bg-no-repeat bg-cover flex items-center justify-center"
+              onClick={() => toggleVideoPlayer("videos")}
             >
               <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
                 <div className="=h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">

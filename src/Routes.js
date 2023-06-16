@@ -24,19 +24,19 @@ export default function Router() {
       element: <Filterpage />,
     },
     {
-      path: "/movie/:id",
+      path: "/movie/:movieId",
       element: <Moviepage />,
     },
     {
-      path: "/movie/:id/cast",
+      path: "/movie/:movieId/cast",
       element: <Castpage />,
     },
     {
-      path: "/movie/:id/videos",
+      path: "/movie/:movieId/videos",
       element: <Videopage />,
     },
     {
-      path: "/person/:id",
+      path: "/person/:personId",
       element: <Personpage />,
     },
     {
