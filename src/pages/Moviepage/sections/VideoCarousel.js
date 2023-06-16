@@ -24,12 +24,11 @@ export default function VideoCarousel({ videos }) {
       <div className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center">
         {videos &&
           videos.map((video, index) => (
-            <>
+            <div key={index}>
               <YoutubePlayer videoId={video.key} id={video.id} />
               <div
-                key={index}
                 className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] flex-auto flex-shrink-0 flex-grow-0 w-[calc(100vw-60px)] h-[calc((100vw-60px)/1.79)] sm:h-[215px] sm:w-[384px] bg-center bg-no-repeat bg-cover flex items-center justify-center cursor-pointer"
-                style={{ 
+                style={{
                   backgroundImage: `url(https://i.ytimg.com/vi/${video.key}/hqdefault.jpg)`,
                 }}
                 onClick={() => toggleVideoPlayer(video.id)}
@@ -40,7 +39,7 @@ export default function VideoCarousel({ videos }) {
                   </div>
                 </button>
               </div>
-            </>
+            </div>
           ))}
         <img
           src={nextIcon}

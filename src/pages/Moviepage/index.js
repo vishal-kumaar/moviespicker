@@ -49,7 +49,9 @@ export default function Movie() {
               }
             />
           )}
-          <Collection />
+          {movie.belongs_to_collection && (
+            <Collection collectionInfo={movie.belongs_to_collection} />
+          )}
           <RecommendMovies />
         </>
       ) : (
