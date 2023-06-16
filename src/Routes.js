@@ -16,7 +16,7 @@ export default function Router() {
       element: <Homepage />,
     },
     {
-      path: "/search/movie",
+      path: "/search",
       element: <Searchpage />,
     },
     {

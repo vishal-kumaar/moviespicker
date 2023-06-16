@@ -56,7 +56,7 @@ export default function Sidebar() {
               Recommand Movies
             </Link>
             <Link
-              to="/search/person"
+              to="/search?activeTab=Person"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
             >
               Search Person
