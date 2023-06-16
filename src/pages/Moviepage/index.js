@@ -52,7 +52,7 @@ export default function Movie() {
           {movie.belongs_to_collection && (
             <Collection collectionInfo={movie.belongs_to_collection} />
           )}
-          <RecommendMovies />
+          <RecommendMovies movieId={movie.id} />
         </>
       ) : (
         <NotFound />

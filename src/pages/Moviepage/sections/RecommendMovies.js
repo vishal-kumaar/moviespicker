@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MoviesCarousel from "../../../components/MoviesCarousel";
+import getRecommendation from "../../../apis/getRecommendation";
 
-export default function RecommendMovies() {
+export default function RecommendMovies({ movieId }) {
+  const [movies, setMovies] = useState(null);
+
+  const handleRecommendation = async (movieId) => {
+    const res = await getRecommendation(movieId);
+    if (res.success === true) {
+      setMovies(res.data);
+    }
+  };
+
+  useEffect(() => {
+    handleRecommendation(movieId);
+  }, [movieId]);
   return (
-    <MoviesCarousel
-      heading="Recommendations"
-      textColor="text-black"
-      textBefore="before:bg-black"
-    />
+    <>
+      {movies && (
+        <MoviesCarousel
+          heading="Recommended Movies"
+          textColor="text-black"
+          textBefore="before:bg-black"
+          movies={movies.results}
+        />
+      )}
+    </>
   );
 }

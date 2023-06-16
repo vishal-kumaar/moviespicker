@@ -16,8 +16,6 @@ export default function Collection({ collectionInfo }) {
     handleCollection(collectionInfo);
   }, [collectionInfo]);
 
-  console.log(collection);
-
   return (
     <>
       {collection && (
