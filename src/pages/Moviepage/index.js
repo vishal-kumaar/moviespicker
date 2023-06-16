@@ -29,7 +29,15 @@ export default function Movie() {
         <>
           <MovieHero movie={movie} />
           <div className="flex flex-col xl:flex-row xl:items-center justify-center">
-            <Casts />
+            {movie.credits.cast && (
+              <Casts
+                casts={
+                  movie.credits.cast.length > 10
+                    ? movie.credits.cast.slice(0, 10)
+                    : movie.credits.cast
+                }
+              />
+            )}
             <MovieInfo />
           </div>
           <VideoCarousel />
