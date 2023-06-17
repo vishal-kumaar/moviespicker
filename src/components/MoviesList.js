@@ -1,9 +1,38 @@
 import React from "react";
 import rattingIcon from "../assets/icons/ratting.svg";
 import forwardIcon from "../assets/icons/forward.svg";
+import formatDate from "../utils/formatDate";
+import imagePlaceholder from "../assets/images/image_placeholder.svg";
+import getGenresFromId from "../utils/getGenresFromId";
+import { useSearchParams } from "react-router-dom";
 
-export default function MoviesList() {
-  const movies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+export default function MoviesList({ data }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get("page");
+
+  if (!data || !data.results.length) {
+    return (
+      <div className="text-center font-firasans text-lg py-16">
+        Ops! No result found
+      </div>
+    );
+  }
+
+  const movies = data.results;
+
+  const handlePage = (move) => {
+    if (move === "prev") {
+      searchParams.set("page", Number(page) - 1);
+    } else if (move === "next") {
+      searchParams.set("page", Number(page) + 1);
+    }
+    setSearchParams(searchParams);
+    window.scroll({
+      top: 0,
+      behavior: "auto",
+    });
+  };
+
   return (
     <div className="flex flex-col gap-6 mt-12">
       {movies &&
@@ -13,45 +42,59 @@ export default function MoviesList() {
             className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl"
           >
             <img
-              src="https://www.themoviedb.org/t/p/w220_and_h330_face/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
+              src={
+                movie.poster_path
+                  ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`
+                  : imagePlaceholder
+              }
               alt=""
               className="w-32 h-48 rounded-l-2xl"
             />
             <div>
               <h2 className="font-signika text-lg font-bold tracking-wide text-black line-clamp-1 max-w-full">
-                John Wick: Chapter 4
+                {movie.title}
               </h2>
               <p className="font-roboto font-medium text-sm text-gray-400 mb-2">
-                March 22, 2023
+                {movie.release_date && formatDate(movie.release_date)}
               </p>
               <p className="font-firasans font-medium text-sm text-black tracking-wide line-clamp-1 max-w-full">
-                <span className="font-bold">Genre:</span> Action, Crime,
-                Thriller
+                <span className="font-bold">Genre: </span>
+                {movie.genre_ids.length > 0
+                  ? getGenresFromId(movie.genre_ids)
+                  : "Unknown"}
               </p>
               <div className="flex items-center gap-1 mt-1">
                 <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
                 <p className="font-firasans font-extralight text-sm text-black tracking-wide">
-                  7.9/10
+                  {movie.vote_average
+                    ? `${movie.vote_average.toFixed(1)}/10`
+                    : "N/A"}
                 </p>
               </div>
               <p className="line-clamp-2 max-w-full text-black font-medium font-poppins text-sm mt-2">
-                Over many missions and against impossible odds, Dom Toretto and
-                his family have outsmarted, out-nerved and outdriven every foe
-                in their path. Now, they confront the most lethal opponent
-                they've ever faced: A terrifying threat emerging from the
-                shadows of the past who's fueled by blood revenge, and who is
-                determined to shatter this family and destroy everything—and
-                everyone—that Dom loves, forever.
+                {movie.overview
+                  ? movie.overview
+                  : "This movie don't have any description"}
               </p>
             </div>
           </div>
         ))}
       <div className="flex items-center mt-10 mb-16">
-        <button className="rounded-3xl py-2 shadow-md font-signika flex gap-2 items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white">
+        <button
+          className={`rounded-3xl py-2 shadow-md font-signika gap-2 flex items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white ${
+            Number(page) === 1 ? "invisible" : "visible"
+          }`}
+          onClick={() => handlePage("prev")}
+        >
           <img src={forwardIcon} alt="" className="invert w-2.5 rotate-180" />
           <p>Previous</p>
         </button>
-        <button className="rounded-3xl py-2 shadow-md font-signika flex gap-2 items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white w-fit ml-auto">
+        <button
+          className={`rounded-3xl py-2 shadow-md font-signika flex gap-2 items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white w-fit ml-auto ${
+            data.total_pages === Number(page) ? "invisible" : "visible"
+          }`}
+          onClick={() => handlePage("next")}
+        >
           <p>Next</p>
           <img src={forwardIcon} alt="" className="invert w-2.5" />
         </button>

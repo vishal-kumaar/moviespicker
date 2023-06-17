@@ -6,7 +6,8 @@ export default function Tab({ heading, options }) {
   const activeTab = searchParam.get("activeTab");
 
   const handleTab = (tab) => {
-    setSearchParam(`?activeTab=${tab}`);
+    searchParam.set("activeTab", tab);
+    setSearchParam(searchParam);
   };
 
   const activeTabStyle = (tab) => {
@@ -16,6 +17,7 @@ export default function Tab({ heading, options }) {
       return "text-black border-transparent";
     }
   };
+
   return (
     <div>
       <h1 className="w-full font-bold font-firasans text-xl bg-black/90 text-white px-6 md:px-14 py-2.5">
