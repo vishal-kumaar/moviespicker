@@ -4,6 +4,7 @@ import youtubeIcon from "../../../assets/icons/youtube.svg";
 import VideoPlayerContext from "../../../states/videoplayer/VideoPlayerContext";
 import YoutubePlayer from "../../../components/YoutubePlayer";
 import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
+import formatDate from "../../../utils/formatDate";
 
 export default function VideoList({ videos }) {
   const { toggleVideoPlayer } = useContext(VideoPlayerContext);
@@ -40,15 +41,15 @@ export default function VideoList({ videos }) {
                       {video.name}
                     </h1>
                     <p className="font-firasans text-sm text-black mb-4 text-left pl-6">
-                      <span>Trailer</span>
+                      <span>{video.type}</span>
                       <span className="relative ml-5 before:absolute before:top-1.5 before:-left-3 before:w-[5px] before:h-[5px] before:bg-black before:rounded-full">
-                        February 16, 2023
+                        {formatDate(video.published_at)}
                       </span>
                     </p>
                   </div>
                   <div className="flex gap-1.5 items-center bg-gray-200 pl-6 py-2 border-t-2 border-gray-300">
                     <img src={youtubeIcon} alt="youtube-logo" className="w-6" />
-                    <h1 className="font-signika text-black/50">Youtube</h1>
+                    <h1 className="font-signika text-black/50">{video.site}</h1>
                   </div>
                 </div>
               </div>
