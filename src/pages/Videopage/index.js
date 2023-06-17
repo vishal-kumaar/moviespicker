@@ -17,7 +17,7 @@ export default function Videopage() {
     activeTab = "Trailer";
   }
 
-  const handleMovie = async (movieId) => {
+  const handleMovie = async () => {
     const res = await getMovieById(movieId);
     if (res.success === true) {
       setMovie(res.data);
@@ -25,8 +25,8 @@ export default function Videopage() {
   };
 
   useEffect(() => {
-    handleMovie(movieId);
-  }, [movieId]);
+    handleMovie();
+  });
 
   if (!movie) {
     return null;

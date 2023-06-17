@@ -8,18 +8,14 @@ import formatDate from "../../../utils/formatDate";
 
 export default function VideoList({ videos }) {
   const { toggleVideoPlayer } = useContext(VideoPlayerContext);
-
   return (
     <section className="px-4 md:px-14 my-12">
       <div className="max-w-5xl mx-auto">
-        {videos.length ? (
+        {videos ? (
           videos.map((video, index) => (
-            <>
-              <YoutubePlayer videoId={video.key} />
-              <div
-                key={index}
-                className="flex border shadow-md shadow-gray-400 rounded-lg mb-10 flex-col md:flex-row"
-              >
+            <div key={index}>
+              <YoutubePlayer videoId={video.key} id={video.id} />
+              <div className="flex border shadow-md shadow-gray-400 rounded-lg mb-10 flex-col md:flex-row">
                 <div
                   className="w-[calc(100vw-40px)] h-[calc((100vw-40px)/1.79)] md:h-[197px] md:w-[720px] lg:w-[550px] bg-center bg-no-repeat bg-cover flex items-center justify-center rounded-l-md cursor-pointer"
                   style={{
@@ -27,7 +23,7 @@ export default function VideoList({ videos }) {
                       ? `url(https://i.ytimg.com/vi/${video.key}/hqdefault.jpg)`
                       : imagePlaceholder,
                   }}
-                  onClick={toggleVideoPlayer}
+                  onClick={() => toggleVideoPlayer(video.id)}
                 >
                   <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
                     <div className="h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">
@@ -53,10 +49,12 @@ export default function VideoList({ videos }) {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           ))
         ) : (
-          <div className="text-center py-10">Not found any video releted to this catagory.</div>
+          <div className="text-center py-10">
+            Not found any video releted to this catagory.
+          </div>
         )}
       </div>
     </section>
