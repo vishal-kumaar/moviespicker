@@ -15,7 +15,7 @@ export default function MoviesCarousel(props) {
     bgPosition,
     bgAttachment,
     movies,
-    backgroundImage
+    backgroundImage,
   } = props;
 
   const navigate = useNavigate();
@@ -28,9 +28,9 @@ export default function MoviesCarousel(props) {
             bgColor === undefined ? "mb-16" : "mb-4"
           } ${bgImage} ${bgSize} ${bgPosition} ${bgAttachment} ${textColor}
       } bg-no-repeat`}
-      style={{
-        backgroundImage: backgroundImage
-      }}
+          style={{
+            backgroundImage: backgroundImage,
+          }}
         >
           <div className={`pt-16 ${bgColor}`}>
             <h1

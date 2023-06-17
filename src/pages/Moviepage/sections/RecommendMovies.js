@@ -22,7 +22,7 @@ export default function RecommendMovies({ movieId }) {
           heading="Recommended Movies"
           textColor="text-black"
           textBefore="before:bg-black"
-          movies={movies.results}
+          movies={movies}
         />
       )}
     </>
