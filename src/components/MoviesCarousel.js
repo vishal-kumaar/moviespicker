@@ -22,7 +22,7 @@ export default function MoviesCarousel(props) {
 
   return (
     <>
-      {movies && (
+      {movies.length && (
         <section
           className={`${
             bgColor === undefined ? "mb-16" : "mb-4"
