@@ -29,7 +29,7 @@ export default function Videopage() {
   });
 
   if (!movie) {
-    return null;
+    return <NotFound />;
   }
 
   const options = [
