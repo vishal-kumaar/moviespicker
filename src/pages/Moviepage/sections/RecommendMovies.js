@@ -8,7 +8,7 @@ export default function RecommendMovies({ movieId }) {
   const handleRecommendation = async (movieId) => {
     const res = await getRecommendation(movieId);
     if (res.success === true) {
-      setMovies(res.data);
+      setMovies(res.data.results);
     }
   };
 
