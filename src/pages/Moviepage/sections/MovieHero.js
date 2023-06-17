@@ -11,6 +11,7 @@ import YoutubePlayer from "../../../components/YoutubePlayer";
 
 export default function MovieHero({ movie }) {
   const { toggleVideoPlayer } = useContext(videoPlayerContext);
+  const videoId = getTrailer(movie.videos.results);
   return (
     <main
       className="h-full w-full text-white bg-fixed bg-cover bg-center"
@@ -20,12 +21,7 @@ export default function MovieHero({ movie }) {
           : "transparent",
       }}
     >
-      {movie.videos.results && (
-        <YoutubePlayer
-          videoId={getTrailer(movie.videos.results)}
-          id="trailer"
-        />
-      )}
+      {videoId && <YoutubePlayer videoId={videoId} id="trailer" />}
       <div
         className="h-full w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center py-12 px-5 md:px-14"
         style={{
@@ -46,7 +42,9 @@ export default function MovieHero({ movie }) {
           <h1 className="text-3xl sm:text-4xl font-bold font-signika text-center lg:text-left mt-0 lg:mt-10">
             {movie.title}{" "}
             <span className="font-medium font-poppins text-2xl sm:text-3xl text-gray-300">
-              ({movie.release_date && movie.release_date.split("-")[0]})
+              {movie.release_date
+                ? ` (${movie.release_date.split("-")[0]})`
+                : ""}
             </span>
           </h1>
           <p className="font-firasans text-base text-gray-100 mt-1 mb-4 text-center lg:text-left">
@@ -75,13 +73,15 @@ export default function MovieHero({ movie }) {
                   : "N/A"}
               </p>
             </div>
-            <button
-              className="flex items-center gap-1.5"
-              onClick={() => toggleVideoPlayer("trailer")}
-            >
-              <img src={playIcon} alt="" className="invert w-3 mb-[2px]" />
-              <p className="">Play Trailer</p>
-            </button>
+            {videoId && (
+              <button
+                className="flex items-center gap-1.5"
+                onClick={() => toggleVideoPlayer("trailer")}
+              >
+                <img src={playIcon} alt="" className="invert w-3 mb-[2px]" />
+                <p className="">Play Trailer</p>
+              </button>
+            )}
           </div>
           {movie.tagline && (
             <p className="text-[#BDB5B0] italic font-roboto text-base tracking-wide font-medium mb-4">

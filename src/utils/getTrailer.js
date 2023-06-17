@@ -4,6 +4,8 @@ const getTrailer = (array) => {
             return video.key;
         }
     }
+
+    return null;
 }
 
 export default getTrailer;
