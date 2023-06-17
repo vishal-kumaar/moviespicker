@@ -1,24 +1,8 @@
 import React from "react";
 import MoviesCarousel from "../../../components/MoviesCarousel";
-import { useState } from "react";
-import getMoviesByPersonId from "../../../apis/getMoviesByPersonId";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 
-export default function PersonMovies() {
-  const [movies, setMovies] = useState(null);
-  const { personId } = useParams();
-
-  const handleMovie = async (personId) => {
-    const res = await getMoviesByPersonId(personId);
-    if (res.success === true) {
-      setMovies(res.data);
-    }
-  };
-
-  useEffect(() => {
-    handleMovie(personId);
-  }, [personId]);
+export default function PersonMovies({movies}) {
+  // console.table(movies)
   return (
     <>
       {movies && (

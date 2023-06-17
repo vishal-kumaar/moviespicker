@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import getPersonById from "../../../apis/getPersonById";
+import React from "react";
 import getGenderById from "../../../utils/getGenderById";
 import calculateAge from "../../../utils/calculateAge";
 import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
+import NotFound from "../../../components/NotFound";
 
-export default function PersonBio() {
-  const [person, setPerson] = useState(null);
-  const { personId } = useParams();
-
-  const handlePerson = async (personId) => {
-    const res = await getPersonById(personId);
-    if (res.success === true) {
-      setPerson(res.data);
-    }
-  };
-
-  useEffect(() => {
-    handlePerson(personId);
-  }, [personId]);
-
+export default function PersonBio({ person }) {
+  // console.table(person);
   return (
     <>
-      {person && (
+      {person ? (
         <main className="flex flex-col md:flex-row items-center md:items-start px-6 md:px-14 mt-14 gap-0 md:gap-10 h-full max-w-screen-2xl mx-auto">
           <img
             src={
@@ -82,6 +68,8 @@ export default function PersonBio() {
             </div>
           </div>
         </main>
+      ) : (
+        <NotFound />
       )}
     </>
   );
