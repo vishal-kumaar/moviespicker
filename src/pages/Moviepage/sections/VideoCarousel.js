@@ -10,6 +10,8 @@ export default function VideoCarousel({ videos }) {
   const navigate = useNavigate();
   const { movieId } = useParams();
 
+  const topVideos = videos.length > 10 ? videos.slice(0, 10) : videos;
+
   return (
     <section className="pl-4 md:pl-14 mb-12">
       <div className="flex justify-between items-center mb-4">
@@ -22,31 +24,32 @@ export default function VideoCarousel({ videos }) {
         </button>
       </div>
       <div className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center">
-        {videos &&
-          videos.map((video, index) => (
-            <div key={index}>
-              <YoutubePlayer videoId={video.key} id={video.id} />
-              <div
-                className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] flex-auto flex-shrink-0 flex-grow-0 w-[calc(100vw-60px)] h-[calc((100vw-60px)/1.79)] sm:h-[215px] sm:w-[384px] bg-center bg-no-repeat bg-cover flex items-center justify-center cursor-pointer"
-                style={{
-                  backgroundImage: `url(https://i.ytimg.com/vi/${video.key}/hqdefault.jpg)`,
-                }}
-                onClick={() => toggleVideoPlayer(video.id)}
-              >
-                <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
-                  <div className="=h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">
-                    <img src={playIcon} alt="play" className="invert w-4" />
-                  </div>
-                </button>
-              </div>
+        {topVideos.map((video, index) => (
+          <div key={index}>
+            <YoutubePlayer videoId={video.key} id={video.id} />
+            <div
+              className="bg-[url(https://i.ytimg.com/vi/yjRHZEUamCc/hqdefault.jpg)] flex-auto flex-shrink-0 flex-grow-0 w-[calc(100vw-60px)] h-[calc((100vw-60px)/1.79)] sm:h-[215px] sm:w-[384px] bg-center bg-no-repeat bg-cover flex items-center justify-center cursor-pointer"
+              style={{
+                backgroundImage: `url(https://i.ytimg.com/vi/${video.key}/hqdefault.jpg)`,
+              }}
+              onClick={() => toggleVideoPlayer(video.id)}
+            >
+              <button className="bg-black/60 rounded-full h-14 w-14 hover:bg-black/60">
+                <div className="=h-full w-full rounded-full flex items-center justify-center hover:opacity-70 transition-all duration-200">
+                  <img src={playIcon} alt="play" className="invert w-4" />
+                </div>
+              </button>
             </div>
-          ))}
-        <img
-          src={nextIcon}
-          alt="next"
-          className="w-10 h-fit cursor-pointer mr-4"
-          onClick={() => navigate(`/movie/${movieId}/videos`)}
-        />
+          </div>
+        ))}
+        {videos.length > 10 && (
+          <img
+            src={nextIcon}
+            alt="next"
+            className="w-10 h-fit cursor-pointer mr-4"
+            onClick={() => navigate(`/movie/${movieId}/videos`)}
+          />
+        )}
       </div>
     </section>
   );

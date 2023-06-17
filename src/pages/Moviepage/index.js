@@ -29,25 +29,11 @@ export default function Movie() {
         <>
           <MovieHero movie={movie} />
           <div className="flex flex-col xl:flex-row xl:items-center justify-between">
-            {movie.credits.cast[0] && (
-              <Casts
-                casts={
-                  movie.credits.cast.length > 10
-                    ? movie.credits.cast.slice(0, 10)
-                    : movie.credits.cast
-                }
-              />
-            )}
+            {movie.credits.cast.length && <Casts casts={movie.credits.cast} />}
             <MovieInfo movie={movie} />
           </div>
-          {movie.videos.results[0] && (
-            <VideoCarousel
-              videos={
-                movie.videos.results.length > 10
-                  ? movie.videos.results.slice(0, 10)
-                  : movie.videos.results
-              }
-            />
+          {movie.videos.results.length && (
+            <VideoCarousel videos={movie.videos.results} />
           )}
           {movie.belongs_to_collection && (
             <Collection collectionInfo={movie.belongs_to_collection} />

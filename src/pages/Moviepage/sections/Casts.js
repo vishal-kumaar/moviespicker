@@ -6,6 +6,7 @@ import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
 export default function Casts({ casts }) {
   const navigate = useNavigate();
   const { movieId } = useParams();
+  const topCasts = casts.length > 10 ? casts.slice(0, 10) : casts;
   return (
     <>
       {casts && (
@@ -14,7 +15,7 @@ export default function Casts({ casts }) {
             Cast
           </h1>
           <div className="flex items-center flex-nowrap overflow-x-auto gap-6 pb-10 w-full">
-            {casts.map((cast, index) => (
+            {topCasts.map((cast, index) => (
               <div
                 key={index}
                 className="border cursor-pointer flex-none border-black/20 shadow-xl rounded-lg max-w-[9.8rem]"
@@ -39,12 +40,14 @@ export default function Casts({ casts }) {
                 </div>
               </div>
             ))}
-            <img
-              src={nextIcon}
-              alt=""
-              className="w-10 h-fit cursor-pointer"
-              onClick={() => navigate(`/movie/${movieId}/cast`)}
-            />
+            {casts.length > 10 && (
+              <img
+                src={nextIcon}
+                alt=""
+                className="w-10 h-fit cursor-pointer"
+                onClick={() => navigate(`/movie/${movieId}/cast`)}
+              />
+            )}
           </div>
           <button
             className="mt-5 font-firasans font-bold"
