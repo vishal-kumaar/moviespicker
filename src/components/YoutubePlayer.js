@@ -24,7 +24,7 @@ const YoutubePlayer = ({ videoId, id }) => {
     return () => removeVideoPlayer(id);
   }, 
   // eslint-disable-next-line
-  []);
+  [id]);
 
   const player = videoPlayers.find((player) => player.id === id);
 
