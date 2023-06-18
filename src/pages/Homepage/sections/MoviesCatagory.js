@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import MoviesCarousel from "../../../components/MoviesCarousel";
 import getPopularMovies from "../../../apis/getPopularMovies";
 import getMoviesByGenre from "../../../apis/getMoviesByGenre";
+import LoadingContext from "../../../states/loading/LoadingContext";
 
 export default function MoviesCatagory() {
+  const { startLoading, stopLoading } = useContext(LoadingContext);
+
   const [trendingMovies, setTrendingMovies] = useState(null);
   const [actionMovies, setActionMovies] = useState(null);
   const [scifiMovies, setScifiMovies] = useState(null);
@@ -36,10 +39,16 @@ export default function MoviesCatagory() {
       setHorrorMovies(res5.data.results);
     }
   };
-
-  useEffect(() => {
-    handleMovies();
-  }, []);
+  
+  useEffect(
+    () => {
+      startLoading();
+      handleMovies();
+      stopLoading();
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   return (
     <>

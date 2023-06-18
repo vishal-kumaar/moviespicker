@@ -3,8 +3,11 @@ import MovieFilter from "./sections/MovieFilter";
 import MoviesList from "../../components/MoviesList";
 import { useSearchParams } from "react-router-dom";
 import getMoviesByFilters from "../../apis/getMoviesByFilters";
+import LoadingContext from "../../states/loading/LoadingContext";
+import { useContext } from "react";
 
 export default function Recommand() {
+  const { startLoading, stopLoading } = useContext(LoadingContext);
   const [results, setResults] = useState(null);
   const [searchParams] = useSearchParams();
   const genres = searchParams.get("genres");
@@ -30,6 +33,7 @@ export default function Recommand() {
     adult,
     page
   ) => {
+    startLoading();
     const res = await getMoviesByFilters(
       genres,
       releaseFrom,
@@ -46,10 +50,26 @@ export default function Recommand() {
     if (res.success === true) {
       setResults(res.data);
     }
+    stopLoading();
   };
 
-  useEffect(() => {
-    handleFilter(
+  useEffect(
+    () => {
+      handleFilter(
+        genres,
+        releaseFrom,
+        releaseTo,
+        ratting,
+        runtime,
+        sortBy,
+        sortingOrder,
+        country,
+        adult,
+        page
+      );
+    },
+    // eslint-disable-next-line
+    [
       genres,
       releaseFrom,
       releaseTo,
@@ -59,20 +79,9 @@ export default function Recommand() {
       sortingOrder,
       country,
       adult,
-      page
-    );
-  }, [
-    genres,
-    releaseFrom,
-    releaseTo,
-    ratting,
-    runtime,
-    sortBy,
-    sortingOrder,
-    country,
-    adult,
-    page
-  ]);
+      page,
+    ]
+  );
 
   return (
     <>

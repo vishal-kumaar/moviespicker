@@ -6,8 +6,11 @@ import NotFound from "../../components/NotFound";
 import { useParams, useSearchParams } from "react-router-dom";
 import getMovieById from "../../apis/getMovieById";
 import getVideoByType from "../../utils/getVideoByType";
+import LoadingContext from "../../states/loading/LoadingContext";
+import { useContext } from "react";
 
 export default function Videopage() {
+  const { startLoading, stopLoading } = useContext(LoadingContext);
   const [movie, setMovie] = useState(null);
   const [searchParam] = useSearchParams();
   const { movieId } = useParams();
@@ -17,16 +20,22 @@ export default function Videopage() {
     activeTab = "Trailer";
   }
 
-  const handleMovie = async () => {
+  const handleMovie = async (movieId) => {
+    startLoading();
     const res = await getMovieById(movieId);
     if (res.success === true) {
       setMovie(res.data);
     }
+    stopLoading();
   };
 
-  useEffect(() => {
-    handleMovie();
-  });
+  useEffect(
+    () => {
+      handleMovie(movieId);
+    },
+    // eslint-disable-next-line
+    [movieId]
+  );
 
   if (!movie) {
     return <NotFound />;

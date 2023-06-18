@@ -6,8 +6,11 @@ import Tab from "../../components/Tab";
 import NotFound from "../../components/NotFound";
 import { useSearchParams } from "react-router-dom";
 import search from "../../apis/search";
+import LoadingContext from "../../states/loading/LoadingContext";
+import { useContext } from "react";
 
 export default function Searchpage() {
+  const { startLoading, stopLoading } = useContext(LoadingContext);
   const isMounted = useRef(false);
   const [results, setResults] = useState(null);
 
@@ -40,7 +43,7 @@ export default function Searchpage() {
   if (!pageNum) {
     pageNum = 1;
   }
-
+  
   const options = [
     {
       name: "Movie",
@@ -53,15 +56,19 @@ export default function Searchpage() {
   ];
 
   const handleSearch = async (query, searchFor, page) => {
+    startLoading();
     const res = await search(query, searchFor, page);
     if (res.success === true) {
       setResults(res);
     }
+    stopLoading();
   };
-
+  
   useEffect(() => {
     handleSearch(query, activeTab, pageNum);
-  }, [query, activeTab, pageNum]);
+  }, 
+  // eslint-disable-next-line
+  [query, activeTab, pageNum]);
 
   if (activeTab !== "Movie" && activeTab !== "Person") {
     return <NotFound />;
