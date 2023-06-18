@@ -29,10 +29,10 @@ export default function Movie() {
         <>
           <MovieHero movie={movie} />
           <div className="flex flex-col xl:flex-row xl:items-center justify-between">
-            {movie.credits.cast.length && <Casts casts={movie.credits.cast} />}
+            {movie.credits.cast.length > 0 && <Casts casts={movie.credits.cast} />}
             <MovieInfo movie={movie} />
           </div>
-          {movie.videos.results.length && (
+          {movie.videos.results.length > 0 && (
             <VideoCarousel videos={movie.videos.results} />
           )}
           {movie.belongs_to_collection && (

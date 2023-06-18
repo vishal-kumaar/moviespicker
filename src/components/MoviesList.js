@@ -4,18 +4,25 @@ import forwardIcon from "../assets/icons/forward.svg";
 import formatDate from "../utils/formatDate";
 import imagePlaceholder from "../assets/images/image_placeholder.svg";
 import getGenresFromId from "../utils/getGenresFromId";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import NoResultFound from "./NoResultFound";
 
 export default function MoviesList({ data }) {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
+  const query = searchParams.get("query");
 
-  if (!data || !data.results.length) {
+  if (!query) {
     return (
-      <div className="text-center font-firasans text-lg py-16">
-        Ops! No result found
+      <div className="text-center font-firasans text-gray-600 text-lg py-16">
+        Search any movie to show results here.
       </div>
     );
+  }
+
+  if (!data || !data.results.length) {
+    return <NoResultFound />;
   }
 
   const movies = data.results;
@@ -39,7 +46,8 @@ export default function MoviesList({ data }) {
         movies.map((movie, index) => (
           <div
             key={index}
-            className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl"
+            className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl cursor-pointer"
+            onClick={() => navigate(`/movie/${movie.id}`)}
           >
             <img
               src={

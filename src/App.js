@@ -12,10 +12,14 @@ function App() {
     <BrowserRouter>
       <State>
         <ScrollToTop />
-        <Navbar />
-        <Sidebar />
-        <Routes />
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-grow">
+            <Navbar />
+            <Sidebar />
+            <Routes />
+          </div>
+          <Footer />
+        </div>
       </State>
     </BrowserRouter>
   );
