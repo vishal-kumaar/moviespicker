@@ -11,7 +11,7 @@ const getPopularMovies = async (pageNum) => {
         };
         
     } catch (error) {
-        return error.response.data;
+        return error;
     }
 }
 
