@@ -1,44 +1,31 @@
 import React from "react";
 import rattingIcon from "../assets/icons/ratting.svg";
-import forwardIcon from "../assets/icons/forward.svg";
 import formatDate from "../utils/formatDate";
 import imagePlaceholder from "../assets/images/image_placeholder.svg";
 import getGenresFromId from "../utils/getGenresFromId";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import NoResultFound from "./NoResultFound";
+import Pagination from "./Pagination";
 
 export default function MoviesList({ data }) {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const page = searchParams.get("page");
+  const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
+  const page = searchParams.get("page");
 
   if (!query) {
     return (
       <div className="text-center font-firasans text-gray-600 text-lg py-16">
-        Search any movie to show results here.
+        Search for any movie to see results here.
       </div>
     );
   }
 
   if (!data || !data.results.length) {
-    return <NoResultFound />;
+    return <NoResultFound query={query} queryType="movies" />;
   }
 
   const movies = data.results;
-
-  const handlePage = (move) => {
-    if (move === "prev") {
-      searchParams.set("page", Number(page) - 1);
-    } else if (move === "next") {
-      searchParams.set("page", Number(page) + 1);
-    }
-    setSearchParams(searchParams);
-    window.scroll({
-      top: 0,
-      behavior: "auto",
-    });
-  };
 
   return (
     <div className="flex flex-col gap-6 mt-12">
@@ -87,26 +74,7 @@ export default function MoviesList({ data }) {
             </div>
           </div>
         ))}
-      <div className="flex items-center mt-10 mb-16">
-        <button
-          className={`rounded-3xl py-2 shadow-md font-signika gap-2 flex items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white ${
-            Number(page) === 1 ? "invisible" : "visible"
-          }`}
-          onClick={() => handlePage("prev")}
-        >
-          <img src={forwardIcon} alt="" className="invert w-2.5 rotate-180" />
-          <p>Previous</p>
-        </button>
-        <button
-          className={`rounded-3xl py-2 shadow-md font-signika flex gap-2 items-center px-8 bg-gradient-to-r from-yellow-500 to-purple-500 text-white w-fit ml-auto ${
-            data.total_pages === Number(page) ? "invisible" : "visible"
-          }`}
-          onClick={() => handlePage("next")}
-        >
-          <p>Next</p>
-          <img src={forwardIcon} alt="" className="invert w-2.5" />
-        </button>
-      </div>
+        <Pagination page={page} totalPages={data.total_pages} />
     </div>
   );
 }
