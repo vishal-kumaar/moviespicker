@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Select from "react-select";
 
 const options = [
@@ -22,18 +23,77 @@ const options = [
 ];
 
 export default function MovieFilter() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [genres, setGenres] = useState(null);
+  const [releaseYear, setRealaseYear] = useState({
+    from: "",
+    to: "",
+  });
+
+  const [ratting, setRatting] = useState("");
+  const [runtime, setRuntime] = useState({
+    hrs: "",
+    mints: "",
+  });
+
+  const [sortBy, setSortBy] = useState("popularity");
+  const [sortingOrder, setSortingOrder] = useState("desc");
+  const [language, setLanguage] = useState("");
+  const [adult, setAdult] = useState(false);
+
+  const handleForm = (event) => {
+    event.preventDefault();
+    if (genres) {
+      const genre = genres.map((genre) => genre.value).join(",");
+      searchParams.set("genre", genre);
+    }
+
+    if (releaseYear.from) {
+      searchParams.set("release_from", releaseYear.from);
+    }
+
+    if (releaseYear.to) {
+      searchParams.set("release_to", releaseYear.to);
+    }
+
+    if (ratting) {
+      searchParams.set("ratting", ratting);
+    }
+
+    if (runtime.hrs || runtime.mints) {
+      const time = Number(runtime.hrs) * 60 + Number(runtime.mints);
+      searchParams.set("runtime", time);
+    }
+
+    if (language) {
+      searchParams.set("language", language);
+    }
+
+    searchParams.set("sort_by", sortBy);
+    searchParams.set("sort_order", sortingOrder);
+    searchParams.set("adult", adult);
+
+    setSearchParams(searchParams);
+  };
+
   return (
-    <main className="py-10 px-5 sm:px-8 lg:px-52 font-poppins font-bold">
+    <section className="py-10 px-5 sm:px-8 lg:px-52 font-poppins font-bold">
       <h1 className="text-4xl font-signika text-black/90 text-center mt-5 mb-10">
         Movie Recommandation
       </h1>
-      <form>
-        <Select
-          isMulti
-          options={options}
-          className="w-full text-sm mb-6 font-bold"
-          classNamePrefix="react-select"
-        />
+      <form onSubmit={handleForm}>
+        <div className="w-full text-sm mb-6 font-bold">
+          <Select
+            isMulti
+            options={options}
+            classNamePrefix="react-select"
+            placeholder={"Genres..."}
+            required={true}
+            onChange={(selectedOption) => setGenres(selectedOption)}
+            value={genres}
+          />
+        </div>
         <div className="flex items-center gap-1 mb-4">
           <p className="text-sm font-medium mr-4">Release year:</p>
           <p className="text-[14px] font-semibold mr-1">From</p>
@@ -41,26 +101,38 @@ export default function MovieFilter() {
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20 text-center py-2"
             placeholder="0"
+            min={0}
+            value={releaseYear.from}
+            onChange={(event) =>
+              setRealaseYear((prevReleaseYear) => ({
+                ...prevReleaseYear,
+                from: event.target.value,
+              }))
+            }
           />
           <p className="text-[14px] font-semibold ml-2 mr-1">to</p>
           <input
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20 text-center py-2"
+            min={0}
             placeholder="0"
+            value={releaseYear.to}
+            onChange={(event) =>
+              setRealaseYear((prevReleaseYear) => ({
+                ...prevReleaseYear,
+                to: event.target.value,
+              }))
+            }
           />
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="ratting"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Ratting:
-          </label>
           <select
             id="ratting"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer"
+            value={ratting}
+            onChange={(event) => setRatting(event.target.value)}
           >
-            <option defaultChecked>Choose a ratting</option>
+            <option defaultChecked>Choose ratting</option>
             <option value="9">9 & Above</option>
             <option value="8">8 & Above</option>
             <option value="7">7 & Above</option>
@@ -74,15 +146,29 @@ export default function MovieFilter() {
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20 text-center py-2"
             placeholder="0"
+            value={runtime.hrs}
+            onChange={(event) =>
+              setRuntime((prevRuntime) => ({
+                ...prevRuntime,
+                hrs: event.target.value,
+              }))
+            }
           />
           <p className="text-[14px] font-semibold mx-1">hrs</p>
           <span className="font-bold text-lg mx-2">:</span>
           <input
             type="number"
-            min="0"
-            max="60"
+            min={0}
+            max={60}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20 text-center py-2"
             placeholder="0"
+            value={runtime.mints}
+            onChange={(event) =>
+              setRuntime((prevRuntime) => ({
+                ...prevRuntime,
+                mints: event.target.value,
+              }))
+            }
           />
           <p className="text-[14px] font-semibold ml-1">mints</p>
         </div>
@@ -90,12 +176,13 @@ export default function MovieFilter() {
           <p className="text-sm font-medium">Sort by:</p>
           <div className="flex items-center pl-4">
             <input
-              defaultChecked
               id="popularity"
               type="radio"
               value="popularity"
               name="sortby"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
+              checked={sortBy === "popularity"}
+              onChange={(event) => setSortBy(event.target.value)}
             />
             <label
               htmlFor="popularity"
@@ -111,6 +198,8 @@ export default function MovieFilter() {
               value="with_runtime"
               name="sortby"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
+              checked={sortBy === "with_runtime"}
+              onChange={(event) => setSortBy(event.target.value)}
             />
             <label
               htmlFor="runtime"
@@ -126,6 +215,8 @@ export default function MovieFilter() {
               value="vote_average"
               name="sortby"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
+              checked={sortBy === "vote_average"}
+              onChange={(event) => setSortBy(event.target.value)}
             />
             <label
               htmlFor="vote"
@@ -139,12 +230,13 @@ export default function MovieFilter() {
           <p className="text-sm font-medium">Sorting order:</p>
           <div className="flex items-center pl-4">
             <input
-              defaultChecked
               id="higherToLower"
               type="radio"
               value="desc"
               name="sortingOrder"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
+              checked={sortingOrder === "desc"}
+              onChange={(event) => setSortingOrder(event.target.value)}
             />
             <label
               htmlFor="higherToLower"
@@ -160,6 +252,8 @@ export default function MovieFilter() {
               value="asc"
               name="sortingOrder"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
+              checked={sortingOrder === "asc"}
+              onChange={(event) => setSortingOrder(event.target.value)}
             />
             <label
               htmlFor="lowerToHigher"
@@ -170,17 +264,13 @@ export default function MovieFilter() {
           </div>
         </div>
         <div className="mb-5">
-          <label
-            htmlFor="language"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Original language:
-          </label>
           <select
             id="language"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer"
+            value={language}
+            onChange={(event) => setLanguage(event.target.value)}
           >
-            <option defaultChecked>Choose a language</option>
+            <option defaultChecked>Choose language</option>
             <option value="en">English</option>
             <option value="hi">Hindi</option>
             <option value="ar">Arabic</option>
@@ -234,9 +324,11 @@ export default function MovieFilter() {
             <input
               id="yes"
               type="radio"
-              value="true"
+              value={true}
               name="adult"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 cursor-pointer"
+              checked={adult}
+              onChange={() => setAdult(true)}
             />
             <label
               htmlFor="yes"
@@ -247,12 +339,13 @@ export default function MovieFilter() {
           </div>
           <div className="flex items-center pl-4">
             <input
-              defaultChecked
               id="no"
               type="radio"
-              value="false"
+              value={false}
               name="adult"
               className="text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2  cursor-pointer"
+              checked={!adult}
+              onChange={() => setAdult(false)}
             />
             <label
               htmlFor="no"
@@ -266,6 +359,6 @@ export default function MovieFilter() {
           Filter
         </button>
       </form>
-    </main>
+    </section>
   );
 }
