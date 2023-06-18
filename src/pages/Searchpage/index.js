@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SearchArea from "../../components/SearchArea";
 import MoviesList from "../../components/MoviesList";
 import PersonList from "../../components/PersonList";
@@ -8,12 +8,27 @@ import { useSearchParams } from "react-router-dom";
 import search from "../../apis/search";
 
 export default function Searchpage() {
+  const isMounted = useRef(false);
   const [results, setResults] = useState(null);
-
-  const [searchParam] = useSearchParams();
+  
+  const [searchParam, setSearchParam] = useSearchParams();
   let activeTab = searchParam.get("activeTab");
   let query = searchParam.get("query");
   let pageNum = searchParam.get("page");
+  
+  useEffect(
+    () => {
+      if (isMounted.current) {
+        searchParam.set("page", 1);
+        setSearchParam(searchParam);
+        console.log("cnage")
+      } else {
+        isMounted.current = true;
+      }
+    },
+    // eslint-disable-next-line
+    [activeTab]
+  );
 
   if (!query) {
     query = "";
@@ -52,6 +67,7 @@ export default function Searchpage() {
   if (activeTab !== "Movie" && activeTab !== "Person") {
     return <NotFound />;
   }
+
 
   return (
     <>

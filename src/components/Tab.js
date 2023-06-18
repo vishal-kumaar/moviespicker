@@ -1,24 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function Tab({ heading, options }) {
-  const isMounted = useRef(false);
   const [searchParam, setSearchParam] = useSearchParams();
   const activeTab = searchParam.get("activeTab");
 
-  useEffect(
-    () => {
-      if (isMounted.current) {
-        searchParam.set("page", 1);
-        setSearchParam(searchParam);
-      } else {
-        isMounted.current = true;
-      }
-    },
-    // eslint-disable-next-line
-    [activeTab]
-  );
-
+  
   const handleTab = (tab) => {
     searchParam.set("activeTab", tab);
     setSearchParam(searchParam);
