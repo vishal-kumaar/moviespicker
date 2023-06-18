@@ -14,6 +14,7 @@ export default function MoviesCatagory() {
   const [horrorMovies, setHorrorMovies] = useState(null);
 
   const handleMovies = async () => {
+    startLoading();
     const res1 = await getPopularMovies(1);
     if (res1.success === true) {
       setTrendingMovies(res1.data.results);
@@ -38,13 +39,12 @@ export default function MoviesCatagory() {
     if (res5.success === true) {
       setHorrorMovies(res5.data.results);
     }
+    stopLoading();
   };
   
   useEffect(
     () => {
-      startLoading();
       handleMovies();
-      stopLoading();
     },
     // eslint-disable-next-line
     []
