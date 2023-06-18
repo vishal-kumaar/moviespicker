@@ -76,7 +76,7 @@ export default function Searchpage() {
       <Tab heading="Movie/Person" options={options} />
       <div className="px-6 md:px-16 mt-16">
         <SearchArea
-          autoFocus={false}
+          redirect={false}
           placeholder={`Search for ${
             activeTab ? activeTab.toLowerCase() : "movies"
           }...`}

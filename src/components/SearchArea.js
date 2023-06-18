@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-export default function SearchArea({ autoFocus }) {
+export default function SearchArea({ redirect }) {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   let activeTab = searchParams.get("activeTab");
   let query = searchParams.get("query");
@@ -18,9 +19,13 @@ export default function SearchArea({ autoFocus }) {
 
   const handleForm = (event) => {
     event.preventDefault();
-    searchParams.set("query", inputVal);
-    searchParams.set("page", 1);
-    setSearchParams(searchParams);
+    if (redirect) {
+      navigate(`/search?query=${inputVal}&page=1`);
+    } else {
+      searchParams.set("query", inputVal);
+      searchParams.set("page", 1);
+      setSearchParams(searchParams);
+    }
   };
 
   return (
@@ -34,7 +39,6 @@ export default function SearchArea({ autoFocus }) {
         className="bg-transparent py-3.5 md:py-2.5 px-5 placeholder:font-firasans rounded-3xl outline-none w-full"
         value={inputVal}
         onChange={(event) => setInputVal(event.target.value)}
-        autoFocus={autoFocus}
       />
       <button
         type="submit"

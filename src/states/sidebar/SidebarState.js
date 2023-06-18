@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import SidebarContext from "./SidebarContext";
 
-export default function SidebarState(props) {
+export default function SidebarState({ children }) {
   const [sidebar, setSidebar] = useState(false);
+
   const toggleSidebar = () => {
     if (sidebar) {
       setSidebar(false);
@@ -10,9 +11,10 @@ export default function SidebarState(props) {
       setSidebar(true);
     }
   };
+  
   return (
     <SidebarContext.Provider value={{ sidebar, toggleSidebar }}>
-      {props.children}
+      {children}
     </SidebarContext.Provider>
   );
 }

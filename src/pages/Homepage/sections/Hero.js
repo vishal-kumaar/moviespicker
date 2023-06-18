@@ -15,7 +15,7 @@ export default function Hero() {
             Entertainment and Emotion.
           </p>
         </div>
-        <SearchArea autoFocus={false} />
+        <SearchArea redirect={true} />
       </div>
     </main>
   );

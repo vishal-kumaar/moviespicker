@@ -1,11 +1,14 @@
 import React from "react";
 import SidebarState from "./sidebar/SidebarState";
 import VideoPlayerState from "./videoplayer/VideoPlayerState";
+import LoadingState from "./loading/LoadingState";
 
-export default function State(props) {
+export default function State({ children }) {
   return (
-    <SidebarState>
-      <VideoPlayerState>{props.children}</VideoPlayerState>
-    </SidebarState>
+    <LoadingState>
+      <SidebarState>
+        <VideoPlayerState>{children}</VideoPlayerState>
+      </SidebarState>
+    </LoadingState>
   );
 }
