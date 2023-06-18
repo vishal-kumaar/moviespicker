@@ -39,14 +39,14 @@ export default function MovieFilter() {
 
   const [sortBy, setSortBy] = useState("popularity");
   const [sortingOrder, setSortingOrder] = useState("desc");
-  const [language, setLanguage] = useState("");
+  const [country, setCountry] = useState("");
   const [adult, setAdult] = useState(false);
 
   const handleForm = (event) => {
     event.preventDefault();
     if (genres) {
-      const genre = genres.map((genre) => genre.value).join(",");
-      searchParams.set("genre", genre);
+      const genre = genres.map((genre) => genre.value).join("|");
+      searchParams.set("genres", genre);
     }
 
     if (releaseYear.from) {
@@ -66,13 +66,14 @@ export default function MovieFilter() {
       searchParams.set("runtime", time);
     }
 
-    if (language) {
-      searchParams.set("language", language);
+    if (country) {
+      searchParams.set("country", country);
     }
 
     searchParams.set("sort_by", sortBy);
     searchParams.set("sort_order", sortingOrder);
     searchParams.set("adult", adult);
+    searchParams.set("page", 1)
 
     setSearchParams(searchParams);
   };
@@ -132,7 +133,7 @@ export default function MovieFilter() {
             value={ratting}
             onChange={(event) => setRatting(event.target.value)}
           >
-            <option defaultChecked>Choose ratting</option>
+            <option defaultChecked value="">Choose ratting</option>
             <option value="9">9 & Above</option>
             <option value="8">8 & Above</option>
             <option value="7">7 & Above</option>
@@ -265,57 +266,20 @@ export default function MovieFilter() {
         </div>
         <div className="mb-5">
           <select
-            id="language"
+            id="country"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer"
-            value={language}
-            onChange={(event) => setLanguage(event.target.value)}
+            value={country}
+            onChange={(event) => setCountry(event.target.value)}
           >
-            <option defaultChecked>Choose language</option>
-            <option value="en">English</option>
-            <option value="hi">Hindi</option>
-            <option value="ar">Arabic</option>
-            <option value="bg">Bulgarian</option>
-            <option value="bn">Bengali</option>
-            <option value="ca">Catalan</option>
-            <option value="ch">Chamorro</option>
-            <option value="cs">Czech</option>
-            <option value="da">Danish</option>
-            <option value="de">German</option>
-            <option value="es">Spanish</option>
-            <option value="el">Greek</option>
-            <option value="eo">Esperanto</option>
-            <option value="eu">Basque</option>
-            <option value="fa">Persian</option>
-            <option value="fi">Finnish</option>
-            <option value="fr">French</option>
-            <option value="ha">Hausa</option>
-            <option value="hu">Hungarian</option>
-            <option value="id">Indonesian</option>
-            <option value="it">Italian</option>
-            <option value="ja">Japanese</option>
-            <option value="ka">Georgian</option>
-            <option value="kn">Kannada</option>
-            <option value="ko">Korean</option>
-            <option value="lt">Lithuanian</option>
-            <option value="ml">Malayalam</option>
-            <option value="nb"> Norwegian Bokmål</option>
-            <option value="nl">Dutch</option>
-            <option value="no">Norwegian</option>
-            <option value="pl">Polish</option>
-            <option value="pt">Portuguese</option>
-            <option value="ro">Romanian</option>
-            <option value="ru">Russian</option>
-            <option value="sk">Slovak</option>
-            <option value="sl">Slovenian</option>
-            <option value="sr">Serbian</option>
-            <option value="sv">Swedish</option>
-            <option value="ta">Tamil</option>
-            <option value="te">Telugu</option>
-            <option value="th">Thai</option>
-            <option value="tr">Turkish</option>
-            <option value="uk">Ukrainian</option>
-            <option value="vi">Vietnamese</option>
+            <option defaultChecked>Choose Country</option>
+            <option value="en-US">American</option>
+            <option value="hi-IN">Indian</option>
             <option value="zh">Chinese</option>
+            <option value="ko-KR">Korean</option>
+            <option value="ja-JP">Japanese</option>
+            <option value="es-ES">Spanish</option>
+            <option value="ru-RU">Russian</option>
+            <option value="th-TH">Thai</option>
           </select>
         </div>
         <div className="flex items-center gap-1 mb-8">

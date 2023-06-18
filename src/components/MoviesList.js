@@ -13,15 +13,7 @@ export default function MoviesList({ data }) {
   const query = searchParams.get("query");
   const page = searchParams.get("page");
 
-  if (!query) {
-    return (
-      <div className="text-center font-firasans text-gray-600 text-lg py-16">
-        Search for any movie to see results here.
-      </div>
-    );
-  }
-
-  if (!data || !data.results.length) {
+  if (!data || (data.results && data.results.length === 0)) {
     return <NoResultFound query={query} queryType="movies" />;
   }
 

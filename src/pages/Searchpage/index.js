@@ -10,18 +10,17 @@ import search from "../../apis/search";
 export default function Searchpage() {
   const isMounted = useRef(false);
   const [results, setResults] = useState(null);
-  
+
   const [searchParam, setSearchParam] = useSearchParams();
   let activeTab = searchParam.get("activeTab");
   let query = searchParam.get("query");
   let pageNum = searchParam.get("page");
-  
+
   useEffect(
     () => {
       if (isMounted.current) {
         searchParam.set("page", 1);
         setSearchParam(searchParam);
-        console.log("cnage")
       } else {
         isMounted.current = true;
       }
@@ -68,6 +67,9 @@ export default function Searchpage() {
     return <NotFound />;
   }
 
+  if (!results) {
+    return null;
+  }
 
   return (
     <>
@@ -81,12 +83,17 @@ export default function Searchpage() {
         />
         <h1 className="font-bold font-signika text-3xl mt-16">Search Result</h1>
         <hr className="border mt-2 border-black/10" />
-        {results &&
-          (activeTab === "Movie" ? (
+        {query ? (
+          activeTab === "Movie" ? (
             <MoviesList data={results.movie} />
           ) : (
             <PersonList data={results.person} />
-          ))}
+          )
+        ) : (
+          <div className="text-center font-firasans text-gray-600 text-lg py-16">
+            Search for any movie to see results here.
+          </div>
+        )}
       </div>
     </>
   );
