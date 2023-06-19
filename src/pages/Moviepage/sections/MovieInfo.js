@@ -1,5 +1,6 @@
 import React from "react";
 import addCommasToNumber from "../../../utils/addCommasToNumber";
+import getLanguageByCode from "../../../utils/getLanguageByCode";
 
 export default function MovieInfo({ movie }) {
   return (
@@ -15,10 +16,7 @@ export default function MovieInfo({ movie }) {
       <div>
         <h1 className="font-signika text-sm">Original Language</h1>
         <p className="font-firasans text-sm">
-          {movie.spoken_languages &&
-            (movie.spoken_languages[0]
-              ? movie.spoken_languages[0].english_name
-              : "Unknown")}
+          {getLanguageByCode(movie.original_language)}
         </p>
       </div>
       <hr />
