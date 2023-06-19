@@ -3,17 +3,19 @@ import Tab from "../../components/Tab";
 import MovieHeader from "../../components/MovieHeader";
 import VideoList from "./sections/VideoList";
 import NotFound from "../../components/NotFound";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import getMovieById from "../../apis/getMovieById";
 import getVideoByType from "../../utils/getVideoByType";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
 
 export default function Videopage() {
+  const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
   const [movie, setMovie] = useState(null);
   const [searchParam] = useSearchParams();
-  const { movieId } = useParams();
+  let { movieId } = useParams();
+  movieId = movieId.split("-")[0];
 
   let activeTab = searchParam.get("activeTab");
   if (!activeTab) {
@@ -25,6 +27,7 @@ export default function Videopage() {
     const res = await getMovieById(movieId);
     if (res.success === true) {
       setMovie(res.data);
+      navigate(`/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}/videos`,{replace: true});
     }
     stopLoading();
   };

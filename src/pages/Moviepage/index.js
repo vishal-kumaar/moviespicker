@@ -7,20 +7,23 @@ import VideoCarousel from "./sections/VideoCarousel";
 import Collection from "./sections/Collection";
 import NotFound from "../../components/NotFound";
 import getMovieById from "../../apis/getMovieById";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
 
 export default function Movie() {
+  const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
   const [movie, setMovie] = useState(null);
-  const { movieId } = useParams();
+  let { movieId } = useParams();
+  movieId = movieId.split("-")[0];
 
   const handleMovie = async (movieId) => {
     startLoading();
     const res = await getMovieById(movieId);
     if (res.success === true) {
       setMovie(res.data);
+      navigate(`/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}`,{replace: true});
     }
     stopLoading();
   };

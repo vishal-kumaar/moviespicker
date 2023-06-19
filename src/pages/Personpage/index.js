@@ -1,7 +1,7 @@
 import React from "react";
 import PersonBio from "./sections/PersonBio";
 import PersonMovies from "./sections/PersonMovies";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import getPersonDetailsById from "../../apis/getPersonDetailsById";
 import { useEffect } from "react";
@@ -10,15 +10,19 @@ import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
 
 export default function Personpage() {
+  const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
   const [data, setData] = useState(null);
-  const { personId } = useParams();
+  let { personId } = useParams();
+  personId = personId.split("-")[0];
 
+  
   const handleData = async (personId) => {
     startLoading();
     const res = await getPersonDetailsById(personId);
     if (res.success === true) {
       setData(res.data);
+      navigate(`/person/${personId}-${res.data.person.name.replaceAll(" ", "-")}`,{replace: true});
     }
     stopLoading();
   };
@@ -28,10 +32,6 @@ export default function Personpage() {
   }, 
   // eslint-disable-next-line
   [personId]);
-
-  if (data){
-    console.table(data);
-  }
 
   return (
     <>
