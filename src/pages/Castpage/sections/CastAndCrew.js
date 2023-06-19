@@ -1,8 +1,10 @@
 import React from "react";
 import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
 import mergeCredits from "../../../utils/mergeCredits";
+import { useNavigate } from "react-router-dom";
 
 export default function CastAndCrew({ credits }) {
+  const navigate = useNavigate();
   let { cast, crew } = credits;
   [cast, crew] = [mergeCredits(cast, "cast"), mergeCredits(crew, "crew")];
   return (
@@ -12,7 +14,11 @@ export default function CastAndCrew({ credits }) {
           Cast <span className="text-gray-400">{cast.length}</span>
         </h1>
         {cast.map((person, index) => (
-          <div key={index} className="flex gap-5 items-center mb-5">
+          <div
+            key={index}
+            className="flex gap-5 items-center mb-5 cursor-pointer"
+            onClick={() => navigate(`/person/${person.id}`)}
+          >
             <img
               src={
                 person.profile_path
@@ -38,7 +44,11 @@ export default function CastAndCrew({ credits }) {
           Crew <span className="text-gray-400">{crew.length}</span>
         </h1>
         {crew.map((person, index) => (
-          <div key={index} className="flex gap-5 items-center mb-5">
+          <div
+            key={index}
+            className="flex gap-5 items-center mb-5 cursor-pointer"
+            onClick={() => navigate(`/person/${person.id}`)}
+          >
             <img
               src={
                 person.profile_path
