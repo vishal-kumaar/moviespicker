@@ -31,7 +31,7 @@ export default function Loading() {
           fill="currentFill"
         />
       </svg>
-      <span>Loading...</span>
+      <span className="font-roboto text-base text-black">Loading...</span>
     </div>
   );
 }

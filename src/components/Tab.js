@@ -24,7 +24,7 @@ export default function Tab({ heading, options }) {
       <h1 className="w-full font-bold font-firasans text-xl bg-black/90 text-white px-6 md:px-14 py-2.5">
         {heading}
       </h1>
-      <div className="flex flex-nowrap overflow-x-auto gap-6 mx-auto w-fit md:gap-14 py-2.5 pl-6 pr-3 md:px-14 font-roboto text-base font-bold">
+      <div className="flex flex-nowrap overflow-x-auto max-w-fit mx-auto gap-6 md:gap-14 py-2.5 pl-6 pr-3 font-roboto text-base font-bold">
         {options &&
           options.map((option, index) => (
             <button
