@@ -32,6 +32,7 @@ export default function Sidebar() {
             <Link
               to="/"
               className="text-white text-3xl cursor-pointer font-bold font-signika"
+              onClick={toggleSidebar}
             >
               Movies Picker
             </Link>
@@ -46,18 +47,21 @@ export default function Sidebar() {
             <Link
               to="/"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
+              onClick={toggleSidebar}
             >
-              Home
+              Explore
             </Link>
             <Link
               to="/filter"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
+              onClick={toggleSidebar}
             >
               Recommand Movies
             </Link>
             <Link
               to="/search?activeTab=Person"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
+              onClick={toggleSidebar}
             >
               Search Person
             </Link>
