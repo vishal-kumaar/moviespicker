@@ -31,7 +31,7 @@ export default function Loading() {
           fill="currentFill"
         />
       </svg>
-      <span className="font-poppins text-base text-white">Loading...</span>
+      <span className="font-poppins text-base text-white">Please wait...</span>
     </div>
   );
 }
