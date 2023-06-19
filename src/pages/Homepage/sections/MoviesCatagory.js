@@ -5,7 +5,7 @@ import getMoviesByGenre from "../../../apis/getMoviesByGenre";
 import LoadingContext from "../../../states/loading/LoadingContext";
 
 export default function MoviesCatagory() {
-  const { startLoading, stopLoading } = useContext(LoadingContext);
+  const { stopLoading } = useContext(LoadingContext);
 
   const [trendingMovies, setTrendingMovies] = useState(null);
   const [actionMovies, setActionMovies] = useState(null);
@@ -14,29 +14,28 @@ export default function MoviesCatagory() {
   const [horrorMovies, setHorrorMovies] = useState(null);
 
   const handleMovies = async () => {
-    startLoading();
     const res1 = await getPopularMovies(1);
-    if (res1.success === true) {
+    if (res1.success) {
       setTrendingMovies(res1.data.results);
     }
 
     const res2 = await getMoviesByGenre(28, 1);
-    if (res2.success === true) {
+    if (res2.success) {
       setActionMovies(res2.data.results);
     }
 
     const res3 = await getMoviesByGenre(878, 1);
-    if (res3.success === true) {
+    if (res3.success) {
       setScifiMovies(res3.data.results);
     }
 
     const res4 = await getMoviesByGenre(10749, 1);
-    if (res4.success === true) {
+    if (res4.success) {
       setRomanticMovies(res4.data.results);
     }
 
     const res5 = await getMoviesByGenre(27, 1);
-    if (res5.success === true) {
+    if (res5.success) {
       setHorrorMovies(res5.data.results);
     }
     stopLoading();

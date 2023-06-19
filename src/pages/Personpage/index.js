@@ -12,26 +12,36 @@ import { useContext } from "react";
 export default function Personpage() {
   const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   let { personId } = useParams();
   personId = personId.split("-")[0];
 
-  
   const handleData = async (personId) => {
     startLoading();
     const res = await getPersonDetailsById(personId);
-    if (res.success === true) {
+    if (res.success) {
       setData(res.data);
-      navigate(`/person/${personId}-${res.data.person.name.replaceAll(" ", "-")}`,{replace: true});
+      navigate(
+        `/person/${personId}-${res.data.person.name.replaceAll(" ", "-")}`,
+        { replace: true }
+      );
+    } else {
+      setData(null);
     }
     stopLoading();
   };
 
-  useEffect(() => {
-    handleData(personId);
-  }, 
-  // eslint-disable-next-line
-  [personId]);
+  useEffect(
+    () => {
+      handleData(personId);
+    },
+    // eslint-disable-next-line
+    [personId]
+  );
+
+  if (data && data.length === 0) {
+    return null;
+  }
 
   return (
     <>

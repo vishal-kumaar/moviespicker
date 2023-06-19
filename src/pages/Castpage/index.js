@@ -12,37 +12,47 @@ import { useContext } from "react";
 export default function Castpage() {
   const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const [movie, setMovie] = useState();
+  const [data, setData] = useState([]);
   let { movieId } = useParams();
   movieId = movieId.split("-")[0];
 
-  const handleMovie = async (movieId) => {
+  const handleData = async (movieId) => {
     startLoading();
     const res = await getMovieById(movieId);
-    if (res.success === true) {
-      setMovie(res.data);
-      navigate(`/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}/cast`,{replace: true});
+    if (res.success) {
+      setData(res.data);
+      navigate(
+        `/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}/cast`,
+        { replace: true }
+      );
+    } else {
+      setData(null);
     }
     stopLoading();
   };
 
-  useEffect(() => {
-    handleMovie(movieId);
-  }, 
-  // eslint-disable-next-line
-  [movieId]);
+  useEffect(
+    () => {
+      handleData(movieId);
+    },
+    // eslint-disable-next-line
+    [movieId]
+  );
+
+  if (data && data.length === 0) {
+    return null;
+  }
+
+  if (!data){
+    return <NotFound />
+  }
+
   return (
     <>
-      {movie ? (
-        <>
-          <MovieHeader movie={movie} />
-          {Object.keys(movie.credits).length && (
-            <CastAndCrew credits={movie.credits} />
-          )}
-        </>
-      ) : 
-      <NotFound />
-      }
+      <MovieHeader movie={data} />
+      {Object.keys(data.credits).length && (
+        <CastAndCrew credits={data.credits} />
+      )}
     </>
   );
 }

@@ -14,16 +14,20 @@ import { useContext } from "react";
 export default function Movie() {
   const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState([]);
   let { movieId } = useParams();
   movieId = movieId.split("-")[0];
 
   const handleMovie = async (movieId) => {
     startLoading();
     const res = await getMovieById(movieId);
-    if (res.success === true) {
+    if (res.success) {
       setMovie(res.data);
-      navigate(`/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}`,{replace: true});
+      navigate(`/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}`, {
+        replace: true,
+      });
+    } else {
+      setMovie(null);
     }
     stopLoading();
   };
@@ -35,28 +39,29 @@ export default function Movie() {
     // eslint-disable-next-line
     [movieId]
   );
+
+  if (movie && movie.length === 0) {
+    return null;
+  }
+
+  if (!movie){
+    return <NotFound />
+  }
+
   return (
     <>
-      {movie ? (
-        <>
-          <MovieHero movie={movie} />
-          <div className="flex flex-col xl:flex-row xl:items-center justify-between">
-            {movie.credits.cast.length > 0 && (
-              <Casts casts={movie.credits.cast} />
-            )}
-            <MovieInfo movie={movie} />
-          </div>
-          {movie.videos.results.length > 0 && (
-            <VideoCarousel videos={movie.videos.results} />
-          )}
-          {movie.belongs_to_collection && (
-            <Collection collectionInfo={movie.belongs_to_collection} />
-          )}
-          <RecommendMovies movieId={movie.id} />
-        </>
-      ) : (
-        <NotFound />
+      <MovieHero movie={movie} />
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between">
+        {movie.credits.cast.length > 0 && <Casts casts={movie.credits.cast} />}
+        <MovieInfo movie={movie} />
+      </div>
+      {movie.videos.results.length > 0 && (
+        <VideoCarousel videos={movie.videos.results} />
       )}
+      {movie.belongs_to_collection && (
+        <Collection collectionInfo={movie.belongs_to_collection} />
+      )}
+      <RecommendMovies movieId={movie.id} />
     </>
   );
 }

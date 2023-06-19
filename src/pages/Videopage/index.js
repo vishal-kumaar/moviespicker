@@ -12,7 +12,7 @@ import { useContext } from "react";
 export default function Videopage() {
   const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState([]);
   const [searchParam] = useSearchParams();
   let { movieId } = useParams();
   movieId = movieId.split("-")[0];
@@ -25,9 +25,14 @@ export default function Videopage() {
   const handleMovie = async (movieId) => {
     startLoading();
     const res = await getMovieById(movieId);
-    if (res.success === true) {
+    if (res.success) {
       setMovie(res.data);
-      navigate(`/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}/videos`,{replace: true});
+      navigate(
+        `/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}/videos`,
+        { replace: true }
+      );
+    } else {
+      setMovie(null);
     }
     stopLoading();
   };
@@ -40,6 +45,9 @@ export default function Videopage() {
     [movieId]
   );
 
+  if (movie && movie.length === 0) {
+    return null;
+  }
   if (!movie) {
     return <NotFound />;
   }

@@ -8,7 +8,7 @@ import { useContext } from "react";
 
 export default function Recommand() {
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([]);
   const [searchParams] = useSearchParams();
   const genres = searchParams.get("genres");
   const releaseFrom = searchParams.get("release_from");
@@ -47,8 +47,10 @@ export default function Recommand() {
       page
     );
 
-    if (res.success === true) {
+    if (res.success) {
       setResults(res.data);
+    } else {
+      setResults(null);
     }
     stopLoading();
   };
@@ -82,6 +84,10 @@ export default function Recommand() {
       page,
     ]
   );
+
+  if (results && results.length === 0) {
+    return null;
+  }
 
   return (
     <>

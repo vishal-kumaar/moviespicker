@@ -12,7 +12,7 @@ import { useContext } from "react";
 export default function Searchpage() {
   const { startLoading, stopLoading } = useContext(LoadingContext);
   const isMounted = useRef(false);
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([]);
 
   const [searchParam, setSearchParam] = useSearchParams();
   let activeTab = searchParam.get("activeTab");
@@ -58,8 +58,11 @@ export default function Searchpage() {
   const handleSearch = async (query, searchFor, page) => {
     startLoading();
     const res = await search(query, searchFor, page);
-    if (res.success === true) {
+    if (res.success) {
       setResults(res);
+    }
+    else{
+      setResults(null);
     }
     stopLoading();
   };
@@ -69,6 +72,10 @@ export default function Searchpage() {
   }, 
   // eslint-disable-next-line
   [query, activeTab, pageNum]);
+
+  if (results && results.length === 0) {
+    return null;
+  }
 
   if (activeTab !== "Movie" && activeTab !== "Person") {
     return <NotFound />;

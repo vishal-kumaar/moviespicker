@@ -23,7 +23,7 @@ export default function Collection({ collectionInfo }) {
           heading={collectionInfo.name}
           textColor="text-white"
           textBefore="before:bg-white"
-          backgroundImage={`url(https://image.tmdb.org/t/p/w1440_and_h320_multi_faces${collectionInfo.backdrop_path})`}
+          backgroundImage={collectionInfo.backdrop_path ? `url(https://image.tmdb.org/t/p/w1440_and_h320_multi_faces${collectionInfo.backdrop_path})` : "transparent"}
           bgPosition="bg-center"
           bgSize="bg-cover"
           bgColor="bg-black/80"

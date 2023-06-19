@@ -13,7 +13,7 @@ export default function Loading() {
   }
   return (
     <div
-      className={`flex ${loading ? "visible" : "invisible"} fixed w-screen h-screen bg-white z-50 justify-center items-center`}
+      className={`flex ${loading ? "visible" : "invisible"} fixed w-screen h-screen bg-transparent/95 z-50 justify-center items-center`}
       role="status"
     >
       <svg
@@ -31,7 +31,7 @@ export default function Loading() {
           fill="currentFill"
         />
       </svg>
-      <span className="font-roboto text-base text-black">Loading...</span>
+      <span className="font-poppins text-base text-white">Loading...</span>
     </div>
   );
 }
