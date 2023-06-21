@@ -35,7 +35,7 @@ export default function MoviesList({ data }) {
             key={index}
             className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl cursor-pointer"
             onClick={() => {
-              navigate(`/person/${person.id}`);
+              navigate(`/person/${person.id}-${person.name.replaceAll(" ", "-")}`);
             }}
           >
             <img

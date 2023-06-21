@@ -21,7 +21,7 @@ export default function Casts({ casts }) {
           <div
             key={index}
             className="border cursor-pointer flex-none border-black/20 shadow-xl rounded-lg max-w-[9.8rem]"
-            onClick={() => navigate(`/person/${cast.id}`)}
+            onClick={() => navigate(`/person/${cast.id}-${cast.name.replaceAll(" ", "-")}`)}
           >
             <img
               src={

@@ -26,7 +26,7 @@ export default function MoviesList({ data }) {
           <div
             key={index}
             className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl cursor-pointer"
-            onClick={() => navigate(`/movie/${movie.id}`)}
+            onClick={() => navigate(`/movie/${movie.id}-${movie.title.replaceAll(" ", "-")}`)}
           >
             <img
               src={

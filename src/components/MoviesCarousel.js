@@ -43,7 +43,7 @@ export default function MoviesCarousel(props) {
                 <div
                   key={index}
                   className="flex-grow-0 flex-shrink-0 flex-auto cursor-pointer w-40"
-                  onClick={() => navigate(`/movie/${movie.id}`)}
+                  onClick={() => navigate(`/movie/${movie.id}-${movie.title.replaceAll(" ", "-")}`)}
                 >
                   <div className="relative">
                     <img

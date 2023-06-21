@@ -21,7 +21,7 @@ export default function MovieHeader({ movie }) {
           <span className="font-poppins text-lg md:text-2xl">{movie.release_date ? ` (${movie.release_date.split("-")[0]})` : ""}</span>
         </h1>
         <button
-          onClick={() => navigate(`/movie/${movie.id}`)}
+          onClick={() => navigate(`/movie/${movie.id}-${movie.title.replaceAll(" ", "-")}`)}
           className="font-poppins font-bold text-sm md:text-base mt-1 text-gray-300 hover:text-gray-400"
         >
           ← Back to main
