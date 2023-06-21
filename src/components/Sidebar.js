@@ -52,7 +52,7 @@ export default function Sidebar() {
               Explore
             </Link>
             <Link
-              to="/filter"
+              to="/filter?page=1"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
               onClick={toggleSidebar}
             >
