@@ -62,8 +62,8 @@ export default function Videopage() {
       count: getVideoByType(movie.videos.results, "Teaser").length,
     },
     {
-      name: "Clips",
-      count: getVideoByType(movie.videos.results, "Clips").length,
+      name: "Clip",
+      count: getVideoByType(movie.videos.results, "Clip").length,
     },
     {
       name: "Behind the Scenes",
@@ -74,8 +74,8 @@ export default function Videopage() {
       count: getVideoByType(movie.videos.results, "Bloopers").length,
     },
     {
-      name: "Featurettes",
-      count: getVideoByType(movie.videos.results, "Featurettes").length,
+      name: "Featurette",
+      count: getVideoByType(movie.videos.results, "Featurette").length,
     },
   ];
 
