@@ -105,7 +105,7 @@ export default function Searchpage() {
           )
         ) : (
           <div className="text-center font-firasans text-gray-600 text-lg py-16">
-            Search for any movie to see results here.
+            Search for any {activeTab.toLocaleLowerCase()} to see results here.
           </div>
         )}
       </div>
