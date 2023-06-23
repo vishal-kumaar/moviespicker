@@ -56,7 +56,7 @@ export default function Movie() {
         <MovieInfo movie={movie} />
       </div>
       {movie.videos.results.length > 0 && (
-        <VideoCarousel videos={movie.videos.results} />
+        <VideoCarousel videos={movie.videos.results} type="movie" />
       )}
       {movie.belongs_to_collection && (
         <Collection collectionInfo={movie.belongs_to_collection} />

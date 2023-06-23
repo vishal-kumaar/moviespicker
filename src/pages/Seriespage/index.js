@@ -7,6 +7,7 @@ import NotFound from "../../components/NotFound";
 import Casts from "./sections/Casts";
 import getFullSeriesCredits from "../../apis/getFullSeriesCredits";
 import SeriesInfo from "./sections/SeriesInfo";
+import VideoCarousel from "../../components/VideoCarousel";
 
 export default function Seriespage() {
   const navigate = useNavigate();
@@ -59,6 +60,9 @@ export default function Seriespage() {
         {cast.length > 0 && <Casts casts={cast} />}
         <SeriesInfo series={series} />
       </div>
+      {series.videos.results.length > 0 && (
+        <VideoCarousel videos={series.videos.results} type='tv' />
+      )}
     </>
   );
 }

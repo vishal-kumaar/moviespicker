@@ -5,10 +5,16 @@ import nextIcon from "../assets/icons/next.svg";
 import VideoPlayerContext from "../states/videoplayer/VideoPlayerContext";
 import YoutubePlayer from "./YoutubePlayer";
 
-export default function VideoCarousel({ videos }) {
+export default function VideoCarousel({ videos, type }) {
   const { toggleVideoPlayer } = useContext(VideoPlayerContext);
   const navigate = useNavigate();
-  const { movieId } = useParams();
+
+  let id = useParams();
+  if (type === "movie") {
+    id = id.movieId;
+  } else if (type === "tv") {
+    id = id.seriesId;
+  }
 
   const topVideos = videos.length > 10 ? videos.slice(0, 10) : videos;
 
@@ -17,7 +23,7 @@ export default function VideoCarousel({ videos }) {
       <div className="flex justify-between items-center mb-4">
         <h1 className="font-signika font-bold text-3xl text-black">Videos</h1>
         <button
-          onClick={() => navigate(`/movie/${movieId}/videos`)}
+          onClick={() => navigate(`/${type}/${id}/videos`)}
           className="mr-4 md:mr-14 text-sm font-bold text-blue-600 font-roboto"
         >
           View All Videos
@@ -47,7 +53,7 @@ export default function VideoCarousel({ videos }) {
             src={nextIcon}
             alt="next"
             className="w-10 h-fit cursor-pointer mr-4"
-            onClick={() => navigate(`/movie/${movieId}/videos`)}
+            onClick={() => navigate(`/${type}/${id}/videos`)}
           />
         )}
       </div>
