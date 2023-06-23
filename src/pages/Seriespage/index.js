@@ -6,6 +6,7 @@ import getSeriesById from "../../apis/getSeriesById";
 import NotFound from "../../components/NotFound";
 import Casts from "./sections/Casts";
 import getFullSeriesCredits from "../../apis/getFullSeriesCredits";
+import SeriesInfo from "./sections/SeriesInfo";
 
 export default function Seriespage() {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ export default function Seriespage() {
       <SeriesHero series={series} />
       <div className="flex flex-col xl:flex-row xl:items-center justify-between">
         {cast.length > 0 && <Casts casts={cast} />}
+        <SeriesInfo series={series} />
       </div>
     </>
   );

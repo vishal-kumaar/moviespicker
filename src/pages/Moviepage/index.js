@@ -3,7 +3,7 @@ import MovieHero from "./sections/MovieHero";
 import Casts from "./sections/Casts";
 import MovieInfo from "./sections/MovieInfo";
 import RecommendMovies from "./sections/RecommendMovies";
-import VideoCarousel from "./sections/VideoCarousel";
+import VideoCarousel from "../../components/VideoCarousel";
 import Collection from "./sections/Collection";
 import NotFound from "../../components/NotFound";
 import getMovieById from "../../apis/getMovieById";

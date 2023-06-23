@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import playIcon from "../../../assets/icons/play.svg";
-import nextIcon from "../../../assets/icons/next.svg";
-import VideoPlayerContext from "../../../states/videoplayer/VideoPlayerContext";
-import YoutubePlayer from "../../../components/YoutubePlayer";
+import playIcon from "../assets/icons/play.svg";
+import nextIcon from "../assets/icons/next.svg";
+import VideoPlayerContext from "../states/videoplayer/VideoPlayerContext";
+import YoutubePlayer from "./YoutubePlayer";
 
 export default function VideoCarousel({ videos }) {
   const { toggleVideoPlayer } = useContext(VideoPlayerContext);
