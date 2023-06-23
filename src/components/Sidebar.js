@@ -52,11 +52,11 @@ export default function Sidebar() {
               Movies
             </Link>
             <Link
-              to="/tv"
+              to="/series"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
               onClick={toggleSidebar}
             >
-              TV Shows
+              TV Series
             </Link>
             <Link
               to="/filter?page=1"

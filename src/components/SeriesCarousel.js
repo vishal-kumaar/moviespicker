@@ -47,10 +47,10 @@ export default function SeriesCarousel(props) {
                   onClick={() => {
                     if (
                       location.pathname !==
-                      `/tv/${series.id}-${series.name.replaceAll(" ", "-")}`
+                      `/series/${series.id}-${series.name.replaceAll(" ", "-")}`
                     ) {
                       navigate(
-                        `/tv/${series.id}-${series.name.replaceAll(" ", "-")}`
+                        `/series/${series.id}-${series.name.replaceAll(" ", "-")}`
                       );
                     }
                   }}

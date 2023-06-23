@@ -34,11 +34,11 @@ export default function Navbar() {
             Movies
           </NavLink>
           <NavLink
-            to="/tv"
+            to="/series"
             activeclassname="active"
             className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 border-b-2 border-transparent hover:text-black/70 hover:border-[#C1789F] cursor-pointer hidden md:block"
           >
-            TV Shows
+            TV Series
           </NavLink>
           <NavLink
             to="/filter?page=1"

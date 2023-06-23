@@ -53,7 +53,7 @@ export default function MoviesCatagory() {
     <>
       {trendingSeries && (
         <SeriesCarousel
-          heading="Top 20 Trending TV Shows"
+          heading="Top 20 Trending TV Series"
           textColor="text-black"
           textBefore="before:bg-black"
           bgImage="bg-pattern"
@@ -63,7 +63,7 @@ export default function MoviesCatagory() {
       )}
       {actionSeries && (
         <SeriesCarousel
-          heading="Top 20 Action TV Shows"
+          heading="Top 20 Action TV Series"
           textColor="text-white"
           textBefore="before:bg-white"
           bgColor="bg-blue-900/60"
@@ -76,7 +76,7 @@ export default function MoviesCatagory() {
       )}
       {scifiSeries && (
         <SeriesCarousel
-          heading="Top 20 Sci-Fi TV Shows"
+          heading="Top 20 Sci-Fi TV Series"
           textColor="text-black"
           textBefore="before:bg-black"
           series={scifiSeries}
@@ -84,7 +84,7 @@ export default function MoviesCatagory() {
       )}
       {romanticSeries && (
         <SeriesCarousel
-          heading="Top 20 Romantic TV Shows"
+          heading="Top 20 Romantic TV Series"
           textColor="text-white"
           textBefore="before:bg-white"
           bgColor="bg-sky-900/60"
@@ -97,7 +97,7 @@ export default function MoviesCatagory() {
       )}
       {realitySeries && (
         <SeriesCarousel
-          heading="Top 20 Reality TV Shows"
+          heading="Top 20 Reality TV Series"
           textColor="text-black"
           textBefore="before:bg-black"
           series={realitySeries}
