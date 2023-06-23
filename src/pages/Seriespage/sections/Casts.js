@@ -37,7 +37,7 @@ export default function Casts({ casts }) {
                 {cast.name}
               </p>
               <p className="font-roboto tracking-wide text-black text-[13px] -mt-[2px] line-clamp-1">
-                {cast.character}
+                {cast.roles.length > 0 ? cast.roles[0].character : "Unknown"}
               </p>
             </div>
           </div>
