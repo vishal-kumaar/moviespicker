@@ -6,7 +6,7 @@ export default function RecommendMovies({ movieId }) {
   const [movies, setMovies] = useState(null);
 
   const handleRecommendation = async (movieId) => {
-    const res = await getRecommendation(movieId);
+    const res = await getRecommendation(movieId, "movie");
     if (res.success) {
       setMovies(res.data.results);
     }

@@ -8,6 +8,7 @@ import Casts from "./sections/Casts";
 import getFullSeriesCredits from "../../apis/getFullSeriesCredits";
 import SeriesInfo from "./sections/SeriesInfo";
 import VideoCarousel from "../../components/VideoCarousel";
+import RecommendSeries from "./sections/RecommendSeries";
 
 export default function Seriespage() {
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ export default function Seriespage() {
       {series.videos.results.length > 0 && (
         <VideoCarousel videos={series.videos.results} type='tv' />
       )}
+      <RecommendSeries seriesId={series.id} />
     </>
   );
 }
