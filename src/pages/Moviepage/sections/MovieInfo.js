@@ -4,33 +4,35 @@ import getLanguageByCode from "../../../utils/getLanguageByCode";
 
 export default function MovieInfo({ movie }) {
   return (
-    <section className="px-6 mb-10 lg:mb-4 lg:px-0 w-52 flex flex-col gap-2">
+    <section className="px-6 mb-10 w-full lg:mb-4 md:px-14 xl:px-0 xl:w-52 flex flex-col gap-2">
       <hr />
       <div>
         <h1 className="font-firasans font-bold text-sm">Status</h1>
         <p className="font-firasans text-sm">
-          {movie.status ? movie.status : "Unknown"}
+          {movie.status ? movie.status : "_"}
         </p>
       </div>
       <hr />
       <div>
         <h1 className="font-signika text-sm">Original Language</h1>
         <p className="font-firasans text-sm">
-          {getLanguageByCode(movie.original_language)}
+          {movie.original_language
+            ? getLanguageByCode(movie.original_language)
+            : "Unknown"}
         </p>
       </div>
       <hr />
       <div>
         <h1 className="font-signika text-sm">Budget</h1>
         <p className="font-firasans text-sm">
-          {movie.budget ? `$${addCommasToNumber(movie.budget)}` : "Unknown"}
+          {movie.budget ? `$${addCommasToNumber(movie.budget)}` : "_"}
         </p>
       </div>
       <hr />
       <div>
         <h1 className="font-signika text-sm">Revenue</h1>
         <p className="font-firasans text-sm">
-          {movie.revenue ? `$${addCommasToNumber(movie.revenue)}` : "Unknown"}
+          {movie.revenue ? `$${addCommasToNumber(movie.revenue)}` : "_"}
         </p>
       </div>
       <hr />
@@ -46,7 +48,7 @@ export default function MovieInfo({ movie }) {
             Click Here
           </a>
         ) : (
-          "Unknown"
+          "_"
         )}
       </div>
       <hr />
