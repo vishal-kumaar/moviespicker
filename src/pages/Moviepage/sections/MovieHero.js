@@ -8,6 +8,7 @@ import formatTime from "../../../utils/formatTime";
 import getDirectorName from "../../../utils/getDirectorName";
 import getTrailer from "../../../utils/getTrailer";
 import YoutubePlayer from "../../../components/YoutubePlayer";
+import formatDate from "../../../utils/formatDate";
 
 export default function MovieHero({ movie }) {
   const { toggleVideoPlayer } = useContext(videoPlayerContext);
@@ -49,7 +50,7 @@ export default function MovieHero({ movie }) {
           </h1>
           <p className="font-firasans text-base text-gray-100 mt-1 mb-4 text-center lg:text-left">
             <span>
-              {movie.release_date} ({movie.status})
+              {formatDate(movie.release_date)}
             </span>
             {movie.genres && (
               <span className="relative ml-5 before:absolute before:top-[7.8px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
