@@ -5,7 +5,7 @@ import SeriesCatagoies from "./sections/SeriesCatagories";
 import { useNavigate } from "react-router-dom";
 import LoadingContext from "../../states/loading/LoadingContext";
 
-export default function Seriespage() {
+export default function Tvshowpage() {
   const navigate = useNavigate();
   const { startLoading } = useContext(LoadingContext);
   useEffect(

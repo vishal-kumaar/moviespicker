@@ -8,7 +8,7 @@ import Castpage from "./pages/Castpage";
 import Personpage from "./pages/Personpage";
 import Videopage from "./pages/Videopage";
 import Errorpage from "./pages/Errorpage";
-import Seriespage from "./pages/Seriespage";
+import Tvshowpage from "./pages/Tvshowpage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -18,7 +18,7 @@ export default function Router() {
     },
     {
       path: "/tv",
-      element: <Seriespage />,
+      element: <Tvshowpage />,
     },
     {
       path: "/search",
