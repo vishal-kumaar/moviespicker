@@ -8,12 +8,17 @@ import Castpage from "./pages/Castpage";
 import Personpage from "./pages/Personpage";
 import Videopage from "./pages/Videopage";
 import Errorpage from "./pages/Errorpage";
+import Seriespage from "./pages/Seriespage";
 
 export default function Router() {
   const routes = useRoutes([
     {
       path: "/",
       element: <Homepage />,
+    },
+    {
+      path: "/tv",
+      element: <Seriespage />,
     },
     {
       path: "/search",
