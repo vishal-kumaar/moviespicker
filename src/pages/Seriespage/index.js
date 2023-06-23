@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import LoadingContext from "../../states/loading/LoadingContext";
 import getSeriesById from "../../apis/getSeriesById";
 import NotFound from "../../components/NotFound";
+import Casts from "./sections/Casts";
 
 export default function Seriespage() {
   const navigate = useNavigate();
@@ -44,6 +45,9 @@ export default function Seriespage() {
   return (
     <>
       <SeriesHero series={series} />
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between">
+        {series.credits.cast.length > 0 && <Casts casts={series.credits.cast} />}
+      </div>
     </>
   );
 }

@@ -44,8 +44,8 @@ export default function Movie() {
     return null;
   }
 
-  if (!movie){
-    return <NotFound />
+  if (!movie) {
+    return <NotFound />;
   }
 
   return (
