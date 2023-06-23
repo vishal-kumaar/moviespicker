@@ -43,7 +43,7 @@ export default function Searchpage() {
   if (!pageNum) {
     pageNum = 1;
   }
-  
+
   const options = [
     {
       name: "Movie",
@@ -60,18 +60,19 @@ export default function Searchpage() {
     const res = await search(query, searchFor, page);
     if (res.success) {
       setResults(res);
-    }
-    else{
+    } else {
       setResults(null);
     }
     stopLoading();
   };
-  
-  useEffect(() => {
-    handleSearch(query, activeTab, pageNum);
-  }, 
-  // eslint-disable-next-line
-  [query, activeTab, pageNum]);
+
+  useEffect(
+    () => {
+      handleSearch(query, activeTab, pageNum);
+    },
+    // eslint-disable-next-line
+    [query, activeTab, pageNum]
+  );
 
   if (results && results.length === 0) {
     return null;
@@ -92,7 +93,7 @@ export default function Searchpage() {
         <SearchArea
           redirect={false}
           placeholder={`Search for ${
-            activeTab ? activeTab.toLowerCase() : "movies"
+            activeTab ? activeTab.toLowerCase() + "s" : "movies"
           }...`}
         />
         <h1 className="font-bold font-signika text-3xl mt-16">Search Result</h1>

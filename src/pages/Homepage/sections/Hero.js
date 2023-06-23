@@ -15,7 +15,7 @@ export default function Hero() {
             Entertainment and Emotion.
           </p>
         </div>
-        <SearchArea redirect={true} />
+        <SearchArea redirect={true} placeholder="Search for movies..." />
       </div>
     </main>
   );

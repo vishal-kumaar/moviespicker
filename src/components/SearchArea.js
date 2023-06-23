@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
-export default function SearchArea({ redirect }) {
+export default function SearchArea({ redirect, placeholder }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   let activeTab = searchParams.get("activeTab");
@@ -35,7 +35,7 @@ export default function SearchArea({ redirect }) {
     >
       <input
         type="text"
-        placeholder="Search for movies..."
+        placeholder={placeholder}
         className="bg-transparent py-3.5 md:py-2.5 px-5 placeholder:font-firasans rounded-3xl outline-none w-full"
         value={inputVal}
         onChange={(event) => setInputVal(event.target.value)}
