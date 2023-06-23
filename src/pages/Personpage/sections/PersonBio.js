@@ -3,9 +3,9 @@ import getGenderById from "../../../utils/getGenderById";
 import calculateAge from "../../../utils/calculateAge";
 import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
 import NotFound from "../../../components/NotFound";
+import formatDate from "../../../utils/formatDate";
 
 export default function PersonBio({ person }) {
-  // console.table(person);
   return (
     <>
       {person ? (
@@ -19,7 +19,7 @@ export default function PersonBio({ person }) {
             alt="profile-pic"
             className="w-52 h-64 sm:w-96 sm:h-[450px] block rounded-xl"
           />
-          <div>
+          <div className="w-full">
             <h1 className="font-bold font-signika text-4xl mb-4 mt-4 text-center md:text-left">
               {person.name ? person.name : "Unknown"}
             </h1>
@@ -39,14 +39,19 @@ export default function PersonBio({ person }) {
                 <h2 className="font-semibold text-base">Birthday</h2>
                 <p className="font-normal text-sm">
                   {person.birthday
-                    ? `${person.birthday} ${calculateAge(person.birthday)}`
+                    ? `${formatDate(person.birthday)} ${calculateAge(
+                        person.birthday,
+                        person.deathday ? person.deathday : ""
+                      )}`
                     : "Unknown"}
                 </p>
               </div>
               {person.deathday && (
                 <div className="w-1/2 font-firasans">
                   <h2 className="font-semibold text-base">Died</h2>
-                  <p className="font-normal text-sm">{person.deathday}</p>
+                  <p className="font-normal text-sm">
+                    {formatDate(person.deathday)}
+                  </p>
                 </div>
               )}
               <div className="w-1/2 font-firasans">
