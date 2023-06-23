@@ -39,7 +39,7 @@ export default function MovieHero({ movie }) {
           alt="poster"
           className="w-80 h-[30rem] rounded-xl"
         />
-        <div>
+        <div className="w-full">
           <h1 className="text-3xl sm:text-4xl font-bold font-signika text-center lg:text-left mt-0 lg:mt-10">
             {movie.title}{" "}
             <span className="font-medium font-poppins text-2xl sm:text-3xl text-gray-300">
