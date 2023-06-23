@@ -49,7 +49,14 @@ export default function Sidebar() {
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
               onClick={toggleSidebar}
             >
-              Explore
+              Movies
+            </Link>
+            <Link
+              to="/tv"
+              className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
+              onClick={toggleSidebar}
+            >
+              TV Shows
             </Link>
             <Link
               to="/filter?page=1"
