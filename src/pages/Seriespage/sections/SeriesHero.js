@@ -5,10 +5,10 @@ import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
 import videoPlayerContext from "../../../states/videoplayer/VideoPlayerContext";
 import stringOfGenres from "../../../utils/stringOfGenres";
 import formatTime from "../../../utils/formatTime";
-import getDirectorName from "../../../utils/getDirectorName";
 import getTrailer from "../../../utils/getTrailer";
 import YoutubePlayer from "../../../components/YoutubePlayer";
 import formatDate from "../../../utils/formatDate";
+import getCreatorsName from "../../../utils/getCreatorsName";
 
 export default function SeriesHero({ series }) {
   const { toggleVideoPlayer } = useContext(videoPlayerContext);
@@ -22,7 +22,7 @@ export default function SeriesHero({ series }) {
           : "transparent",
       }}
     >
-      {videoId && <YoutubePlayer videoId={videoId} id="trailer" />}
+      {videoId && <YoutubePlayer videoId={videoId} id="seriesTrailer" />}
       <div
         className="h-full w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center py-12 px-5 md:px-14"
         style={{
@@ -41,15 +41,15 @@ export default function SeriesHero({ series }) {
         />
         <div className="w-full">
           <h1 className="text-3xl sm:text-4xl font-bold font-signika text-center lg:text-left mt-0 lg:mt-10">
-            {series.title}{" "}
+            {series.name}{" "}
             <span className="font-medium font-poppins text-2xl sm:text-3xl text-gray-300">
-              {series.release_date
-                ? ` (${series.release_date.split("-")[0]})`
+              {series.first_air_date
+                ? ` (${series.first_air_date.split("-")[0]})`
                 : ""}
             </span>
           </h1>
           <p className="font-firasans text-base text-gray-100 mt-1 mb-4 text-center lg:text-left">
-            <span>{formatDate(series.release_date)}</span>
+            <span>{formatDate(series.first_air_date)}</span>
             {series.genres && (
               <span className="relative ml-5 before:absolute before:top-[7.8px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
                 {stringOfGenres(series.genres)}
@@ -75,7 +75,7 @@ export default function SeriesHero({ series }) {
             {videoId && (
               <button
                 className="flex items-center gap-1.5"
-                onClick={() => toggleVideoPlayer("trailer")}
+                onClick={() => toggleVideoPlayer("seriesTrailer")}
               >
                 <img src={playIcon} alt="" className="invert w-3 mb-[2px]" />
                 <p className="">Play Trailer</p>
@@ -97,9 +97,9 @@ export default function SeriesHero({ series }) {
           </div>
           <div>
             <p className="font-signika font-bold text-lg">
-              <span>Directed by: </span>
+              <span>Created by: </span>
               <span className="font-roboto tracking-wide font-medium cursor-pointer ml-1">
-                {series.credits ? getDirectorName(series.credits.crew) : "N/A"}
+                {series.created_by.length > 0 ? getCreatorsName(series.created_by) : "N/A"}
               </span>
             </p>
           </div>

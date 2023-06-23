@@ -9,7 +9,7 @@ import Personpage from "./pages/Personpage";
 import Videopage from "./pages/Videopage";
 import Errorpage from "./pages/Errorpage";
 import Tvseriespage from "./pages/Tvseriespage";
-// import Seriespage from "./pages/Seriespage";
+import Seriespage from "./pages/Seriespage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -33,10 +33,10 @@ export default function Router() {
       path: "/movie/:movieId",
       element: <Moviepage />,
     },
-    // {
-    //   path: "/series/:seriesId",
-    //   element: <Seriespage />,
-    // },
+    {
+      path: "/series/:seriesId",
+      element: <Seriespage />,
+    },
     {
       path: "/movie/:movieId/cast",
       element: <Castpage />,
