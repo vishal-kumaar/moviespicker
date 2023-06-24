@@ -3,12 +3,12 @@ import formatDate from "../../../utils/formatDate";
 import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
 
 export default function SeasonsList({ seasons }) {
+  if (!seasons) {
+    return null;
+  }
   return (
-    <section className="px-6 md:px-16 mb-20">
-    <h1 className="font-bold font-signika text-3xl mt-16">All Seasons</h1>
-    <hr className="border mt-2 border-black/10" />
-    <div className="flex flex-col gap-6 mt-12">
-      {seasons &&
+    <div className="flex flex-col gap-6">
+      {seasons.length > 0 ? (
         seasons.map((season, index) => (
           <div
             key={index}
@@ -40,8 +40,10 @@ export default function SeasonsList({ seasons }) {
               </p>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <div>We don't find any seasons related to this series.</div>
+      )}
     </div>
-    </section>
   );
 }
