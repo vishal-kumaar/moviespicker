@@ -19,7 +19,13 @@ export default function ShowHeader({ show, type }) {
         <h1 className="font-signika text-xl md:text-3xl">
           {type === "series" ? show.name : show.title}
           <span className="font-poppins text-lg md:text-2xl">
-            {show.release_date ? ` (${show.release_date.split("-")[0]})` : ""}
+            {type === "movie"
+              ? show.release_date
+                ? ` (${show.release_date.split("-")[0]})`
+                : ""
+              : show.first_air_date
+              ? ` (${show.first_air_date.split("-")[0]})`
+              : ""}
           </span>
         </h1>
         <button

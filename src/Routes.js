@@ -11,6 +11,7 @@ import Errorpage from "./pages/Errorpage";
 import Tvseriespage from "./pages/Tvseriespage";
 import Seriespage from "./pages/Seriespage";
 import Seriescastpage from "./pages/Seriescastpage";
+import Seasonpage from "./pages/Seasonpage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -49,6 +50,10 @@ export default function Router() {
     {
       path: "/series/:seriesId/cast",
       element: <Seriescastpage />,
+    },
+    {
+      path: "/series/:seriesId/seasons",
+      element: <Seasonpage />,
     },
     {
       path: "/:show/:id/videos",
