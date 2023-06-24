@@ -59,18 +59,18 @@ export default function Sidebar() {
               TV Series
             </Link>
             <Link
-              to="/filter?page=1"
-              className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
-              onClick={toggleSidebar}
-            >
-              Recommand Movies
-            </Link>
-            <Link
               to="/search?activeTab=Person"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
               onClick={toggleSidebar}
             >
-              Search Person
+              People
+            </Link>
+            <Link
+              to="/filter?page=1"
+              className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
+              onClick={toggleSidebar}
+            >
+              More
             </Link>
           </div>
         </aside>

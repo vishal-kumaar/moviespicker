@@ -21,13 +21,13 @@ export default function Navbar() {
         />
         <div className="flex items-center gap-14">
           <NavLink
-            to="/"
+            to="/movie"
             className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer"
           >
             Movies Picker
           </NavLink>
           <NavLink
-            to="/"
+            to="/movie"
             activeclassname="active"
             className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 border-b-2 border-transparent hover:text-black/70 hover:border-[#C1789F] cursor-pointer hidden md:block"
           >
@@ -45,7 +45,7 @@ export default function Navbar() {
             activeclassname="active"
             className="font-bold font-poppins text-black/50 bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 border-b-2 border-transparent hover:text-black/70 hover:border-[#C1789F] cursor-pointer hidden md:block "
           >
-            Recommand Movies
+            More
           </NavLink>
         </div>
         <NavLink to="/search">

@@ -1,20 +1,26 @@
 import React from "react";
 import Hero from "./sections/Hero";
 import moreIcon from "../../assets/icons/more.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MoviesCatagory from "./sections/MoviesCatagory";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
 import { useEffect } from "react";
 
-export default function Home() {
+export default function Homepage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { startLoading } = useContext(LoadingContext);
-  useEffect(() => {
-    startLoading();
-  }, 
-  // eslint-disable-next-line
-  [])
+  useEffect(
+    () => {
+      if (location.pathname === "/") {
+        navigate("/movie", { replace: true });
+      }
+      startLoading();
+    },
+    // eslint-disable-next-line
+    []
+  );
   return (
     <>
       <Hero />

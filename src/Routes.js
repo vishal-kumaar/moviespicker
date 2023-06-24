@@ -19,6 +19,10 @@ export default function Router() {
       element: <Homepage />,
     },
     {
+      path: "/movie",
+      element: <Homepage />,
+    },
+    {
       path: "/series",
       element: <Tvseriespage />,
     },
