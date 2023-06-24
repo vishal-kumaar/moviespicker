@@ -42,7 +42,7 @@ export default function SeriesList({ data }) {
                 {series.name}
               </h2>
               <p className="font-roboto font-medium text-sm text-gray-400 mb-2">
-                {series.release_date && formatDate(series.release_date)}
+                {series.first_air_date && formatDate(series.first_air_date)}
               </p>
               <p className="font-firasans font-medium text-sm text-black tracking-wide line-clamp-1 max-w-full">
                 <span className="font-bold">Genre: </span>
