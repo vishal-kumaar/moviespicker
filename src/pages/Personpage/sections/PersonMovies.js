@@ -2,7 +2,6 @@ import React from "react";
 import MoviesCarousel from "../../../components/MoviesCarousel";
 
 export default function PersonMovies({movies}) {
-  // console.table(movies)
   return (
     <>
       {movies && (

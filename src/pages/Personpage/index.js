@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import NotFound from "../../components/NotFound";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
+import PersonSeries from "./sections/PersonSeries";
 
 export default function Personpage() {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ export default function Personpage() {
         <>
           <PersonBio person={data.person} />
           <PersonMovies movies={data.movies} />
+          <PersonSeries series={data.series} />
         </>
       ) : (
         <NotFound />
