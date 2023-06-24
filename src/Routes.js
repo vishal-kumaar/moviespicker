@@ -10,6 +10,7 @@ import Videopage from "./pages/Videopage";
 import Errorpage from "./pages/Errorpage";
 import Tvseriespage from "./pages/Tvseriespage";
 import Seriespage from "./pages/Seriespage";
+import Seriescastpage from "./pages/Seriescastpage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -40,6 +41,10 @@ export default function Router() {
     {
       path: "/movie/:movieId/cast",
       element: <Castpage />,
+    },
+    {
+      path: "/series/:seriesId/cast",
+      element: <Seriescastpage />,
     },
     {
       path: "/:show/:id/videos",
