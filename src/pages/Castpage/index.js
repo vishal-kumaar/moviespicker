@@ -1,5 +1,4 @@
 import React from "react";
-import MovieHeader from "../../components/MovieHeader";
 import CastAndCrew from "./sections/CastAndCrew";
 import getMovieById from "../../apis/getMovieById";
 import NotFound from "../../components/NotFound";
@@ -8,6 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
+import ShowHeader from "../../components/ShowHeader";
 
 export default function Castpage() {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ export default function Castpage() {
 
   return (
     <>
-      <MovieHeader movie={data} />
+      <ShowHeader show={data} type="movie" />
       {Object.keys(data.credits).length && (
         <CastAndCrew credits={data.credits} />
       )}

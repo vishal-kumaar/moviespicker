@@ -14,6 +14,7 @@ export default function VideoCarousel({ videos, type }) {
     id = id.movieId;
   } else if (type === "tv") {
     id = id.seriesId;
+    type = "series";
   }
 
   const topVideos = videos.length > 10 ? videos.slice(0, 10) : videos;

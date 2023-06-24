@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Tab from "../../components/Tab";
-import MovieHeader from "../../components/MovieHeader";
 import VideoList from "./sections/VideoList";
 import NotFound from "../../components/NotFound";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
@@ -8,83 +7,97 @@ import getMovieById from "../../apis/getMovieById";
 import getVideoByType from "../../utils/getVideoByType";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
+import getSeriesById from "../../apis/getSeriesById";
+import ShowHeader from "../../components/ShowHeader";
 
 export default function Videopage() {
   const navigate = useNavigate();
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const [movie, setMovie] = useState([]);
+  const [setObj, setShowObj] = useState([]);
   const [searchParam] = useSearchParams();
-  let { movieId } = useParams();
-  movieId = movieId.split("-")[0];
+  let { show, id } = useParams();
+  id = id.split("-")[0];
 
   let activeTab = searchParam.get("activeTab");
   if (!activeTab) {
     activeTab = "Trailer";
   }
 
-  const handleMovie = async (movieId) => {
+  const handleShow = async (id) => {
     startLoading();
-    const res = await getMovieById(movieId);
-    if (res.success) {
-      setMovie(res.data);
-      navigate(
-        `/movie/${movieId}-${res.data.title.replaceAll(" ", "-")}/videos`,
-        { replace: true }
-      );
-    } else {
-      setMovie(null);
+    if (show === "movie") {
+      const res = await getMovieById(id);
+      if (res.success) {
+        setShowObj(res.data);
+        navigate(`/movie/${id}-${res.data.title.replaceAll(" ", "-")}/videos`, {
+          replace: true,
+        });
+      } else {
+        setShowObj(null);
+      }
+    }
+    else if (show === "series"){
+      const res = await getSeriesById(id);
+      if (res.success) {
+        setShowObj(res.data);
+        navigate(`/series/${id}-${res.data.name.replaceAll(" ", "-")}/videos`, {
+          replace: true,
+        });
+      } else {
+        setShowObj(null);
+      }
     }
     stopLoading();
   };
 
   useEffect(
     () => {
-      handleMovie(movieId);
+      handleShow(id);
     },
     // eslint-disable-next-line
-    [movieId]
+    [id]
   );
 
-  if (movie && movie.length === 0) {
+  if (setObj && setObj.length === 0) {
     return null;
   }
-  if (!movie) {
+  if (!setObj) {
     return <NotFound />;
   }
 
   const options = [
     {
       name: "Trailer",
-      count: getVideoByType(movie.videos.results, "Trailer").length,
+      count: getVideoByType(setObj.videos.results, "Trailer").length,
     },
     {
       name: "Teaser",
-      count: getVideoByType(movie.videos.results, "Teaser").length,
+      count: getVideoByType(setObj.videos.results, "Teaser").length,
     },
     {
       name: "Clip",
-      count: getVideoByType(movie.videos.results, "Clip").length,
+      count: getVideoByType(setObj.videos.results, "Clip").length,
     },
     {
       name: "Behind the Scenes",
-      count: getVideoByType(movie.videos.results, "Behind the Scenes").length,
+      count: getVideoByType(setObj.videos.results, "Behind the Scenes").length,
     },
     {
       name: "Bloopers",
-      count: getVideoByType(movie.videos.results, "Bloopers").length,
+      count: getVideoByType(setObj.videos.results, "Bloopers").length,
     },
     {
       name: "Featurette",
-      count: getVideoByType(movie.videos.results, "Featurette").length,
+      count: getVideoByType(setObj.videos.results, "Featurette").length,
     },
   ];
 
   return (
     <>
-      <MovieHeader movie={movie} />
+      <ShowHeader show={setObj} type={show} />
       <Tab heading="Videos" options={options} />
       {options.some((option) => option.name === activeTab) ? (
-        <VideoList videos={getVideoByType(movie.videos.results, activeTab)} />
+        <VideoList videos={getVideoByType(setObj.videos.results, activeTab)} />
       ) : (
         <NotFound />
       )}

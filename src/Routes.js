@@ -42,7 +42,7 @@ export default function Router() {
       element: <Castpage />,
     },
     {
-      path: "/movie/:movieId/videos",
+      path: "/:show/:id/videos",
       element: <Videopage />,
     },
     {
