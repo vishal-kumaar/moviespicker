@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import search from "../../apis/search";
 import LoadingContext from "../../states/loading/LoadingContext";
 import { useContext } from "react";
+import SeriesList from "../../components/SeriesList";
 
 export default function Searchpage() {
   const { startLoading, stopLoading } = useContext(LoadingContext);
@@ -43,10 +44,14 @@ export default function Searchpage() {
   if (!pageNum) {
     pageNum = 1;
   }
-  
+
   const options = [
     {
       name: "Movie",
+      count: null,
+    },
+    {
+      name: "Series",
       count: null,
     },
     {
@@ -60,24 +65,25 @@ export default function Searchpage() {
     const res = await search(query, searchFor, page);
     if (res.success) {
       setResults(res);
-    }
-    else{
+    } else {
       setResults(null);
     }
     stopLoading();
   };
-  
-  useEffect(() => {
-    handleSearch(query, activeTab, pageNum);
-  }, 
-  // eslint-disable-next-line
-  [query, activeTab, pageNum]);
+
+  useEffect(
+    () => {
+      handleSearch(query, activeTab, pageNum);
+    },
+    // eslint-disable-next-line
+    [query, activeTab, pageNum]
+  );
 
   if (results && results.length === 0) {
     return null;
   }
 
-  if (activeTab !== "Movie" && activeTab !== "Person") {
+  if (!options.some((option) => option.name === activeTab)) {
     return <NotFound />;
   }
 
@@ -91,18 +97,18 @@ export default function Searchpage() {
       <div className="px-6 md:px-16 mt-16">
         <SearchArea
           redirect={false}
-          placeholder={`Search for ${
-            activeTab ? activeTab.toLowerCase() +"s"  : "movies"
+          placeholder={`Search for any ${
+            activeTab ? activeTab.toLowerCase() : "movies"
           }...`}
         />
         <h1 className="font-bold font-signika text-3xl mt-16">Search Result</h1>
         <hr className="border mt-2 border-black/10" />
         {query ? (
-          activeTab === "Movie" ? (
-            <MoviesList data={results.movie} />
-          ) : (
-            <PersonList data={results.person} />
-          )
+          <>
+            {activeTab === "Movie" && <MoviesList data={results.movie} />}
+            {activeTab === "Person" && <PersonList data={results.person} />}
+            {activeTab === "Series" && <SeriesList data={results.series} />}
+          </>
         ) : (
           <div className="text-center font-firasans text-gray-600 text-lg py-16">
             Search for any {activeTab.toLocaleLowerCase()} to see results here.
