@@ -64,9 +64,7 @@ export default function Seriescastpage() {
           <Cast cast={credits.cast} />
           <Crew crew={credits.crew} />
         </section>
-      ) : (
-        <NotFound />
-      )}
+      ) : ""}
     </>
   );
 }

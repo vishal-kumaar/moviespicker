@@ -19,7 +19,7 @@ export default function RecommendSeries({ seriesId }) {
     <>
       {series && (
         <SeriesCarousel
-          heading="Recommended Movies"
+          heading="Recommended Series"
           textColor="text-black"
           textBefore="before:bg-black"
           series={series}
