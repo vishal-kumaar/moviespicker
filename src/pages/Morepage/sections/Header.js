@@ -155,7 +155,7 @@ export default function Header() {
   const [genres, setGenres] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   let activeTab = searchParams.get("activeTab");
-  if (activeTab === "") {
+  if (!activeTab) {
     activeTab = "Movie";
   }
 
@@ -186,7 +186,7 @@ export default function Header() {
   return (
     <section>
       <Tab heading="More Catagories" options={options} />
-      <div className="w-full text-sm my-6 font-bold px-4 md:px-16">
+      <div className="w-full text-sm my-6 font-bold px-6 md:px-16">
         <Select
           isMulti
           options={activeTab === "Movie" ? movieGenres : seriesGenres}
