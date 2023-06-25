@@ -3,7 +3,6 @@ import MoviesList from "../../../components/MoviesList";
 import SeriesList from "../../../components/SeriesList";
 import getMovieByGenre from "../../../apis/getMoviesByGenre";
 import getSeriesByGenre from "../../../apis/getSeriesByGenre";
-import NotFound from "../../../components/NotFound";
 import { useSearchParams } from "react-router-dom";
 
 export default function ShowList() {
