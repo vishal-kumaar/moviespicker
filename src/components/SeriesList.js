@@ -7,7 +7,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import NoResultFound from "./NoResultFound";
 import Pagination from "./Pagination";
 
-export default function SeriesList({ data, desc }) {
+export default function SeriesList({ data }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
