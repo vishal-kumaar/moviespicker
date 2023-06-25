@@ -66,7 +66,7 @@ export default function Sidebar() {
               People
             </Link>
             <Link
-              to="/filter?page=1"
+              to="/more?page=1"
               className="text-lg font-poppins w-full font-bold my-1 py-3 px-2 flex items-center tracking-wider"
               onClick={toggleSidebar}
             >
