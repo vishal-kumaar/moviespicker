@@ -30,7 +30,7 @@ export default function ShowList() {
       }
     }
   };
-
+  
   useEffect(
     () => {
       handleShow(genres, activeTab, page);
