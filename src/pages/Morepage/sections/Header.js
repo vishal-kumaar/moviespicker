@@ -177,7 +177,7 @@ export default function Header() {
     () => {
       const genreArr = genres.map((genre) => genre.value);
       searchParams.set("genres", genreArr.join("|"));
-      setSearchParams(searchParams);
+      setSearchParams(searchParams, {replace: true});
     },
     // eslint-disable-next-line
     [genres]
