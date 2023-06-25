@@ -12,6 +12,7 @@ import Tvseriespage from "./pages/Tvseriespage";
 import Seriespage from "./pages/Seriespage";
 import Seriescastpage from "./pages/Seriescastpage";
 import Seasonpage from "./pages/Seasonpage";
+import Morepage from "./pages/Morepage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -34,6 +35,10 @@ export default function Router() {
     {
       path: "/filter",
       element: <Filterpage />,
+    },
+    {
+      path: "/more",
+      element: <Morepage />,
     },
     {
       path: "/movie/:movieId",
