@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
-export default function SearchArea({ redirect, placeholder }) {
+export default function SearchArea({ redirect, placeholder, tab }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   let activeTab = searchParams.get("activeTab");
@@ -20,7 +20,7 @@ export default function SearchArea({ redirect, placeholder }) {
   const handleForm = (event) => {
     event.preventDefault();
     if (redirect) {
-      navigate(`/search?query=${inputVal}&page=1`);
+      navigate(`/search?activeTab=${tab}&query=${inputVal.replaceAll(" ", "-")}&page=1`);
     } else {
       searchParams.set("query", inputVal);
       searchParams.set("page", 1);

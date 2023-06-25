@@ -11,11 +11,11 @@ export default function Hero() {
           </h1>
           <p className="text-white text-xl font-poppins">
             Discover, Delight, and Dive into a World of Cinematic Brilliance -
-            Where Every Movie Choice Becomes an Unforgettable Journey of
+            Where Every Movie/Series Choice Becomes an Unforgettable Journey of
             Entertainment and Emotion.
           </p>
         </div>
-        <SearchArea redirect={true} placeholder="Search for series..." />
+        <SearchArea redirect={true} placeholder="Search for series..." tab="Series"/>
       </div>
     </main>
   );

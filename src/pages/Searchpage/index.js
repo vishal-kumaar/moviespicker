@@ -24,7 +24,7 @@ export default function Searchpage() {
     () => {
       if (isMounted.current) {
         searchParam.set("page", 1);
-        setSearchParam(searchParam);
+        setSearchParam(searchParam, {replace: true});
       } else {
         isMounted.current = true;
       }
@@ -93,7 +93,7 @@ export default function Searchpage() {
 
   return (
     <>
-      <Tab heading="Movies/Persons" options={options} />
+      <Tab heading="Movies/Series/Persons" options={options} />
       <div className="px-6 md:px-16 mt-16">
         <SearchArea
           redirect={false}

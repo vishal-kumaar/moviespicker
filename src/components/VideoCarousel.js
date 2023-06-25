@@ -20,8 +20,8 @@ export default function VideoCarousel({ videos, type }) {
   const topVideos = videos.length > 10 ? videos.slice(0, 10) : videos;
 
   return (
-    <section className="pl-4 md:pl-14 mb-12">
-      <div className="flex justify-between items-center mb-4">
+    <section className="mb-12">
+      <div className="flex justify-between items-center mb-4 px-6 md:px-14">
         <h1 className="font-signika font-bold text-3xl text-black">Videos</h1>
         <button
           onClick={() => navigate(`/${type}/${id}/videos`)}
@@ -30,7 +30,7 @@ export default function VideoCarousel({ videos, type }) {
           View All Videos
         </button>
       </div>
-      <div className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center">
+      <div className="flex flex-nowrap overflow-x-auto gap-6 pb-10 items-center px-6 md:px-14">
         {topVideos.map((video, index) => (
           <div key={index}>
             <YoutubePlayer videoId={video.key} id={video.id} />

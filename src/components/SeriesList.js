@@ -7,14 +7,14 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import NoResultFound from "./NoResultFound";
 import Pagination from "./Pagination";
 
-export default function SeriesList({ data }) {
+export default function SeriesList({ data, desc }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
   const page = searchParams.get("page");
 
   if (!data || (data.results && data.results.length === 0)) {
-    return <NoResultFound query={query} queryType="movies" />;
+    return <NoResultFound query={query} queryType="series" />;
   }
 
   const seriesObj = data.results;
@@ -25,8 +25,12 @@ export default function SeriesList({ data }) {
         seriesObj.map((series, index) => (
           <div
             key={index}
-            className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl cursor-pointer"
-            onClick={() => navigate(`/series/${series.id}-${series.name.replaceAll(" ", "-")}`)}
+            className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl cursor-pointer pr-2"
+            onClick={() =>
+              navigate(
+                `/series/${series.id}-${series.name.replaceAll(" ", "-")}`
+              )
+            }
           >
             <img
               src={
@@ -37,7 +41,7 @@ export default function SeriesList({ data }) {
               alt=""
               className="w-32 h-48 rounded-l-2xl"
             />
-            <div>
+            <div className="my-3">
               <h2 className="font-signika text-lg font-bold tracking-wide text-black line-clamp-1 max-w-full">
                 {series.name}
               </h2>
@@ -58,7 +62,9 @@ export default function SeriesList({ data }) {
                     : "N/A"}
                 </p>
               </div>
-              <p className="line-clamp-2 max-w-full text-black font-medium font-poppins text-sm mt-2">
+              <p
+                className={`line-clamp-4 max-w-full text-black font-medium font-poppins text-sm mt-2`}
+              >
                 {series.overview
                   ? series.overview
                   : "This series don't have any description"}
@@ -66,7 +72,7 @@ export default function SeriesList({ data }) {
             </div>
           </div>
         ))}
-        <Pagination page={page} totalPages={data.total_pages} />
+      <Pagination page={page} totalPages={data.total_pages} />
     </div>
   );
 }

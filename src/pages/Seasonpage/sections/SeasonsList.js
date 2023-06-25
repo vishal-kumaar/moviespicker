@@ -2,7 +2,7 @@ import React from "react";
 import formatDate from "../../../utils/formatDate";
 import imagePlaceholder from "../../../assets/images/image_placeholder.svg";
 
-export default function SeasonsList({ seasons }) {
+export default function SeasonsList({ seasons, desc }) {
   if (!seasons) {
     return null;
   }
@@ -12,7 +12,7 @@ export default function SeasonsList({ seasons }) {
         seasons.map((season, index) => (
           <div
             key={index}
-            className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl"
+            className="flex items-start gap-5 border border-black/10 rounded-2xl shadow-xl pr-2"
           >
             <img
               src={
@@ -23,7 +23,7 @@ export default function SeasonsList({ seasons }) {
               alt=""
               className="w-32 h-48 rounded-l-2xl"
             />
-            <div>
+            <div className="my-3">
               <h2 className="font-signika text-lg font-bold tracking-wide text-black line-clamp-1 max-w-full">
                 {season.name}
               </h2>
@@ -33,7 +33,7 @@ export default function SeasonsList({ seasons }) {
               <p className="font-firasans font-medium text-sm text-black tracking-wide line-clamp-1 max-w-full">
                 Season {season.season_number} | {season.episode_count} Episodes
               </p>
-              <p className="line-clamp-2 max-w-full text-black font-medium font-poppins text-sm mt-2">
+              <p className={`${desc === "short" && "line-clamp-4"} max-w-full text-black font-medium font-poppins text-sm mt-2`}>
                 {season.overview
                   ? season.overview
                   : "This season don't have any description"}

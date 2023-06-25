@@ -5,7 +5,6 @@ export default function Tab({ heading, options }) {
   const [searchParam, setSearchParam] = useSearchParams();
   const activeTab = searchParam.get("activeTab");
 
-  
   const handleTab = (tab) => {
     searchParam.set("activeTab", tab);
     setSearchParam(searchParam);

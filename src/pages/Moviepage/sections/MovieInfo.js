@@ -4,7 +4,7 @@ import getLanguageByCode from "../../../utils/getLanguageByCode";
 
 export default function MovieInfo({ movie }) {
   return (
-    <section className="px-6 mb-10 w-full lg:mb-4 md:px-14 xl:px-0 xl:w-52 flex flex-col gap-2">
+    <section className="px-6 mb-10 w-full lg:mb-4 md:px-14 lg:px-4 xl:w-64 flex flex-col gap-2">
       <hr />
       <div>
         <h1 className="font-firasans font-bold text-sm">Status</h1>

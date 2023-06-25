@@ -14,9 +14,9 @@ export default function Casts({ casts }) {
   let topCasts = casts.length > 10 ? casts.slice(0, 10) : casts;
 
   return (
-    <section className="px-6 md:px-14 xl:px-0 xl:pl-14 xl:pr-4 my-10 ">
-      <h1 className="font-signika font-bold text-3xl text-black mb-4">Cast</h1>
-      <div className="flex items-center flex-nowrap overflow-x-auto gap-6 pb-10 w-full">
+    <section className="my-10 ">
+      <h1 className="font-signika font-bold text-3xl text-black mb-4 px-6 md:px-14">Cast</h1>
+      <div className="flex items-center flex-nowrap overflow-x-auto gap-6 pb-10 w-full px-6 md:pl-14 md:pr-4">
         {topCasts.map((cast, index) => (
           <div
             key={index}
@@ -57,7 +57,7 @@ export default function Casts({ casts }) {
         )}
       </div>
       <button
-        className="mt-5 font-firasans font-bold"
+        className="mt-5 font-firasans font-bold px-6 md:px-14"
         onClick={() => navigate(`/series/${seriesId}/cast`)}
       >
         Full Cast & Crews →

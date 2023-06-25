@@ -24,7 +24,7 @@ export default function MovieHero({ movie }) {
     >
       {videoId && <YoutubePlayer videoId={videoId} id="trailer" />}
       <div
-        className="h-full w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center py-12 px-5 md:px-14"
+        className="h-full w-full flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center py-12 px-6 md:px-14"
         style={{
           background:
             "linear-gradient(to right, rgba(31.5, 10.5, 10.5, 1) calc((50vw - 170px) - 340px), rgba(31.5, 10.5, 10.5, 0.84) 50%, rgba(31.5, 10.5, 10.5, 0.84) 100%)",
