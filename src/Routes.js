@@ -2,7 +2,6 @@ import React from "react";
 import { useRoutes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Searchpage from "./pages/Searchpage";
-import Filterpage from "./pages/Filterpage";
 import Moviepage from "./pages/Moviepage";
 import Castpage from "./pages/Castpage";
 import Personpage from "./pages/Personpage";
@@ -31,10 +30,6 @@ export default function Router() {
     {
       path: "/search",
       element: <Searchpage />,
-    },
-    {
-      path: "/filter",
-      element: <Filterpage />,
     },
     {
       path: "/more",
