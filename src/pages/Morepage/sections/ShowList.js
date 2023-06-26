@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MoviesList from "../../../components/MoviesList";
 import SeriesList from "../../../components/SeriesList";
 import getMovieByGenre from "../../../apis/getMoviesByGenre";
 import getSeriesByGenre from "../../../apis/getSeriesByGenre";
 import { useSearchParams } from "react-router-dom";
+import LoadingContext from "../../../states/loading/LoadingContext";
 
 export default function ShowList() {
+  const { startLoading, stopLoading } = useContext(LoadingContext);
   const [searchParams] = useSearchParams();
   const activeTab = searchParams.get("activeTab");
   const page = searchParams.get("page");
@@ -14,6 +16,7 @@ export default function ShowList() {
   const [series, setSeries] = useState({});
 
   const handleShow = async (genreIds, activeTab, page) => {
+    startLoading();
     if (activeTab === "Series") {
       const res = await getSeriesByGenre(genreIds, page);
       if (res.success) {
@@ -29,8 +32,9 @@ export default function ShowList() {
         setMovies(null);
       }
     }
+    stopLoading();
   };
-  
+
   useEffect(
     () => {
       handleShow(genres, activeTab, page);

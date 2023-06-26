@@ -11,6 +11,7 @@ export default function Homepage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { startLoading } = useContext(LoadingContext);
+
   useEffect(
     () => {
       if (location.pathname === "/") {
@@ -19,7 +20,7 @@ export default function Homepage() {
       startLoading();
     },
     // eslint-disable-next-line
-    []
+    [location.pathname]
   );
   return (
     <>
