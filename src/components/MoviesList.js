@@ -6,6 +6,7 @@ import getGenresFromId from "../utils/getGenresFromId";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import NoResultFound from "./NoResultFound";
 import Pagination from "./Pagination";
+import abbreviateNumber from "../utils/abbreviateNumber";
 
 export default function MoviesList({ data }) {
   const navigate = useNavigate();
@@ -26,7 +27,9 @@ export default function MoviesList({ data }) {
           <div
             key={index}
             className="flex items-center gap-5 border border-black/10 rounded-2xl shadow-xl cursor-pointer"
-            onClick={() => navigate(`/movie/${movie.id}-${movie.title.replaceAll(" ", "-")}`)}
+            onClick={() =>
+              navigate(`/movie/${movie.id}-${movie.title.replaceAll(" ", "-")}`)
+            }
           >
             <img
               src={
@@ -53,9 +56,17 @@ export default function MoviesList({ data }) {
               <div className="flex items-center gap-1 mt-1">
                 <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
                 <p className="font-firasans font-extralight text-sm text-black tracking-wide">
-                  {movie.vote_average
-                    ? `${movie.vote_average.toFixed(1)}/10`
-                    : "N/A"}
+                  {movie.vote_average ? (
+                    <>
+                      {movie.vote_average.toFixed(1)}/10
+                      <span className="text-sm text-gray-500">
+                        {" "}
+                        ({abbreviateNumber(movie.vote_count)})
+                      </span>
+                    </>
+                  ) : (
+                    "N/A"
+                  )}
                 </p>
               </div>
               <p className="line-clamp-3 max-w-full text-black font-medium font-poppins text-sm mt-2">
@@ -66,7 +77,7 @@ export default function MoviesList({ data }) {
             </div>
           </div>
         ))}
-        <Pagination page={page} totalPages={data.total_pages} />
+      <Pagination page={page} totalPages={data.total_pages} />
     </div>
   );
 }

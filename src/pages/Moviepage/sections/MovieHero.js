@@ -9,6 +9,7 @@ import getDirectorName from "../../../utils/getDirectorName";
 import getTrailer from "../../../utils/getTrailer";
 import YoutubePlayer from "../../../components/YoutubePlayer";
 import formatDate from "../../../utils/formatDate";
+import abbreviateNumber from "../../../utils/abbreviateNumber";
 
 export default function MovieHero({ movie }) {
   const { toggleVideoPlayer } = useContext(videoPlayerContext);
@@ -49,9 +50,7 @@ export default function MovieHero({ movie }) {
             </span>
           </h1>
           <p className="font-firasans text-base text-gray-100 mt-1 mb-4 text-center lg:text-left">
-            <span>
-              {formatDate(movie.release_date)}
-            </span>
+            <span>{formatDate(movie.release_date)}</span>
             {movie.genres && (
               <span className="relative ml-5 before:absolute before:top-[7.8px] before:-left-3 before:w-[5px] before:h-[5px] before:bg-white before:rounded-full">
                 {stringOfGenres(movie.genres)}
@@ -68,10 +67,18 @@ export default function MovieHero({ movie }) {
           <div className="flex items-center gap-10 font-firasans font-extralight text-base tracking-wide mb-4 w-fit mx-auto lg:mx-0">
             <div className="flex items-center gap-1.5 mt-1">
               <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
-              <p className="">
-                {movie.vote_average
-                  ? `${movie.vote_average.toFixed(1)}/10`
-                  : "N/A"}
+              <p className="text-base">
+                {movie.vote_average ? (
+                  <>
+                    {movie.vote_average.toFixed(1)}/10
+                    <span className="text-gray-300">
+                      {" "}
+                      ({abbreviateNumber(movie.vote_count)})
+                    </span>
+                  </>
+                ) : (
+                  "N/A"
+                )}
               </p>
             </div>
             {videoId && (

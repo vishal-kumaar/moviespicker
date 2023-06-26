@@ -6,6 +6,7 @@ import getGenresFromId from "../utils/getGenresFromId";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import NoResultFound from "./NoResultFound";
 import Pagination from "./Pagination";
+import abbreviateNumber from "../utils/abbreviateNumber";
 
 export default function SeriesList({ data }) {
   const navigate = useNavigate();
@@ -57,9 +58,17 @@ export default function SeriesList({ data }) {
               <div className="flex items-center gap-1 mt-1">
                 <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
                 <p className="font-firasans font-extralight text-sm text-black tracking-wide">
-                  {series.vote_average
-                    ? `${series.vote_average.toFixed(1)}/10`
-                    : "N/A"}
+                  {series.vote_average ? (
+                    <>
+                      {series.vote_average.toFixed(1)}/10
+                      <span className="text-sm text-gray-500">
+                        {" "}
+                        ({abbreviateNumber(series.vote_count)})
+                      </span>
+                    </>
+                  ) : (
+                    "N/A"
+                  )}
                 </p>
               </div>
               <p

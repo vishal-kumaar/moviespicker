@@ -8,6 +8,7 @@ import getTrailer from "../../../utils/getTrailer";
 import YoutubePlayer from "../../../components/YoutubePlayer";
 import formatDate from "../../../utils/formatDate";
 import getCreatorsName from "../../../utils/getCreatorsName";
+import abbreviateNumber from "../../../utils/abbreviateNumber";
 
 export default function SeriesHero({ series }) {
   const { toggleVideoPlayer } = useContext(videoPlayerContext);
@@ -65,10 +66,18 @@ export default function SeriesHero({ series }) {
           <div className="flex items-center gap-10 font-firasans font-extralight text-base tracking-wide mb-4 w-fit mx-auto lg:mx-0">
             <div className="flex items-center gap-1.5 mt-1">
               <img src={rattingIcon} alt="" className="w-4 mb-[4px]" />
-              <p className="">
-                {series.vote_average
-                  ? `${series.vote_average.toFixed(1)}/10`
-                  : "N/A"}
+              <p className="text-base">
+                {series.vote_average ? (
+                  <>
+                    {series.vote_average.toFixed(1)}/10
+                    <span className="text-gray-300">
+                      {" "}
+                      ({abbreviateNumber(series.vote_count)})
+                    </span>
+                  </>
+                ) : (
+                  "N/A"
+                )}
               </p>
             </div>
             {videoId && (
