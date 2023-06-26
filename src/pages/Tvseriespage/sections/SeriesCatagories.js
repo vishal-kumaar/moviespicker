@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import SeriesCarousel from "../../../components/SeriesCarousel";
 import LoadingContext from "../../../states/loading/LoadingContext";
-import getPopularSeries from "../../../apis/getPopularSeries";
+import getTrendingSeries from "../../../apis/getTrendingSeries";
 import getSeriesByGenre from "../../../apis/getSeriesByGenre";
 
 export default function MoviesCatagory() {
@@ -14,7 +14,7 @@ export default function MoviesCatagory() {
   const [realitySeries, setRealitySeries] = useState(null);
 
   const handleSeries = async () => {
-    const res1 = await getPopularSeries(1);
+    const res1 = await getTrendingSeries(1);
     if (res1.success) {
       setTrendingSeries(res1.data.results);
     }
@@ -53,7 +53,7 @@ export default function MoviesCatagory() {
     <>
       {trendingSeries && (
         <SeriesCarousel
-          heading="Top 20 Trending TV Series"
+          heading="Top 20 Today's Trending TV Series"
           textColor="text-black"
           textBefore="before:bg-black"
           bgImage="bg-pattern"

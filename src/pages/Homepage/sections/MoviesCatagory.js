@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import MoviesCarousel from "../../../components/MoviesCarousel";
-import getPopularMovies from "../../../apis/getPopularMovies";
+import getTrendingMovies from "../../../apis/getTrendingMovies";
 import getMoviesByGenre from "../../../apis/getMoviesByGenre";
 import LoadingContext from "../../../states/loading/LoadingContext";
 
@@ -14,7 +14,7 @@ export default function MoviesCatagory() {
   const [horrorMovies, setHorrorMovies] = useState(null);
 
   const handleMovies = async () => {
-    const res1 = await getPopularMovies(1);
+    const res1 = await getTrendingMovies(1);
     if (res1.success) {
       setTrendingMovies(res1.data.results);
     }
@@ -53,7 +53,7 @@ export default function MoviesCatagory() {
     <>
       {trendingMovies && (
         <MoviesCarousel
-          heading="Top 20 Trending Movies"
+          heading="Top 20 Today's Trending Movies"
           textColor="text-black"
           textBefore="before:bg-black"
           bgImage="bg-pattern"
