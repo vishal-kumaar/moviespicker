@@ -27,7 +27,7 @@ export default function Homepage() {
       <MoviesCatagory />
       <div className="mx-auto w-fit mb-10">
         <button
-          onClick={() => navigate("/filter")}
+          onClick={() => navigate("/more?page=1")}
           className="text-[#ff8478] hover:bg-[#FFF0EF] font-bold font-poppins rounded-2xl px-6 py-1 flex flex-col items-center"
         >
           <p className="text-base mb-1.5">More catagories</p>
