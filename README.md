@@ -5,7 +5,7 @@
 <h1 align="center">Movies Picker</h1>
 
 <p align="center">
-  A Dynamic, Responsive, and Beautiful Movie Picking Application.
+  A Dynamic, Responsive, and Beautiful Movies & TV Series Picking Application.
 </p>
 
 <p align="center">
@@ -19,14 +19,14 @@
 
 ## 📖 About
 
-Movies Picker is a visually appealing and interactive movie browsing application that allows users to explore and discover their favorite movies. Whether you're in the mood for action, romance, or comedy, Movies Picker has got you covered!
+Movies Picker is a visually appealing and interactive movie and tv series browsing application that allows users to explore and discover their favorite movies and tv series. Whether you're in the mood for action, romance, or comedy, etc. Movies Picker has got you covered!
 
 ## 🚀 Features
 
-- Browse through different movie categories and genres.
-- Access detailed information about movies, including cast, crew, trailers, budget, and more.
-- Search for movies and personalities related to the film industry.
-- Get personalized movie recommendations based on your preferences.
+- Browse through different movie and tv series categories and genres.
+- Access detailed information about movies and tv series, including cast, crew, trailers, budget, and more.
+- Search for movies and tv series and personalities related to the film industry.
+- Get personalized movies and TV series based on your favorite genres.
 - Enjoy a responsive and user-friendly interface.
 
 ## 🛠️ Tech Stack
@@ -50,13 +50,12 @@ The Movies Picker application is built using the following technologies:
 ## 🌟 Showcase
 
 <p align="center">
-  <img src="./public/screenshots/movie-picker.gif" alt="Movies Picker Showcase" />
+  <img src="./public/screenshots/movies_picker.gif" alt="Movies Picker Showcase" />
 </p>
 
 ## 🤝 Contributing
 
 Contributions are welcome! If you find any bugs or have suggestions for new features, please feel free to open an issue or submit a pull request.
-
 
 ## 💬 Connect with Me
 
