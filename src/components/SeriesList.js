@@ -63,7 +63,7 @@ export default function SeriesList({ data }) {
                 </p>
               </div>
               <p
-                className={`line-clamp-4 max-w-full text-black font-medium font-poppins text-sm mt-2`}
+                className={`line-clamp-3 max-w-full text-black font-medium font-poppins text-sm mt-2`}
               >
                 {series.overview
                   ? series.overview

@@ -20,7 +20,7 @@ export default function SeriesHero({ series }) {
       className="h-full w-full text-white bg-fixed bg-cover bg-center"
       style={{
         backgroundImage: series.backdrop_path
-          ? `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${series.backdrop_path}) `
+          ? `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${series.backdrop_path}) `
           : "transparent",
       }}
     >
@@ -35,7 +35,7 @@ export default function SeriesHero({ series }) {
         <img
           src={
             series.poster_path
-              ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${series.poster_path}`
+              ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${series.poster_path}`
               : imagePlaceholder
           }
           alt="poster"

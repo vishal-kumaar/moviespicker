@@ -30,7 +30,7 @@ export default function Casts({ casts }) {
             <img
               src={
                 cast.profile_path
-                  ? `https://www.themoviedb.org/t/p/w138_and_h175_face${cast.profile_path}`
+                  ? `https://image.tmdb.org/t/p/w138_and_h175_face${cast.profile_path}`
                   : imagePlaceholder
               }
               alt=""

@@ -31,7 +31,7 @@ export default function MoviesList({ data }) {
             <img
               src={
                 movie.poster_path
-                  ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`
+                  ? `https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`
                   : imagePlaceholder
               }
               alt=""
@@ -58,7 +58,7 @@ export default function MoviesList({ data }) {
                     : "N/A"}
                 </p>
               </div>
-              <p className="line-clamp-2 max-w-full text-black font-medium font-poppins text-sm mt-2">
+              <p className="line-clamp-3 max-w-full text-black font-medium font-poppins text-sm mt-2">
                 {movie.overview
                   ? movie.overview
                   : "This movie don't have any description"}

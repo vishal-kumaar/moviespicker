@@ -13,7 +13,7 @@ export default function PersonBio({ person }) {
           <img
             src={
               person.profile_path
-                ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${person.profile_path}`
+                ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${person.profile_path}`
                 : imagePlaceholder
             }
             alt="profile-pic"

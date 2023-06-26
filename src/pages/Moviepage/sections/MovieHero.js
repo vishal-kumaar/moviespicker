@@ -18,7 +18,7 @@ export default function MovieHero({ movie }) {
       className="h-full w-full text-white bg-fixed bg-cover bg-center"
       style={{
         backgroundImage: movie.backdrop_path
-          ? `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}) `
+          ? `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}) `
           : "transparent",
       }}
     >
@@ -33,7 +33,7 @@ export default function MovieHero({ movie }) {
         <img
           src={
             movie.poster_path
-              ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`
+              ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`
               : imagePlaceholder
           }
           alt="poster"

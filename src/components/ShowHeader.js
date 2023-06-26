@@ -9,7 +9,7 @@ export default function ShowHeader({ show, type }) {
       <img
         src={
           show.poster_path
-            ? `https://www.themoviedb.org/t/p/w58_and_h87_face${show.poster_path}`
+            ? `https://image.tmdb.org/t/p/w58_and_h87_face${show.poster_path}`
             : imagePlaceholder
         }
         alt="show-poster"

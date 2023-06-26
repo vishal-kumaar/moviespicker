@@ -22,7 +22,7 @@ export default function CastAndCrew({ credits }) {
             <img
               src={
                 person.profile_path
-                  ? `https://www.themoviedb.org/t/p/w66_and_h66_face${person.profile_path}`
+                  ? `https://image.tmdb.org/t/p/w66_and_h66_face${person.profile_path}`
                   : imagePlaceholder
               }
               alt="profile-pic"
@@ -52,7 +52,7 @@ export default function CastAndCrew({ credits }) {
             <img
               src={
                 person.profile_path
-                  ? `https://www.themoviedb.org/t/p/w66_and_h66_face${person.profile_path}`
+                  ? `https://image.tmdb.org/t/p/w66_and_h66_face${person.profile_path}`
                   : imagePlaceholder
               }
               alt="profile-pic"

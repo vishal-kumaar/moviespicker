@@ -17,7 +17,7 @@ export default function SeasonsList({ seasons, desc }) {
             <img
               src={
                 season.poster_path
-                  ? `https://www.themoviedb.org/t/p/w220_and_h330_face${season.poster_path}`
+                  ? `https://image.tmdb.org/t/p/w220_and_h330_face${season.poster_path}`
                   : imagePlaceholder
               }
               alt=""
