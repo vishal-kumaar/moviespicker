@@ -14,13 +14,15 @@ function App() {
       <State>
         <ScrollToTop />
         <Loading />
-        <div className="flex flex-col min-h-screen">
-          <div className="flex-grow">
-            <Navbar />
-            <Sidebar />
-            <Routes />
+        <Navbar />
+        <div className="h-screen overflow-auto pt-16">
+          <div className="flex flex-col min-h-screen">
+            <div className="flex-grow">
+              <Sidebar />
+              <Routes />
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
       </State>
     </BrowserRouter>

@@ -20,7 +20,7 @@ export default function Sidebar() {
     >
       <div
         id="sidebar"
-        className={`bg-transparent ${
+        className={`bg-transparent z-50 ${
           sidebar ? "translate-x-0" : "-translate-x-full"
         }
       } w-full h-full fixed top-0 left-0 z-30 transition duration-700 ease-in-out`}
