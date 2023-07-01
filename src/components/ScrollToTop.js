@@ -5,7 +5,7 @@ export default function ScrollToTop() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scroll({
+    document.getElementById("content").scroll({
       top: 0,
       behavior: "auto",
     });
