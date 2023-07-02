@@ -15,7 +15,7 @@ function App() {
         <ScrollToTop />
         <Loading />
         <Navbar />
-        <div id="content" className="h-screen overflow-auto pt-16">
+        <div id="content" className="h-[calc(100vh-4.3rem)] overflow-auto mt-[4.3rem]">
           <div className="flex flex-col min-h-screen">
             <div className="flex-grow">
               <Sidebar />
