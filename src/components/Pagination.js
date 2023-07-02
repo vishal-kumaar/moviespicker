@@ -12,7 +12,7 @@ export default function Pagination({ page, totalPages }) {
       searchParams.set("page", Number(page) + 1);
     }
     setSearchParams(searchParams);
-    window.scroll({
+    document.getElementById("content").scroll({
       top: 0,
       behavior: "auto",
     });
