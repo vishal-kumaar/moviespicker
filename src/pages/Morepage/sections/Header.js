@@ -159,6 +159,14 @@ export default function Header() {
     activeTab = "Movie";
   }
 
+  const handleSelect = (selectedOptions) => {
+    setGenres(selectedOptions);
+    const genreArr = selectedOptions.map((genre) => genre.value);
+    searchParams.set("genres", genreArr.join("|"));
+    searchParams.set("page", 1);
+    setSearchParams(searchParams, { replace: true });
+  };
+
   useEffect(
     () => {
       let searchGenres = searchParams.get("genres");
@@ -173,16 +181,6 @@ export default function Header() {
     [activeTab]
   );
 
-  useEffect(
-    () => {
-      const genreArr = genres.map((genre) => genre.value);
-      searchParams.set("genres", genreArr.join("|"));
-      setSearchParams(searchParams, {replace: true});
-    },
-    // eslint-disable-next-line
-    [genres]
-  );
-
   return (
     <section>
       <Tab heading="More Catagories" options={options} />
@@ -193,7 +191,7 @@ export default function Header() {
           classNamePrefix="react-select"
           placeholder={"Genres..."}
           required={true}
-          onChange={(selectedOption) => setGenres(selectedOption)}
+          onChange={handleSelect}
           value={genres}
         />
       </div>
