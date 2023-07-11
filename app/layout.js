@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           <Loading />
           <div className="flex flex-col min-h-screen">
             <Navbar />
-            <div className="flex-grow flex flex-col justify-center">
+            <div className="flex-grow">
               {children}
             </div>
             <Footer />
