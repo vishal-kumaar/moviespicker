@@ -1,34 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="./public/icons/moviespicker.png" alt="Movies Picker Logo" width="80" />
+</p>
 
-## Getting Started
+<h1 align="center">Movies Picker</h1>
 
-First, run the development server:
+<p align="center">
+  A Dynamic, Responsive, and Beautiful Movies & TV Series Picking Application.
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<p align="center">
+  <a href="https://movies-picker.vercel.app/">Live Link</a> |
+  <a href="https://github.com/vishal-kumaar/moviespicker">GitHub Repository</a>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <img src="./public/screenshots/screenshot.webp" alt="Movies Picker Screenshot" />
+</p>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## About
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Movies Picker is a visually appealing and interactive movie and TV series browsing application that allows users to explore and discover their favorite movies and TV series. Whether you're in the mood for action, romance, or comedy, etc., Movies Picker has got you covered!
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Browse through different movie and TV series categories and genres.
+- Access detailed information about movies and TV series, including cast, crew, trailers, budget, and more.
+- Search for movies, TV series, and personalities related to the film industry.
+- Get personalized movies and TV series based on your favorite genres.
+- Enjoy a responsive and user-friendly interface.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The Movies Picker application is built using the following technologies:
 
-## Deploy on Vercel
+- **ReactJS with Next.js** - A powerful JavaScript library and framework for building user interfaces.
+- **Tailwind CSS** - A utility-first CSS framework for fast and responsive web development.
+- **Axios** - A JavaScript library for making HTTP requests to retrieve data from the TMDB API.
+- **TMDB API** - The Movie Database API, providing extensive movie-related data.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository: `git clone https://github.com/vishal-kumaar/moviespicker.git`
+2. Navigate to the project directory: `cd moviespicker`
+3. Install the dependencies: `npm install`
+4. Set up your TMDB API key by following the instructions in [TMDB Docs](https://developer.themoviedb.org/).
+5. Create a `.env.local` file in the root directory and add an environment variable `API_KEY=Your_tmdb_api_key`.
+6. Start the development server: `npm run dev`
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm install`
+
+Installs all the packages used in this project.
+
+### `npm run dev`
+
+Runs the app in development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload when you make changes.
+You may also see any lint errors in the console.
+
+### `npm run build`
+
+Builds the app for production.
+
+It correctly bundles Next.js in production mode and optimizes the build for the best performance.
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
+
+### `npm run start`
+
+Starts the Next.js server in production mode.
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `npm run lint`
+
+Checks the code for any linting errors.
+
+## Showcase
+
+<p align="center">
+  <img src="./public/screenshots/movies_picker.gif" alt="Movies Picker Showcase" />
+</p>
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for new features, please feel free to open an issue or submit a pull request.
+
+## Connect with Me
+
+- Twitter: [@vishalkumar0837](https://twitter.com/vishalkumar0837)
+- LinkedIn: [Vishal Kumar](https://www.linkedin.com/in/vishal-kumar-909758228)
+- Instagram: [@\_visshal_yadav](https://www.instagram.com/_visshal_yadav)
+
+Check out my personal website [here](https://vishalkumar.vercel.app) to learn more about my work and projects.
