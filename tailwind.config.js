@@ -13,7 +13,7 @@ module.exports = {
         roboto: ["var(--font-roboto)"],
         poppins: ["var(--font-poppins)"],
         firasans: ["var(--font-fira-sans)"],
-        cherrybomb: ["var(--font-chela-one)"],
+        chelaone: ["var(--font-chela-one)"],
       },
     },
   },

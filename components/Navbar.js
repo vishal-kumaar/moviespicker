@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="flex items-center gap-14">
         <Link
           href="/"
-          className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-cherrybomb -mt-2 cursor-pointer">
+          className="text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-yellow-500 font-chelaone -mt-2 cursor-pointer">
           Movies Picker
         </Link>
         <Link
