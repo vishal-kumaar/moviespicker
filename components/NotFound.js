@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function NotFound() {
   const router = useRouter();
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-center h-[73vh]">
       <div className="shadow-2xl h-fit px-4 py-5 rounded-md">
         <h1 className="font-signika font-bold text-4xl text-red-800">Oops!</h1>
         <p className="font-firasans text-lg text-black mt-3">
