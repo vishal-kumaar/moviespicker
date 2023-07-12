@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/icons/moviespicker.png" alt="Movies Picker Logo" width="80" />
+  <img src="https://movies-picker.vercel.app/icons/moviespicker.png" alt="Movies Picker Logo" width="80" />
 </p>
 
 <h1 align="center">Movies Picker</h1>
@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="./public/screenshots/screenshot.webp" alt="Movies Picker Screenshot" />
+  <img src="https://movies-picker.vercel.app/screenshots/screenshot.webp" alt="Movies Picker Screenshot" />
 </p>
 
 ## About
