@@ -20,7 +20,7 @@ export default function SeriesPage() {
   [])
   return (
     <>
-      <Hero tab="series" bgImage="bg-[url(/images/tv_shows_cover_image.jpg)]" />
+      <Hero tab="Series" bgImage="bg-[url(/images/tv_shows_cover_image.jpg)]" />
       <SeriesCatagories />
       <MoreButton tab="Series" />
     </>

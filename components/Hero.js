@@ -18,7 +18,7 @@ export default function Hero({ bgImage, tab }) {
         </div>
         <SearchArea
           isRedirect={true}
-          placeholder={`Search for ${tab}...`}
+          placeholder={`Search for ${tab.toLowerCase()}...`}
           tab={tab}
         />
       </div>

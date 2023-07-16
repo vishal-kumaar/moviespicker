@@ -19,7 +19,7 @@ export default function Home() {
   []);
   return (
     <>
-      <Hero tab="movie" bgImage="bg-[url(/images/cover_image.jpg)]" />
+      <Hero tab="Movie" bgImage="bg-[url(/images/cover_image.jpg)]" />
       <MoviesCatagories />
       <MoreButton tab="Movie" />
     </>
