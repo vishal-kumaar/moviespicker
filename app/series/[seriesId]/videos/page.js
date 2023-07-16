@@ -68,6 +68,10 @@ export default function SeriesVideos() {
       count: getVideoByType(series.videos.results, "Teaser").length,
     },
     {
+      name: "Opening Credits",
+      count: getVideoByType(series.videos.results, "Opening Credits").length,
+    },
+    {
       name: "Clip",
       count: getVideoByType(series.videos.results, "Clip").length,
     },
