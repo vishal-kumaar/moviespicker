@@ -11,7 +11,7 @@ export default function Tab({ heading, options }) {
   const genres = searchParam.get("genres");
 
   const handleTab = (tab) => {
-    router.push(
+    router.replace(
       queryString({
         activeTab: tab,
       })
