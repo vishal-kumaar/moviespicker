@@ -9,6 +9,7 @@ import ShowCarousel from "@/components/ShowCarousel";
 import { personPage } from "@/utils/getSeo";
 import addSeo from "@/utils/addSeo";
 import NotFound from "@/components/NotFound";
+import ImageCarousel from "./sections/ImageCarousel";
 
 export default function Personpage() {
   const router = useRouter();
@@ -49,9 +50,10 @@ export default function Personpage() {
       {data ? (
         <>
           <PersonBio person={data.person} />
+          <hr className="mt-10 mx-6 md" />
+          {data.images && <ImageCarousel images={data.images} />}
           {data.movies && (
             <>
-              <hr className="mt-10 mx-6 md" />
               <div className="pl-2">
                 <ShowCarousel
                   heading="Known for movies"
@@ -63,7 +65,6 @@ export default function Personpage() {
               </div>
             </>
           )}
-
           {data.series && (
             <>
               <div className="pl-2 -mt-14">
