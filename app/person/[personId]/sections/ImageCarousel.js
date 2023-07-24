@@ -20,11 +20,11 @@ export default function ImageCarousel({ images }) {
             width={300}
             src={
               image.file_path
-                ? `https://image.tmdb.org/t/p/w600_and_h600_face${image.file_path}`
+                ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${image.file_path}`
                 : "/images/image_placeholder.svg"
             }
             alt=""
-            className="w-72 flex-auto flex-shrink-0 flex-grow-0 rounded-xl block"
+            className="w-52 flex-auto flex-shrink-0 flex-grow-0 rounded-xl block"
           />
         ))}
       </div>
