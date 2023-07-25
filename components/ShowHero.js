@@ -6,15 +6,18 @@ import YoutubePlayer from "./YoutubePlayer";
 import abbreviateNumber from "@/utils/abbreviateNumber";
 import formatDate from "@/utils/formatDate";
 import getTrailer from "@/utils/getTrailer";
-import getDirectorName from "@/utils/getDirectorName";
+import getDirectors from "@/utils/getDirectors";
 import formatTime from "@/utils/formatTime";
 import stringOfGenres from "@/utils/stringOfGenres";
 import getCreatorsName from "@/utils/getCreatorsName";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ShowHero({ showType, show }) {
   const { toggleVideoPlayer } = useContext(VideoPlayerContext);
   const videoId = show && show.videos && getTrailer(show.videos.results);
+  const directors = show && show.credits && getDirectors(show.credits.crew);
+
   return (
     <main>
       {
@@ -135,7 +138,11 @@ export default function ShowHero({ showType, show }) {
                     <span>Directed by: </span>
                     <span className="font-roboto tracking-wide font-medium cursor-pointer ml-1">
                       {show.credits
-                        ? getDirectorName(show.credits.crew)
+                        ? directors?.map((director, index) => (
+                            <Link key={index} href={`/person/${director.id}`}>
+                              {director.name}{directors.length !== (index + 1) && ", "}
+                            </Link>
+                          ))
                         : "N/A"}
                     </span>
                   </p>
