@@ -9,7 +9,7 @@ import getTrailer from "@/utils/getTrailer";
 import getDirectors from "@/utils/getDirectors";
 import formatTime from "@/utils/formatTime";
 import stringOfGenres from "@/utils/stringOfGenres";
-import getCreatorsName from "@/utils/getCreatorsName";
+import getCreators from "@/utils/getCreators";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,6 +17,7 @@ export default function ShowHero({ showType, show }) {
   const { toggleVideoPlayer } = useContext(VideoPlayerContext);
   const videoId = show && show.videos && getTrailer(show.videos.results);
   const directors = show && show.credits && getDirectors(show.credits.crew);
+  const creators = show && show.created_by && getCreators(show.created_by);
 
   return (
     <main>
@@ -137,10 +138,11 @@ export default function ShowHero({ showType, show }) {
                   <p className="font-signika font-bold text-lg">
                     <span>Directed by: </span>
                     <span className="font-roboto tracking-wide font-medium cursor-pointer ml-1">
-                      {show.credits
-                        ? directors?.map((director, index) => (
+                      {directors && directors.length !== 0
+                        ? directors.map((director, index) => (
                             <Link key={index} href={`/person/${director.id}`}>
-                              {director.name}{directors.length !== (index + 1) && ", "}
+                              {director.name}
+                              {directors.length !== index + 1 && ", "}
                             </Link>
                           ))
                         : "N/A"}
@@ -150,8 +152,13 @@ export default function ShowHero({ showType, show }) {
                   <p className="font-signika font-bold text-lg">
                     <span>Created by: </span>
                     <span className="font-roboto tracking-wide font-medium cursor-pointer ml-1">
-                      {show.created_by && show.created_by.length > 0
-                        ? getCreatorsName(show.created_by)
+                      {creators && creators.length !== 0
+                        ? creators.map((creator, index) => (
+                            <Link key={index} href={`/person/${creator.id}`}>
+                              {creator.name}
+                              {creators.length !== index + 1 && ", "}
+                            </Link>
+                          ))
                         : "N/A"}
                     </span>
                   </p>
