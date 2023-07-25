@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import LoadingContext from "@/contexts/loading/LoadingContext";
 import getPersonDetailsById from "@/apis/getPersonDetailsById";
 import PersonBio from "./sections/PersonBio";
@@ -15,6 +15,7 @@ export default function Personpage() {
   const router = useRouter();
   const { startLoading, stopLoading } = useContext(LoadingContext);
   const [data, setData] = useState([]);
+  const searchParams = useSearchParams().toString();
   let { personId } = useParams();
   personId = personId.split("-")[0];
 
@@ -24,7 +25,7 @@ export default function Personpage() {
     if (res.success) {
       setData(res.data);
       router.replace(
-        `/person/${personId}-${res.data.person.name.replaceAll(" ", "-")}`
+        `/person/${personId}-${res.data.person.name.replaceAll(" ", "-")}?${searchParams}`
       );
       addSeo(`${res.data.person.name} | Movie Picker`, personPage.description);
     } else {
